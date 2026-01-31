@@ -6,6 +6,9 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { ChatMessage } from "./ChatMessage";
 import { ChatInput } from "./ChatInput";
 import { useToast } from "@/hooks/use-toast";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
+import ReactMarkdown from "react-markdown";
 
 interface Message {
   role: "user" | "assistant";
@@ -34,7 +37,9 @@ export function AIChatPanel({ contextData }: AIChatPanelProps) {
     },
   ]);
   const [isLoading, setIsLoading] = useState(false);
+  const [downloadContent, setDownloadContent] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const pdfRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -126,20 +131,94 @@ export function AIChatPanel({ contextData }: AIChatPanelProps) {
     }
   };
 
-  const handleDownload = (content: string) => {
-    const blob = new Blob([content], { type: "text/markdown" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `udyami-response-${new Date().toISOString().slice(0, 10)}.md`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+  const handleDownload = async (content: string) => {
+    setDownloadContent(content);
+    setIsLoading(true);
+
+    // Wait for content to render in hidden div
+    setTimeout(async () => {
+      if (!pdfRef.current) {
+        setIsLoading(false);
+        return;
+      }
+
+      try {
+        const canvas = await html2canvas(pdfRef.current, {
+          scale: 2,
+          useCORS: true,
+          backgroundColor: '#ffffff',
+        });
+
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF({
+          orientation: 'portrait',
+          unit: 'mm',
+          format: 'a4',
+        });
+
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = pdf.internal.pageSize.getHeight();
+        const margin = 15;
+        const imgWidth = pdfWidth - (margin * 2);
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+        let heightLeft = imgHeight;
+        let position = margin;
+
+        pdf.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight);
+        heightLeft -= (pdfHeight - margin * 2);
+
+        while (heightLeft > 0) {
+          position = heightLeft - imgHeight + margin;
+          pdf.addPage();
+          pdf.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight);
+          heightLeft -= (pdfHeight - margin * 2);
+        }
+
+        pdf.save(`udyami-document-${new Date().toISOString().slice(0, 10)}.pdf`);
+
+        toast({
+          title: "Success",
+          description: "PDF document generated successfully",
+        });
+      } catch (error) {
+        console.error('Error generating PDF:', error);
+        toast({
+          title: "Error",
+          description: "Failed to generate PDF document",
+          variant: "destructive",
+        });
+      } finally {
+        setDownloadContent(null);
+        setIsLoading(false);
+      }
+    }, 100);
   };
 
   return (
     <>
+      {/* Hidden container for PDF generation */}
+      <div
+        style={{
+          position: 'absolute',
+          left: '-9999px',
+          top: 0,
+          width: '210mm',
+          zIndex: -1
+        }}
+      >
+        <div
+          ref={pdfRef}
+          className="p-12 bg-white text-black min-h-[297mm]"
+        >
+          {downloadContent && (
+            <div className="prose prose-sm max-w-none prose-headings:font-bold prose-h1:text-2xl prose-h2:text-xl prose-p:mb-4 prose-li:mb-2">
+              <ReactMarkdown>{downloadContent}</ReactMarkdown>
+            </div>
+          )}
+        </div>
+      </div>
+
       {/* Chat Toggle Button */}
       <AnimatePresence>
         {!isOpen && (

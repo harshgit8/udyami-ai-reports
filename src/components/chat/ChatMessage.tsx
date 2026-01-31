@@ -40,7 +40,7 @@ export function ChatMessage({ role, content, onDownload }: ChatMessageProps) {
               className="text-xs"
             >
               <Download className="w-3 h-3 mr-1" />
-              Download Response
+              Download PDF
             </Button>
           </div>
         )}
