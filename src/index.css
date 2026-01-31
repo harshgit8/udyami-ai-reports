@@ -4,95 +4,95 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Udyami AI Design System - Professional Industrial Light Theme */
+/* Udyami AI Design System - Minimalist Black & White */
 
 @layer base {
   :root {
-    /* Core - Clean Professional Light */
-    --background: 0 0% 99%;
-    --foreground: 220 20% 10%;
+    /* Core - Pure Black & White - GODLY MODE */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 20% 10%;
+    --card-foreground: 0 0% 0%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 10%;
+    --popover-foreground: 0 0% 0%;
 
-    --primary: 220 20% 12%;
+    --primary: 0 0% 0%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 10% 96%;
-    --secondary-foreground: 220 20% 10%;
+    --secondary: 0 0% 98%;
+    --secondary-foreground: 0 0% 0%;
 
-    --muted: 220 10% 96%;
-    --muted-foreground: 220 10% 45%;
+    --muted: 0 0% 98%;
+    --muted-foreground: 0 0% 30%;
 
-    --accent: 220 10% 94%;
-    --accent-foreground: 220 20% 10%;
+    --accent: 0 0% 98%;
+    --accent-foreground: 0 0% 0%;
 
-    --destructive: 0 70% 50%;
+    --destructive: 0 0% 0%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 10% 90%;
-    --input: 220 10% 90%;
-    --ring: 220 20% 12%;
+    --border: 0 0% 92%;
+    --input: 0 0% 92%;
+    --ring: 0 0% 0%;
 
-    --radius: 0.75rem;
+    --radius: 0px;
 
-    /* Status Colors */
-    --status-success: 160 70% 40%;
-    --status-warning: 40 90% 50%;
-    --status-error: 0 70% 50%;
-    --status-info: 210 80% 55%;
+    /* Status Colors - Grayscale */
+    --status-success: 0 0% 0%;
+    --status-warning: 0 0% 40%;
+    --status-error: 0 0% 0%;
+    --status-info: 0 0% 60%;
 
     /* Sidebar */
     --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 220 10% 35%;
-    --sidebar-primary: 220 20% 12%;
+    --sidebar-foreground: 0 0% 20%;
+    --sidebar-primary: 0 0% 0%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 10% 96%;
-    --sidebar-accent-foreground: 220 20% 10%;
-    --sidebar-border: 220 10% 92%;
-    --sidebar-ring: 220 20% 12%;
+    --sidebar-accent: 0 0% 94%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 0 0% 0%;
   }
 
   .dark {
-    --background: 220 20% 6%;
-    --foreground: 220 10% 95%;
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
 
-    --card: 220 20% 8%;
-    --card-foreground: 220 10% 95%;
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 220 20% 8%;
-    --popover-foreground: 220 10% 95%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 220 10% 95%;
-    --primary-foreground: 220 20% 6%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
 
-    --secondary: 220 15% 12%;
-    --secondary-foreground: 220 10% 95%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 15% 15%;
-    --muted-foreground: 220 10% 55%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 220 15% 15%;
-    --accent-foreground: 220 10% 95%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 70% 50%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 0% 100%;
+    --destructive-foreground: 0 0% 0%;
 
-    --border: 220 15% 18%;
-    --input: 220 15% 18%;
-    --ring: 220 10% 95%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 0% 100%;
 
-    --sidebar-background: 220 20% 7%;
-    --sidebar-foreground: 220 10% 70%;
-    --sidebar-primary: 220 10% 95%;
-    --sidebar-primary-foreground: 220 20% 6%;
-    --sidebar-accent: 220 15% 15%;
-    --sidebar-accent-foreground: 220 10% 95%;
-    --sidebar-border: 220 15% 18%;
-    --sidebar-ring: 220 10% 95%;
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 80%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 0 0% 100%;
   }
 }
 
