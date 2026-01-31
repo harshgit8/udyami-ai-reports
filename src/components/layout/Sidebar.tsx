@@ -27,10 +27,10 @@ export function Sidebar({ activeTab, onTabChange }: SidebarProps) {
     <motion.aside 
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
-      className="w-64 border-r border-border bg-sidebar min-h-screen"
+      className="w-72 border-r border-border bg-sidebar min-h-screen sticky top-16"
     >
-      <div className="p-6">
-        <div className="space-y-1">
+      <div className="p-8">
+        <div className="space-y-2">
           {menuItems.map((item) => {
             const Icon = item.icon;
             const isActive = activeTab === item.id;
@@ -53,10 +53,10 @@ export function Sidebar({ activeTab, onTabChange }: SidebarProps) {
         </div>
       </div>
       
-      <div className="absolute bottom-0 left-0 w-64 p-6 border-t border-sidebar-border">
-        <div className="text-xs text-sidebar-foreground/60 space-y-1">
-          <p className="font-medium">Udyami AI</p>
-          <p>Industrial ERP System</p>
+      <div className="absolute bottom-0 left-0 w-full p-8 border-t border-sidebar-border bg-muted/30">
+        <div className="text-[10px] text-sidebar-foreground/60 space-y-2 uppercase tracking-widest font-bold">
+          <p className="text-foreground">Udyami AI</p>
+          <p>Industrial ERP System v1.0</p>
         </div>
       </div>
     </motion.aside>

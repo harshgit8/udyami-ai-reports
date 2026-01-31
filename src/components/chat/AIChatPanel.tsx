@@ -174,9 +174,9 @@ export function AIChatPanel({ contextData }: AIChatPanelProps) {
           >
             {/* Header */}
             <div className="flex items-center justify-between p-4 border-b border-border bg-foreground text-background">
-              <div className="flex items-center gap-2">
-                <MessageCircle className="w-5 h-5" />
-                <span className="font-semibold">Udyami AI Assistant</span>
+              <div className="flex items-center gap-3">
+                <img src="/logo.svg" alt="" className="w-6 h-6 invert" />
+                <span className="font-semibold tracking-tight">Udyami AI Assistant</span>
               </div>
               <div className="flex items-center gap-1">
                 <Button
