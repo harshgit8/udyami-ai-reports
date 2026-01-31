@@ -7,6 +7,7 @@ import { InvoiceList } from "@/components/documents/InvoiceList";
 import { QualityList } from "@/components/documents/QualityList";
 import { ProductionList } from "@/components/documents/ProductionList";
 import { RnDList } from "@/components/documents/RnDList";
+import { AIChatPanel } from "@/components/chat/AIChatPanel";
 import { 
   parseQuotationMarkdown, 
   parseInvoiceMarkdown, 
@@ -619,6 +620,15 @@ const Index = () => {
           {renderContent()}
         </main>
       </div>
+      <AIChatPanel
+        contextData={{
+          quotationsCount: quotations.length,
+          invoicesCount: invoices.length,
+          qualityCount: qualityReports.length,
+          productionCount: productionOrders.length,
+          rndCount: rndFormulations.length,
+        }}
+      />
     </div>
   );
 };
