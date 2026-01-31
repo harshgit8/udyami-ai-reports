@@ -1,0 +1,70 @@
+Order ID,Product Type,Quantity,Due Date,Priority,Customer,Notes
+ORD-001,widget_a,50,2026-02-15,high,Acme Corp,Urgent delivery
+ORD-002,widget_b,30,2026-02-20,normal,TechStart Inc,Standard order
+ORD-003,widget_c,75,2026-02-10,critical,Global Manufacturing,Rush order
+ORD-004,widget_a,100,2026-02-25,normal,BuildCo,Regular production
+ORD-005,widget_b,45,2026-02-18,high,FastTrack Ltd,Priority customer
+ORD-006,widget_c,60,2026-03-01,low,SlowBuild Co,Flexible deadline
+ORD-007,widget_a,25,2026-02-12,critical,Emergency Parts,Immediate need
+ORD-008,widget_b,80,2026-02-28,normal,Standard Supply,Routine order
+ORD-009,widget_b,30,2026-10-24,high,PrecisionMake Ltd,Standard timeline
+ORD-010,widget_b,25,2026-08-17,normal,Quality Widgets,Standard order
+ORD-011,widget_b,25,2026-09-07,critical,SlowBuild Co,Flexible deadline
+ORD-012,widget_c,25,2026-12-04,high,BuildCo,Special handling required
+ORD-013,widget_a,30,2026-08-23,normal,Acme Corp,Standard packaging
+ORD-014,widget_b,120,2026-01-27,low,Standard Supply,Express shipping
+ORD-015,widget_a,25,2026-05-07,normal,RapidBuild Co,Immediate need
+ORD-016,widget_c,50,2026-02-04,critical,ReliableBuild Inc,Special handling required
+ORD-017,widget_b,25,2026-01-07,normal,Quality Widgets,Repeat customer
+ORD-018,widget_b,60,2026-07-16,critical,SmartBuild Ltd,Seasonal demand
+ORD-019,widget_a,75,2026-12-12,high,SteadySupply Inc,Immediate need
+ORD-020,widget_a,75,2026-03-27,normal,SteadySupply Inc,Normal processing
+ORD-021,widget_c,45,2026-12-28,critical,ProManufacture,Express shipping
+ORD-022,widget_a,75,2026-12-22,normal,Emergency Parts,Priority customer
+ORD-023,widget_b,50,2026-05-09,low,Emergency Parts,Flexible deadline
+ORD-024,widget_c,120,2026-09-27,high,TechGear Corp,New client
+ORD-025,widget_a,150,2026-05-26,normal,Manufacturing Plus,Priority customer
+ORD-026,widget_c,100,2026-10-05,critical,TechGear Corp,Trial order
+ORD-027,widget_a,25,2026-10-09,low,EliteParts Ltd,Express shipping
+ORD-028,widget_a,60,2026-05-31,critical,TechGear Corp,Quality inspection needed
+ORD-029,widget_a,150,2026-02-17,low,TechGear Corp,Standard packaging
+ORD-030,widget_a,80,2026-07-17,high,ReliableBuild Inc,Expedited delivery
+ORD-031,widget_c,50,2026-10-01,low,BuildMaster Ltd,Routine order
+ORD-032,widget_a,75,2026-02-05,low,PrecisionMake Ltd,Priority customer
+ORD-033,widget_c,150,2026-08-04,critical,BuildCo,Special handling required
+ORD-034,widget_c,120,2026-09-06,high,BuildCo,Seasonal demand
+ORD-035,widget_c,60,2026-05-13,critical,Quality Widgets,Bulk order
+ORD-036,widget_c,25,2026-03-15,low,SlowBuild Co,Quality inspection needed
+ORD-037,widget_c,120,2026-10-11,high,Quality Widgets,Flexible deadline
+ORD-038,widget_b,100,2026-06-09,normal,FactoryDirect Co,Immediate need
+ORD-039,widget_b,60,2026-09-17,normal,TechStart Inc,Repeat customer
+ORD-040,widget_a,25,2026-10-10,critical,Manufacturing Plus,Urgent requirement
+ORD-041,widget_b,45,2026-08-06,low,Quality Widgets,Urgent requirement
+ORD-042,widget_a,80,2026-07-10,normal,TechGear Corp,Priority customer
+ORD-043,widget_b,25,2026-05-12,normal,Global Manufacturing,Repeat customer
+ORD-044,widget_c,120,2026-10-10,critical,BuildCo,Flexible deadline
+ORD-045,widget_b,45,2026-11-23,high,SupplyChain Inc,Bulk order
+ORD-046,widget_b,80,2026-03-24,high,SlowBuild Co,Bulk order
+ORD-047,widget_b,100,2026-12-21,critical,FastProduce Inc,Express shipping
+ORD-048,widget_a,100,2026-08-22,low,BuildMaster Ltd,Custom specifications
+ORD-049,widget_a,30,2026-05-16,high,Standard Supply,Repeat customer
+ORD-050,widget_b,150,2026-05-26,normal,SmartBuild Ltd,Priority customer
+ORD-051,widget_c,25,2026-10-01,low,TechStart Inc,Repeat customer
+ORD-052,widget_c,50,2026-12-02,low,QuickShip Co,Custom specifications
+ORD-053,widget_b,120,2026-02-18,low,Industrial Solutions,Expedited delivery
+ORD-054,widget_b,150,2026-04-20,normal,FastTrack Ltd,Urgent delivery
+ORD-055,widget_c,150,2026-11-23,high,TechStart Inc,Long-term contract
+ORD-056,widget_b,50,2026-01-10,normal,SupplyChain Inc,Repeat customer
+ORD-057,widget_c,45,2026-11-27,normal,BuildCo,Urgent delivery
+ORD-058,widget_c,120,2026-08-01,low,Global Manufacturing,Express shipping
+ORD-059,widget_b,150,2026-09-09,low,FastProduce Inc,Urgent delivery
+ORD-060,widget_b,80,2026-08-25,high,MegaFactory Inc,Custom specifications
+ORD-061,widget_b,60,2026-01-17,high,TechStart Inc,Standard order
+ORD-062,widget_b,30,2026-08-02,high,SmartBuild Ltd,Repeat customer
+ORD-063,widget_a,25,2026-12-31,low,PrecisionMake Ltd,Long-term contract
+ORD-064,widget_b,75,2026-09-17,critical,SlowBuild Co,Trial order
+ORD-065,widget_c,50,2026-11-18,low,Standard Supply,Rush order
+ORD-066,widget_a,100,2026-12-05,normal,SupplyChain Inc,Expedited delivery
+ORD-067,widget_a,150,2026-12-27,low,ReliableBuild Inc,Standard packaging
+ORD-068,widget_a,30,2026-03-23,high,AutoParts Co,Normal processing
+ORD-069,widget_b,100,2026-10-22,high,PrecisionMake Ltd,Special handling required
