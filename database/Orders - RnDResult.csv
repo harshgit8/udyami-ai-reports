@@ -1,0 +1,201 @@
+Request ID,Formulation ID,Base Polymer,Key Additives,Cost (₹/kg),UL94 Rating,Tensile (MPa),LOI (%),RoHS,REACH,Recommendation,AI Confidence
+RND001,FORM_20260131_112013,PVC K70,Calcium Carbonate,58,HB,50,30,True,True,LABORATORY TESTING REQUIRED,N/A
+RND002,FORM_20260131_112013,PVC K70,Calcium Carbonate,58,HB,50,30,True,True,LABORATORY TESTING REQUIRED,N/A
+RND003,FORM_20260131_112013,PVC K67,"ATH, Zinc Borate",82,V-0,44,30,True,True,PROCEED TO PILOT BATCH,N/A
+RND004,FORM_20260131_112013,PVC K67,"ATH, Zinc Borate",76,V-0,44,30,True,True,PROCEED TO PILOT BATCH,N/A
+RND005,FORM_20260131_112013,PVC K67,"ATH, Zinc Borate",82,V-0,44,30,True,True,PROCEED TO PILOT BATCH,N/A
+RND006,FORM_20260131_112013,PVC K67,"ATH, Zinc Borate",82,V-0,44,30,True,True,PROCEED TO PILOT BATCH,N/A
+RND007,FORM_20260131_112013,PVC K67,"ATH, Zinc Borate",76,V-0,44,30,True,True,PROCEED TO PILOT BATCH,N/A
+RND008,FORM_20260131_112013,PVC K67,"ATH, Zinc Borate",82,V-0,44,30,True,True,PROCEED TO PILOT BATCH,N/A
+RND009,FORM_20260131_112013,PVC K67,"ATH, Zinc Borate",82,V-0,44,30,True,True,PROCEED TO PILOT BATCH,N/A
+RND010,FORM_20260131_112013,PVC K67,"ATH, Zinc Borate",82,V-0,44,30,True,True,PROCEED TO PILOT BATCH,N/A
+RND011,FORM_20260131_112013,PVC K67,"ATH, Zinc Borate",82,V-0,44,30,True,True,PROCEED TO PILOT BATCH,N/A
+RND012,FORM_20260131_112013,PVC K70,Calcium Carbonate,58,HB,50,30,True,True,LABORATORY TESTING REQUIRED,N/A
+RND013,FORM_20260131_112013,PVC K67,"ATH, Zinc Borate",82,V-0,44,30,True,True,PROCEED TO PILOT BATCH,N/A
+RND014,FORM_20260131_112013,PVC K67,"ATH, Zinc Borate",82,V-0,44,30,True,True,PROCEED TO PILOT BATCH,N/A
+RND015,FORM_20260131_112013,PVC K67,"ATH, Zinc Borate",82,V-0,44,30,True,True,PROCEED TO PILOT BATCH,N/A
+RND016,FORM_20260131_112013,PVC K67,"ATH, Zinc Borate",82,V-0,44,30,True,True,PROCEED TO PILOT BATCH,N/A
+RND017,FORM_20260131_112013,PVC K67,"ATH, Zinc Borate",82,V-0,44,30,True,True,PROCEED TO PILOT BATCH,N/A
+RND018,FORM_20260131_112013,PVC K67,"ATH, Zinc Borate",82,V-0,44,30,True,True,PROCEED TO PILOT BATCH,N/A
+RND019,FORM_20260131_112013,PVC K67,"ATH, Zinc Borate",82,V-0,44,30,True,True,PROCEED TO PILOT BATCH,N/A
+RND020,FORM_20260131_112013,PVC K67,"ATH, Zinc Borate",82,V-0,44,30,True,True,PROCEED TO PILOT BATCH,N/A
+RND021,FORM_20260131_112013,PVC K67,"ATH, Zinc Borate",82,V-0,44,30,True,True,PROCEED TO PILOT BATCH,N/A
+RND022,FORM_20260131_112013,PVC K67,"ATH, Zinc Borate",82,V-0,44,30,True,True,PROCEED TO PILOT BATCH,N/A
+RND023,FORM_20260131_112013,PVC K67,"ATH, Zinc Borate",82,V-0,44,30,True,True,PROCEED TO PILOT BATCH,N/A
+RND024,FORM_20260131_112013,PVC K67,"ATH, Zinc Borate",82,V-0,44,30,True,True,PROCEED TO PILOT BATCH,N/A
+RND025,FORM_20260131_112013,PVC K67,"ATH, Zinc Borate",82,V-0,44,30,True,True,PROCEED TO PILOT BATCH,N/A
+RND026,FORM_20260131_112013,PVC K67,"ATH, Zinc Borate",82,V-0,44,30,True,True,PROCEED TO PILOT BATCH,N/A
+RND027,FORM_20260131_112013,PVC K67,"ATH, Zinc Borate",82,V-0,44,30,True,True,PROCEED TO PILOT BATCH,N/A
+RND028,FORM_20260131_112013,PVC K67,"ATH, Zinc Borate",82,V-0,44,30,True,True,PROCEED TO PILOT BATCH,N/A
+RND029,FORM_20260131_112013,PVC K67,"ATH, Zinc Borate",82,V-0,44,30,True,True,PROCEED TO PILOT BATCH,N/A
+RND030,FORM_20260131_012949,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND031,FORM_20260131_012949,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND032,FORM_20260131_012950,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND033,FORM_20260131_012950,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND034,FORM_20260131_012950,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND035,FORM_20260131_012951,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND036,FORM_20260131_012951,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND037,FORM_20260131_012951,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND038,FORM_20260131_012952,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND039,FORM_20260131_012952,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND040,FORM_20260131_012952,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND041,FORM_20260131_012953,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND042,FORM_20260131_012953,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND043,FORM_20260131_012953,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND044,FORM_20260131_012954,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND045,FORM_20260131_012954,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND046,FORM_20260131_012954,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND047,FORM_20260131_012955,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND048,FORM_20260131_012955,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND049,FORM_20260131_012955,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND050,FORM_20260131_012956,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND051,FORM_20260131_012956,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND052,FORM_20260131_012956,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND053,FORM_20260131_012957,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND054,FORM_20260131_012957,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND055,FORM_20260131_012957,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND056,FORM_20260131_012958,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND057,FORM_20260131_012958,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND058,FORM_20260131_012959,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND059,FORM_20260131_012959,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND060,FORM_20260131_013000,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND061,FORM_20260131_013000,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND062,FORM_20260131_013000,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND063,FORM_20260131_013001,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND064,FORM_20260131_013001,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND065,FORM_20260131_013001,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND066,FORM_20260131_013002,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND067,FORM_20260131_013002,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND068,FORM_20260131_013002,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND069,FORM_20260131_013003,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND070,FORM_20260131_013003,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND071,FORM_20260131_013003,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND072,FORM_20260131_013004,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND073,FORM_20260131_013004,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND074,FORM_20260131_013004,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND075,FORM_20260131_013005,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND076,FORM_20260131_013005,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND077,FORM_20260131_013005,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND078,FORM_20260131_013006,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND079,FORM_20260131_013006,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND080,FORM_20260131_013006,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND081,FORM_20260131_013007,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND082,FORM_20260131_013007,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND083,FORM_20260131_013007,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND084,FORM_20260131_013008,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND085,FORM_20260131_013008,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND086,FORM_20260131_013008,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND087,FORM_20260131_013009,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND088,FORM_20260131_013009,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND089,FORM_20260131_013009,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND090,FORM_20260131_013010,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND091,FORM_20260131_013010,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND092,FORM_20260131_013010,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND093,FORM_20260131_013011,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND094,FORM_20260131_013011,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND095,FORM_20260131_013011,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND096,FORM_20260131_013011,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND097,FORM_20260131_013012,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND098,FORM_20260131_013012,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND099,FORM_20260131_013012,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND100,FORM_20260131_013013,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND101,FORM_20260131_013013,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND102,FORM_20260131_013013,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND103,FORM_20260131_013014,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND104,FORM_20260131_013014,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND105,FORM_20260131_013014,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND106,FORM_20260131_013015,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND107,FORM_20260131_013015,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND108,FORM_20260131_013015,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND109,FORM_20260131_013016,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND110,FORM_20260131_013016,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND111,FORM_20260131_013016,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND112,FORM_20260131_013017,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND113,FORM_20260131_013017,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND114,FORM_20260131_013017,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND115,FORM_20260131_013018,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND116,FORM_20260131_013018,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND117,FORM_20260131_013018,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND118,FORM_20260131_013019,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND119,FORM_20260131_013019,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND120,FORM_20260131_013019,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND121,FORM_20260131_013020,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND122,FORM_20260131_013020,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND123,FORM_20260131_013020,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND124,FORM_20260131_013021,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND125,FORM_20260131_013021,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND126,FORM_20260131_013021,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND127,FORM_20260131_013021,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND128,FORM_20260131_013022,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND129,FORM_20260131_013022,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND130,FORM_20260131_013022,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND131,FORM_20260131_013023,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND132,FORM_20260131_013023,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND133,FORM_20260131_013023,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND134,FORM_20260131_013024,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND135,FORM_20260131_013024,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND136,FORM_20260131_013024,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND137,FORM_20260131_013025,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND138,FORM_20260131_013025,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND139,FORM_20260131_013025,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND140,FORM_20260131_013026,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND141,FORM_20260131_013026,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND142,FORM_20260131_013026,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND143,FORM_20260131_013027,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND144,FORM_20260131_013027,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND145,FORM_20260131_013027,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND146,FORM_20260131_013028,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND147,FORM_20260131_013028,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND148,FORM_20260131_013028,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND149,FORM_20260131_013029,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND150,FORM_20260131_013029,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND151,FORM_20260131_013029,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND152,FORM_20260131_013030,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND153,FORM_20260131_013030,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND154,FORM_20260131_013030,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND155,FORM_20260131_013030,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND156,FORM_20260131_013031,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND157,FORM_20260131_013031,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND158,FORM_20260131_013031,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND159,FORM_20260131_013032,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND160,FORM_20260131_013032,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND161,FORM_20260131_013032,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND162,FORM_20260131_013033,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND163,FORM_20260131_013033,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND164,FORM_20260131_013033,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND165,FORM_20260131_013034,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND166,FORM_20260131_013034,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND167,FORM_20260131_013034,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND168,FORM_20260131_013035,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND169,FORM_20260131_013035,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND170,FORM_20260131_013035,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND171,FORM_20260131_013036,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND172,FORM_20260131_013036,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND173,FORM_20260131_013036,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND174,FORM_20260131_013037,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND175,FORM_20260131_013037,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND176,FORM_20260131_013037,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND177,FORM_20260131_013038,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND178,FORM_20260131_013038,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND179,FORM_20260131_013038,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND180,FORM_20260131_013039,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND181,FORM_20260131_013039,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND182,FORM_20260131_013039,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND183,FORM_20260131_013040,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND184,FORM_20260131_013040,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND185,FORM_20260131_013040,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND186,FORM_20260131_013041,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND187,FORM_20260131_013041,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND188,FORM_20260131_013041,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND189,FORM_20260131_013042,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND190,FORM_20260131_013042,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND191,FORM_20260131_013042,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND192,FORM_20260131_013043,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND193,FORM_20260131_013043,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND194,FORM_20260131_013043,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND195,FORM_20260131_013044,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",82,V-0,44,32,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND196,FORM_20260131_013044,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND197,FORM_20260131_013044,PVC K67,"ATH, Zinc Borate, Calcium Zinc Stabilizer",76,V-1,42,30,True,True,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND198,FORM_20260131_013045,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW
+RND199,FORM_20260131_013045,PVC K67,"ATH, Antimony Trioxide, Calcium Zinc Stabilizer",88,V-0,44,32,True,Restricted - Authorization required,PROCEED TO PILOT BATCH - Formulation meets requirements,LOW
+RND200,FORM_20260131_013045,PVC K70,"Calcium Carbonate, Calcium Zinc Stabilizer, TiO2",58,HB,50,22,True,True,PROCEED WITH CAUTION - Review compliance restrictions,LOW

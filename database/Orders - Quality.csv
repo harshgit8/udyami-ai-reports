@@ -1,0 +1,51 @@
+Batch ID,Product Type,Quantity,Inspection Standard,Defects Found,Measurements,Visual Inspection,Special Requirements
+BATCH001,widget_b,400,ASTM_D3951,"minor_mark:minor:5,contamination:major:2","length_mm:102.3,width_mm:50.9,thickness_mm:5.03",Minor color inconsistency noted,Automotive specification
+BATCH002,widget_c,500,MIL_STD_105E,none,"length_mm:99.8,width_mm:50.1,thickness_mm:5.17",Normal production quality,Electrical safety critical
+BATCH003,widget_b,800,MIL_STD_105E,"minor_oxidation:minor:4,warpage:major:3","length_mm:98.4,width_mm:50.7,thickness_mm:5.29",Standard appearance,Export grade
+BATCH004,widget_b,500,MIL_STD_105E,surface_scratch:minor:2,"length_mm:101.3,width_mm:49.9,thickness_mm:4.86",Clean production batch,Food contact approved
+BATCH005,widget_b,1000,ASTM_D2562,surface_scratch:minor:3,"length_mm:102.5,width_mm:50.2,thickness_mm:5.24",Premium grade appearance,FDA compliance required
+BATCH006,widget_c,750,ISO_3951,color_variation:minor:4,"length_mm:100.5,width_mm:49.9,thickness_mm:5.13",Standard appearance,Critical application
+BATCH007,widget_a,800,ISO_3951,"color_variation:minor:5,structural_defect:critical:2","length_mm:98.6,width_mm:50.7,thickness_mm:5.07",Structural defects present,Requires immediate review
+BATCH008,widget_b,800,ASTM_D3951,minor_oxidation:minor:3,"length_mm:100.0,width_mm:50.7,thickness_mm:4.9",Surface finish acceptable,Enhanced quality control
+BATCH009,widget_b,500,ISO_3951,none,"length_mm:101.1,width_mm:50.5,thickness_mm:5.21",Slight surface variations,FDA compliance required
+BATCH010,widget_b,600,ASTM_D2562,delamination:critical:3,"length_mm:102.1,width_mm:51.0,thickness_mm:4.85",Visible cracks detected,Requires immediate review
+BATCH011,widget_c,500,ASTM_D3951,minor_oxidation:minor:3,"length_mm:100.7,width_mm:50.7,thickness_mm:5.14",Standard appearance,Requires immediate review
+BATCH012,widget_a,500,MIL_STD_105E,"surface_scratch:minor:4,inclusion:major:1","length_mm:100.9,width_mm:50.2,thickness_mm:5.22",Premium grade appearance,FDA compliance required
+BATCH013,widget_a,500,MIL_STD_105E,"tiny_pit:minor:2,contamination:major:3","length_mm:98.7,width_mm:50.9,thickness_mm:4.84",Clean production batch,Aerospace standard
+BATCH014,widget_a,500,MIL_STD_105E,none,"length_mm:99.1,width_mm:50.9,thickness_mm:5.03",Minor surface imperfections,FDA compliance required
+BATCH015,widget_a,800,ISO_3951,none,"length_mm:98.2,width_mm:50.8,thickness_mm:4.91",Surface finish acceptable,Electrical safety critical
+BATCH016,widget_b,750,MIL_STD_105E,color_variation:minor:5,"length_mm:102.2,width_mm:49.6,thickness_mm:5.3",Clean production batch,Aerospace standard
+BATCH017,widget_a,1000,MIL_STD_105E,tiny_pit:minor:5,"length_mm:101.5,width_mm:49.9,thickness_mm:4.96",Within acceptable limits,Premium customer order
+BATCH018,widget_c,300,ASTM_D2562,surface_scratch:minor:3,"length_mm:99.1,width_mm:50.3,thickness_mm:5.17",Surface finish acceptable,Aerospace standard
+BATCH019,widget_a,400,ISO_2859,"faint_line:minor:2,dimensional_deviation:major:1","length_mm:102.5,width_mm:50.9,thickness_mm:5.21",Visible cracks detected,Automotive specification
+BATCH020,widget_a,800,MIL_STD_105E,"minor_mark:minor:4,weld_line:major:1","length_mm:99.0,width_mm:49.6,thickness_mm:4.83",Good overall appearance,Chemical resistance verified
+BATCH021,widget_c,300,ISO_2859,"minor_mark:minor:2,warpage:major:2","length_mm:102.0,width_mm:50.1,thickness_mm:5.2",Normal production quality,Food contact approved
+BATCH022,widget_a,750,ISO_3951,none,"length_mm:100.0,width_mm:49.7,thickness_mm:5.12",High quality finish,Requires immediate review
+BATCH023,widget_b,600,ASTM_D2562,minor_mark:minor:5,"length_mm:101.4,width_mm:50.4,thickness_mm:4.89",Good overall appearance,Export grade
+BATCH024,widget_a,1000,ISO_3951,slight_discoloration:minor:5,"length_mm:98.9,width_mm:49.6,thickness_mm:5.23",No major defects observed,Standard inspection
+BATCH025,widget_a,1000,ISO_3951,"minor_mark:minor:2,inclusion:major:1","length_mm:101.9,width_mm:50.1,thickness_mm:5.04",Minor dimensional variations,High reliability required
+BATCH026,widget_c,400,ISO_2859,"complete_failure:critical:1,edge_roughness:minor:4,dimensional_deviation:major:3","length_mm:99.9,width_mm:50.5,thickness_mm:4.81",Structural defects present,Requires immediate review
+BATCH027,widget_c,600,MIL_STD_105E,minor_oxidation:minor:2,"length_mm:100.8,width_mm:50.5,thickness_mm:5.12",Clean production batch,High temperature application
+BATCH028,widget_b,400,MIL_STD_105E,slight_discoloration:minor:3,"length_mm:98.9,width_mm:50.3,thickness_mm:5.11",Excellent quality,High temperature application
+BATCH029,widget_a,400,ASTM_D3951,color_variation:minor:4,"length_mm:102.5,width_mm:51.0,thickness_mm:5.01",No major defects observed,Automotive specification
+BATCH030,widget_b,400,ASTM_D3951,"tiny_pit:minor:4,weld_line:major:2","length_mm:99.4,width_mm:50.8,thickness_mm:5.17",Minor color inconsistency noted,Aerospace standard
+BATCH031,widget_a,400,ASTM_D3951,faint_line:minor:2,"length_mm:101.6,width_mm:50.9,thickness_mm:5.15",Excellent quality,Electrical safety critical
+BATCH032,widget_c,600,ASTM_D2562,none,"length_mm:99.8,width_mm:50.6,thickness_mm:5.21",Acceptable quality,UV stability tested
+BATCH033,widget_b,750,ASTM_D3951,edge_roughness:minor:3,"length_mm:99.9,width_mm:50.0,thickness_mm:5.2",Excellent quality,FDA compliance required
+BATCH034,widget_b,1000,ASTM_D3951,faint_line:minor:3,"length_mm:99.9,width_mm:50.9,thickness_mm:5.16",Premium grade appearance,Export grade
+BATCH035,widget_a,600,ISO_3951,edge_roughness:minor:5,"length_mm:98.8,width_mm:50.2,thickness_mm:5.1",Clean production batch,Long-term warranty coverage
+BATCH036,widget_c,600,MIL_STD_105E,minor_oxidation:minor:1,"length_mm:101.6,width_mm:49.6,thickness_mm:5.18",Some minor cosmetic issues,High reliability required
+BATCH037,widget_b,300,ASTM_D2562,severe_contamination:critical:3,"length_mm:99.9,width_mm:51.0,thickness_mm:5.22",Requires attention,Requires immediate review
+BATCH038,widget_c,300,ASTM_D2562,minor_mark:minor:1,"length_mm:101.3,width_mm:50.5,thickness_mm:4.93",Good overall appearance,High reliability required
+BATCH039,widget_a,1000,ASTM_D2562,color_variation:minor:1,"length_mm:99.4,width_mm:50.6,thickness_mm:4.84",Within acceptable limits,Standard inspection
+BATCH040,widget_b,600,MIL_STD_105E,minor_oxidation:minor:4,"length_mm:100.8,width_mm:50.2,thickness_mm:4.93",No major defects observed,Military specification
+BATCH041,widget_a,800,ASTM_D2562,minor_mark:minor:3,"length_mm:98.7,width_mm:50.3,thickness_mm:4.91",Standard appearance,High reliability required
+BATCH042,widget_a,300,ISO_3951,none,"length_mm:100.5,width_mm:49.6,thickness_mm:5.21",Standard appearance,FDA compliance required
+BATCH043,widget_a,750,ASTM_D3951,none,"length_mm:101.3,width_mm:50.4,thickness_mm:4.81",Slight surface variations,Enhanced quality control
+BATCH044,widget_a,750,ISO_3951,slight_discoloration:minor:3,"length_mm:98.1,width_mm:50.7,thickness_mm:5.15",Minor dimensional variations,Critical application
+BATCH045,widget_c,800,ASTM_D2562,"edge_roughness:minor:4,weld_line:major:3","length_mm:99.1,width_mm:50.0,thickness_mm:5.04",Standard appearance,Export grade
+BATCH046,widget_b,600,ASTM_D3951,minor_oxidation:minor:5,"length_mm:99.7,width_mm:50.0,thickness_mm:5.11",Minor color inconsistency noted,Standard inspection
+BATCH047,widget_b,600,MIL_STD_105E,color_variation:minor:5,"length_mm:99.8,width_mm:50.2,thickness_mm:4.99",Slight surface variations,Premium customer order
+BATCH048,widget_a,1000,MIL_STD_105E,"inclusion:major:2,crack:critical:2,tiny_pit:minor:2","length_mm:102.0,width_mm:49.7,thickness_mm:5.03",Critical issues noted,Requires immediate review
+BATCH049,widget_c,600,ISO_3951,none,"length_mm:102.3,width_mm:50.0,thickness_mm:5.13",Minor dimensional variations,Electrical safety critical
+BATCH050,widget_a,400,ISO_3951,color_variation:minor:2,"length_mm:98.9,width_mm:50.1,thickness_mm:4.83",High quality finish,Requires immediate review

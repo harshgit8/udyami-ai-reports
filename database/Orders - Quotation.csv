@@ -1,0 +1,51 @@
+Quote Request ID,Customer,Product Type,Quantity,Application,Quality Standard,Priority,Delivery Required,Special Requirements,Material Formulation,Material Cost (₹/kg),Weight per Unit (kg),UL94 Rating,Compliance,Machine,Production Rate,Setup Time (hours),Inspection Standard,Quality Level,Risk Level
+QR001,PowerCable Co,widget_e,300,aerospace_connector_boot,ISO_3951,high,2026-03-25,Smooth surface finish,PC/ABS Blend,140,0.37,HB,RoHS ✓ REACH ✓ FDA ✓,M5,10,1.2,MIL_STD_105E,EXCELLENT,Low
+QR002,Apex Plastics,widget_a,100,marine_equipment_seal,ASTM_D3951,low,2026-03-04,Long-term UV stability,PMMA Acrylic,157,0.69,HB,MIL-SPEC ✓,M5,10,0.6,MIL_STD_105E,ACCEPTABLE,Low
+QR003,FastTrack Ltd,widget_c,200,telecom_equipment_cover,ASTM_D3951,normal,2026-05-20,Weather resistant outdoor,HDPE High Density,92,0.74,V-1,RoHS ✓ REACH ✓ UL ✓,M1,12,1.3,ASTM_D2562,ACCEPTABLE,Low
+QR004,Universal Components,widget_d,750,telecom_equipment_cover,MIL_STD_105E,critical,2026-05-09,Low halogen requirement,PC/ABS Blend,150,0.7,HB,MIL-SPEC ✓,M4,12,0.6,ASTM_D2562,EXCELLENT,High
+QR005,SmartWire Ltd,widget_d,200,power_distribution_box,ASTM_D2562,normal,2026-03-14,UV resistant coating,HDPE High Density,83,0.37,V-0,REACH ✓ FDA ✓,M1,20,2.1,ASTM_D3951,GOOD,Low
+QR006,Universal Components,widget_d,1000,medical_device_housing,ASTM_D3951,high,2026-04-27,Dimensional precision critical,PC/ABS Blend,141,0.54,V-1,RoHS ✓ REACH ✓,M5,12,1.8,ASTM_D2562,GOOD,Low
+QR007,Apex Plastics,widget_c,150,control_panel_enclosure,ASTM_D2562,normal,2026-05-26,Military specification,Nylon 6 Reinforced,228,0.49,V-2,RoHS ✓ REACH ✓ UL ✓,M3,18,1,ISO_2859,GOOD,Low
+QR008,ProTech Systems,widget_a,200,automotive_wire_harness,ISO_2859,normal,2026-03-04,Building code compliance,PS High Impact,114,0.64,HB,FDA ✓,M1,15,1,ASTM_D2562,GOOD,Low
+QR009,NextGen Products,widget_c,300,electrical_cable_insulation,ISO_3951,high,2026-05-04,Standard quality,PS High Impact,92,0.47,HB,UL ✓ CSA ✓,M3,20,2.4,ISO_2859,EXCELLENT,Medium
+QR010,Acme Corp,widget_d,25,solar_panel_junction_box,ISO_2859,normal,2026-05-27,High temperature rated,PVC K70 based,83,0.73,V-2,RoHS ✓ REACH ✓,M5,20,2.5,ASTM_D3951,GOOD,Low
+QR011,ProTech Systems,widget_c,200,telecom_equipment_cover,ISO_2859,normal,2026-03-31,High temperature rated,PET Engineering Grade,95,0.52,V-0,FDA ✓,M3,10,1.6,MIL_STD_105E,GOOD,Low
+QR012,SafetyFirst Manufacturing,widget_e,750,aerospace_connector_boot,ASTM_D3951,high,2026-03-01,Chemical resistance verified,PP Homopolymer,97,0.45,V-0,RoHS ✓,M2,20,2.5,ISO_3951,EXCELLENT,Medium
+QR013,Elite Manufacturing,widget_a,750,railway_signal_housing,ISO_3951,normal,2026-02-26,Chemical resistance verified,TPE Thermoplastic,112,0.74,V-0,RoHS ✓ REACH ✓,M3,20,1.6,ISO_3951,GOOD,Low
+QR014,ProTech Systems,widget_b,150,cable_insulation,ASTM_D2562,normal,2026-03-04,Flame retardant class A,PP Homopolymer,100,0.43,V-0,REACH ✓ FDA ✓,M2,18,1.5,ASTM_D2562,GOOD,Low
+QR015,Universal Components,widget_b,250,power_distribution_box,ASTM_D3951,high,2026-04-19,UL94 V-1 certification,PMMA Acrylic,197,0.45,V-0,RoHS ✓ REACH ✓ UL ✓,M2,10,1.6,ISO_3951,EXCELLENT,Low
+QR016,Global Manufacturing,widget_a,50,industrial_connector,ISO_2859,normal,2026-05-31,Rush order UL94 V-0,Nylon 66 Natural,239,0.68,V-2,RoHS ✓ REACH ✓ UL ✓,M5,12,1.9,ASTM_D2562,ACCEPTABLE,Low
+QR017,Elite Manufacturing,widget_a,200,electrical_cable_insulation,ASTM_D3951,high,2026-04-20,Medical grade certification,LDPE Low Density,80,0.46,V-2,FDA ✓,M1,15,0.7,ISO_3951,EXCELLENT,Low
+QR018,PowerCable Co,widget_c,100,aerospace_connector_boot,ASTM_D2562,high,2026-03-01,Dimensional precision critical,PC/ABS Blend,136,0.49,V-1,RoHS ✓ REACH ✓ UL ✓,M2,8,2.2,MIL_STD_105E,GOOD,Low
+QR019,PowerCable Co,widget_d,75,medical_device_housing,ISO_3951,low,2026-04-30,Dimensional precision critical,PMMA Acrylic,171,0.66,HB,RoHS ✓,M1,12,2.2,ASTM_D3951,ACCEPTABLE,Low
+QR020,FastTrack Ltd,widget_b,50,cable_insulation,ISO_3951,high,2026-05-05,Military specification,LDPE Low Density,74,0.76,V-2,RoHS ✓,M3,10,0.5,MIL_STD_105E,EXCELLENT,Low
+QR021,PowerCable Co,widget_d,100,LED_light_fixture,MIL_STD_105E,normal,2026-03-18,Long-term UV stability,TPE Thermoplastic,119,0.65,V-2,UL ✓ CSA ✓,M4,10,1.1,ASTM_D3951,ACCEPTABLE,Low
+QR022,Apex Plastics,widget_d,25,control_panel_enclosure,ISO_3951,critical,2026-03-14,Anti-static properties,PVC K67 based,66,0.45,V-2,RoHS ✓ REACH ✓ FDA ✓,M2,8,0.6,ISO_2859,PREMIUM,Medium
+QR023,Universal Components,widget_a,25,railway_signal_housing,ISO_3951,normal,2026-03-05,Weather resistant outdoor,PVC K67 based,81,0.78,V-0,RoHS ✓ REACH ✓ FDA ✓,M1,18,2.3,ASTM_D2562,GOOD,Low
+QR024,BuildCo,widget_c,500,marine_equipment_seal,ISO_3951,normal,2026-03-28,Food contact safe,POM Acetal Copolymer,205,0.3,V-0,MIL-SPEC ✓,M1,20,0.6,MIL_STD_105E,GOOD,Low
+QR025,TechStart Inc,widget_b,25,consumer_electronics_case,ASTM_D3951,low,2026-03-25,EMI shielding required,PVC K67 based,70,0.49,V-1,REACH ✓ FDA ✓,M5,15,1.8,MIL_STD_105E,ACCEPTABLE,Low
+QR026,Quantum Materials,widget_a,1000,cable_insulation,ASTM_D2562,high,2026-04-08,Smooth surface finish,LDPE Low Density,69,0.62,V-1,RoHS ✓ REACH ✓,M5,10,0.6,MIL_STD_105E,EXCELLENT,Medium
+QR027,Innovation Corp,widget_a,150,electrical_cable_insulation,ISO_3951,normal,2026-04-04,Rush order UL94 V-0,PS High Impact,91,0.75,V-2,FDA ✓,M1,12,1.4,ASTM_D2562,ACCEPTABLE,Low
+QR028,SmartWire Ltd,widget_a,750,flame_retardant_conduit,ISO_3951,high,2026-03-05,UL94 V-1 certification,PET Engineering Grade,104,0.6,V-2,FDA ✓,M4,8,1.4,ASTM_D3951,GOOD,Medium
+QR029,ProTech Systems,widget_b,750,flame_retardant_conduit,ISO_2859,normal,2026-04-23,UL94 V-1 certification,PET Engineering Grade,128,0.7,V-0,REACH ✓ FDA ✓,M3,18,2,ASTM_D2562,GOOD,Low
+QR030,Apex Plastics,widget_a,75,railway_signal_housing,ASTM_D2562,critical,2026-02-23,RoHS compliant,PVC K70 based,79,0.74,V-2,RoHS ✓ REACH ✓,M2,20,0.9,ASTM_D3951,EXCELLENT,High
+QR031,Elite Manufacturing,widget_d,50,flexible_cable_jacket,ISO_3951,high,2026-03-06,Rush order UL94 V-0,PMMA Acrylic,177,0.41,V-1,RoHS ✓,M2,20,1.2,ASTM_D3951,GOOD,Low
+QR032,Apex Plastics,widget_a,50,consumer_electronics_case,ISO_2859,normal,2026-03-17,High temperature rated,PET Engineering Grade,119,0.33,V-1,MIL-SPEC ✓,M1,12,0.6,MIL_STD_105E,ACCEPTABLE,Low
+QR033,BuildCo,widget_b,50,flame_retardant_conduit,ISO_3951,critical,2026-05-09,High temperature rated,PVC K70 based,73,0.43,V-0,RoHS ✓ REACH ✓,M1,10,0.6,ISO_2859,EXCELLENT,High
+QR034,FastTrack Ltd,widget_d,300,aerospace_connector_boot,ASTM_D2562,normal,2026-04-27,Standard quality,ABS General Purpose,120,0.38,V-2,FDA ✓,M2,18,2.3,ASTM_D2562,ACCEPTABLE,Low
+QR035,SmartWire Ltd,widget_d,25,electrical_cable_insulation,ASTM_D3951,critical,2026-03-12,Rush order UL94 V-0,PVC K67 based,67,0.77,5VA,RoHS ✓ REACH ✓ UL ✓,M3,8,2.5,ISO_3951,EXCELLENT,High
+QR036,Elite Manufacturing,widget_c,100,hvac_component_housing,ASTM_D2562,normal,2026-03-29,Color matching required,TPE Thermoplastic,157,0.51,V-1,REACH ✓ FDA ✓,M2,12,2.1,ISO_2859,GOOD,Low
+QR037,Innovation Corp,widget_a,50,electronics_housing,ASTM_D2562,critical,2026-03-22,Anti-static properties,PS High Impact,91,0.8,V-1,RoHS ✓ REACH ✓ UL ✓,M5,10,1.9,ISO_2859,EXCELLENT,High
+QR038,SmartWire Ltd,widget_a,50,power_distribution_box,ISO_3951,low,2026-04-10,Automotive grade,PP Copolymer,108,0.42,V-2,RoHS ✓ REACH ✓,M4,20,1.4,ASTM_D2562,ACCEPTABLE,Low
+QR039,Quantum Materials,widget_e,500,control_panel_enclosure,ASTM_D2562,normal,2026-03-20,Medical grade certification,HDPE High Density,73,0.48,HB,RoHS ✓ REACH ✓ UL ✓,M3,18,1.6,MIL_STD_105E,GOOD,Low
+QR040,Precision Electronics,widget_e,750,automotive_wire_harness,ISO_3951,low,2026-02-24,Chemical resistance verified,Nylon 6 Reinforced,180,0.36,HB,UL ✓ CSA ✓,M5,8,1.4,ISO_3951,ACCEPTABLE,Low
+QR041,NextGen Products,widget_e,75,power_distribution_box,ASTM_D2562,normal,2026-03-03,Long-term UV stability,Nylon 6 Reinforced,207,0.48,5VA,REACH ✓ FDA ✓,M1,12,1.7,ASTM_D3951,ACCEPTABLE,Low
+QR042,Global Manufacturing,widget_e,50,cable_insulation,ISO_2859,high,2026-05-04,Standard quality,ABS General Purpose,147,0.57,V-1,RoHS ✓ REACH ✓,M5,20,1.6,ASTM_D2562,EXCELLENT,Medium
+QR043,PowerCable Co,widget_a,75,medical_device_housing,ISO_2859,high,2026-03-11,Building code compliance,HDPE High Density,90,0.66,V-1,MIL-SPEC ✓,M1,15,0.8,ASTM_D3951,GOOD,Low
+QR044,Elite Manufacturing,widget_d,750,flame_retardant_conduit,MIL_STD_105E,high,2026-04-06,UV resistant coating,PET Engineering Grade,126,0.57,V-0,RoHS ✓ REACH ✓,M4,15,1.4,ISO_3951,EXCELLENT,Medium
+QR045,ProTech Systems,widget_e,200,automotive_wire_harness,ASTM_D3951,normal,2026-03-19,FDA approved material,POM Acetal Copolymer,194,0.36,V-0,REACH ✓ FDA ✓,M3,20,1.7,ASTM_D2562,GOOD,Low
+QR046,NextGen Products,widget_a,150,aerospace_connector_boot,ISO_2859,normal,2026-05-25,Military specification,PC/ABS Blend,128,0.45,V-0,FDA ✓,M4,10,2.1,MIL_STD_105E,GOOD,Low
+QR047,SafetyFirst Manufacturing,widget_d,1000,automotive_wire_harness,ASTM_D2562,high,2026-04-01,Rush order UL94 V-0,Nylon 6 Reinforced,181,0.56,V-1,MIL-SPEC ✓,M4,8,1.9,ISO_3951,GOOD,Low
+QR048,SafetyFirst Manufacturing,widget_b,200,control_panel_enclosure,ISO_2859,high,2026-05-13,Standard quality,PVC K67 based,66,0.32,HB,UL ✓ CSA ✓,M4,8,1.3,ASTM_D3951,EXCELLENT,Medium
+QR049,NextGen Products,widget_d,75,hvac_component_housing,MIL_STD_105E,normal,2026-03-25,UV resistant coating,TPE Thermoplastic,126,0.31,V-2,RoHS ✓,M5,18,1.4,ASTM_D3951,ACCEPTABLE,Low
+QR050,TechStart Inc,widget_e,75,industrial_connector,MIL_STD_105E,critical,2026-03-04,Military specification,PP Homopolymer,107,0.71,HB,REACH ✓ FDA ✓,M1,12,1.9,ISO_3951,PREMIUM,High
