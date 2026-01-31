@@ -4,16 +4,19 @@ import { DocumentCard } from "./DocumentCard";
 import { FilterBar } from "./FilterBar";
 import { PDFPreview } from "./PDFPreview";
 import { PDFContent } from "./PDFContent";
+import type { ProductionOrder } from "@/types/documents";
+
+type WithId<T> = Partial<T> & { id: string };
 
 interface ProductionListProps {
-  orders: any[];
+  orders: Array<WithId<ProductionOrder>>;
 }
 
 export function ProductionList({ orders }: ProductionListProps) {
   const [search, setSearch] = useState("");
   const [decisionFilter, setDecisionFilter] = useState("");
   const [machineFilter, setMachineFilter] = useState("");
-  const [selectedDoc, setSelectedDoc] = useState<any>(null);
+  const [selectedDoc, setSelectedDoc] = useState<WithId<ProductionOrder> | null>(null);
 
   const machines = useMemo(() => {
     const unique = [...new Set(orders.map(o => o.machine).filter(Boolean))];

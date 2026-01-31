@@ -9,6 +9,8 @@ import { useToast } from "@/hooks/use-toast";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import ReactMarkdown from "react-markdown";
+import { useQueryClient } from "@tanstack/react-query";
+import { saveDocument, tryParseAiDocument } from "@/lib/documents";
 
 interface Message {
   role: "user" | "assistant";
@@ -41,6 +43,7 @@ export function AIChatPanel({ contextData }: AIChatPanelProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const pdfRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
+  const queryClient = useQueryClient();
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -116,6 +119,20 @@ export function AIChatPanel({ contextData }: AIChatPanelProps) {
             buffer = line + "\n" + buffer;
             break;
           }
+        }
+      }
+
+      const parsed = tryParseAiDocument(assistantContent);
+      if (parsed) {
+        try {
+          await saveDocument(parsed);
+          await queryClient.invalidateQueries({ queryKey: ["documents"] });
+          toast({
+            title: "Saved",
+            description: "Document saved to database.",
+          });
+        } catch (e) {
+          console.error("save-document error:", e);
         }
       }
     } catch (error) {

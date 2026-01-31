@@ -1,11 +1,20 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.4";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
-const SYSTEM_PROMPT = `You are Udyami AI Assistant, an expert in industrial manufacturing operations. You specialize in:
+const SYSTEM_PROMPT = `You are Udyami AI Assistant for a real manufacturing business.
+
+CRITICAL RULES (no exceptions):
+- You must ground factual answers ONLY in the provided Supabase database context in this request.
+- If the answer is not present in the Supabase context, reply: "I don't have that in the database yet." and ask what table/field to add.
+- Do not invent numbers, customers, dates, totals, inventory, or statuses.
+- When you reference a document, include its type and external id (if available).
+
+You specialize in:
 
 1. **Quotations**: Creating professional quotations with cost breakdowns (material, production, quality, packaging), profit margins, lead times, and payment terms.
 
@@ -25,6 +34,106 @@ When users ask for requirements or documents:
 
 Always be helpful, precise, and provide actionable insights. Format responses with clear sections, bold headers, and well-organized lists or tables using markdown. If requested to generate a document (like a quote or report), ensure the response is detailed enough to serve as a standalone document.`;
 
+type DocRow = {
+  id: string;
+  type: string;
+  external_id: string | null;
+  customer: string | null;
+  status: string | null;
+  total: number | null;
+  data: unknown;
+  created_at: string;
+};
+
+function compactJson(value: unknown, maxLen: number): string {
+  const str = JSON.stringify(value);
+  if (str.length <= maxLen) return str;
+  return str.slice(0, maxLen - 3) + "...";
+}
+
+function extractIds(text: string): string[] {
+  const ids = new Set<string>();
+  const patterns = [
+    /\bQT_[A-Z0-9_]+\b/g,
+    /\bINV-[A-Z0-9-]+\b/g,
+    /\bQC_[A-Z0-9_]+\b/g,
+    /\bORD-[0-9]+\b/g,
+    /\bFORM_[A-Z0-9_]+\b/g,
+  ];
+  for (const re of patterns) {
+    const matches = text.match(re) || [];
+    for (const m of matches) ids.add(m);
+  }
+  return Array.from(ids);
+}
+
+async function fetchSupabaseContext(userText: string) {
+  const SUPABASE_URL = Deno.env.get("SUPABASE_URL");
+  const SERVICE_ROLE_KEY =
+    Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || Deno.env.get("SERVICE_ROLE_KEY");
+
+  if (!SUPABASE_URL || !SERVICE_ROLE_KEY) {
+    return { ok: false, summary: "Supabase service role not configured.", docs: [] as DocRow[] };
+  }
+
+  const supabase = createClient(SUPABASE_URL, SERVICE_ROLE_KEY, { auth: { persistSession: false } });
+
+  const ids = extractIds(userText);
+  const keywords = userText.toLowerCase();
+
+  const wantedTypes: string[] = [];
+  if (keywords.includes("quotation") || keywords.includes("quote")) wantedTypes.push("quotation");
+  if (keywords.includes("invoice")) wantedTypes.push("invoice");
+  if (keywords.includes("quality") || keywords.includes("inspection")) wantedTypes.push("quality");
+  if (keywords.includes("production") || keywords.includes("schedule") || keywords.includes("machine")) wantedTypes.push("production");
+  if (keywords.includes("r&d") || keywords.includes("rnd") || keywords.includes("formulation")) wantedTypes.push("rnd");
+
+  const docs: DocRow[] = [];
+
+  try {
+    if (ids.length > 0) {
+      const { data, error } = await supabase
+        .from("documents")
+        .select("id,type,external_id,customer,status,total,data,created_at")
+        .in("external_id", ids)
+        .order("created_at", { ascending: false })
+        .limit(25);
+      if (!error && data) docs.push(...(data as DocRow[]));
+    }
+
+    if (docs.length === 0 && wantedTypes.length > 0) {
+      const { data, error } = await supabase
+        .from("documents")
+        .select("id,type,external_id,customer,status,total,data,created_at")
+        .in("type", wantedTypes)
+        .order("created_at", { ascending: false })
+        .limit(30);
+      if (!error && data) docs.push(...(data as DocRow[]));
+    }
+
+    if (docs.length === 0) {
+      const { data, error } = await supabase
+        .from("documents")
+        .select("id,type,external_id,customer,status,total,data,created_at")
+        .order("created_at", { ascending: false })
+        .limit(30);
+      if (!error && data) docs.push(...(data as DocRow[]));
+    }
+
+    const byType: Record<string, number> = {};
+    for (const d of docs) byType[d.type] = (byType[d.type] ?? 0) + 1;
+
+    return {
+      ok: true,
+      summary: `Retrieved ${docs.length} rows. byType=${compactJson(byType, 400)}`,
+      docs,
+    };
+  } catch (e) {
+    console.error("Supabase context error:", e);
+    return { ok: false, summary: "Supabase query failed.", docs: [] as DocRow[] };
+  }
+}
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -38,15 +147,36 @@ serve(async (req) => {
       throw new Error("AI configuration is missing. Please check your environment variables.");
     }
 
-    // Build context from available data
-    let contextMessage = "";
+    const lastUser = Array.isArray(messages)
+      ? [...messages].reverse().find((m) => m?.role === "user" && typeof m?.content === "string")?.content ?? ""
+      : "";
+
+    const db = await fetchSupabaseContext(lastUser);
+
+    let contextMessage = `\n\nSupabase Database Context (${db.ok ? "OK" : "NOT_AVAILABLE"}):
+${db.summary}
+
+Rows (sanitized, recent, limited):
+${compactJson(
+  db.docs.map((d) => ({
+    type: d.type,
+    external_id: d.external_id,
+    customer: d.customer,
+    status: d.status,
+    total: d.total,
+    created_at: d.created_at,
+    data: d.data,
+  })),
+  12000,
+)}`;
+
     if (contextData) {
-      contextMessage = `\n\nCurrent Dashboard Context:
-- Quotations: ${contextData.quotationsCount || 0} documents
-- Invoices: ${contextData.invoicesCount || 0} documents  
-- Quality Reports: ${contextData.qualityCount || 0} reports
-- Production Orders: ${contextData.productionCount || 0} orders
-- R&D Formulations: ${contextData.rndCount || 0} formulations`;
+      contextMessage += `\n\nClient Context (counts only):
+- Quotations: ${contextData.quotationsCount || 0}
+- Invoices: ${contextData.invoicesCount || 0}
+- Quality: ${contextData.qualityCount || 0}
+- Production: ${contextData.productionCount || 0}
+- R&D: ${contextData.rndCount || 0}`;
     }
 
     const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {

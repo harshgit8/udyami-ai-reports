@@ -5,7 +5,8 @@ import {
   ClipboardCheck, 
   Factory, 
   FlaskConical,
-  LayoutDashboard
+  LayoutDashboard,
+  MessageSquare
 } from "lucide-react";
 
 interface SidebarProps {
@@ -14,6 +15,7 @@ interface SidebarProps {
 }
 
 const menuItems = [
+  { id: 'chat', label: 'AI Chat', icon: MessageSquare },
   { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { id: 'quotations', label: 'Quotations', icon: FileText },
   { id: 'invoices', label: 'Invoices', icon: Receipt },

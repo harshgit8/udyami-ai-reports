@@ -4,16 +4,19 @@ import { DocumentCard } from "./DocumentCard";
 import { FilterBar } from "./FilterBar";
 import { PDFPreview } from "./PDFPreview";
 import { PDFContent } from "./PDFContent";
+import type { Quotation } from "@/types/documents";
+
+type WithId<T> = Partial<T> & { id: string };
 
 interface QuotationListProps {
-  quotations: any[];
+  quotations: Array<WithId<Quotation>>;
 }
 
 export function QuotationList({ quotations }: QuotationListProps) {
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("");
   const [customerFilter, setCustomerFilter] = useState("");
-  const [selectedDoc, setSelectedDoc] = useState<any>(null);
+  const [selectedDoc, setSelectedDoc] = useState<WithId<Quotation> | null>(null);
 
   const customers = useMemo(() => {
     const unique = [...new Set(quotations.map(q => q.customer))];

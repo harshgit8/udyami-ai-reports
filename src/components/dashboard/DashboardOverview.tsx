@@ -10,13 +10,16 @@ import {
   AlertTriangle,
   CheckCircle
 } from "lucide-react";
+import type { Invoice, ProductionOrder, QualityInspection, Quotation, RnDFormulation } from "@/types/documents";
+
+type WithId<T> = Partial<T> & { id: string };
 
 interface DashboardOverviewProps {
-  quotations: any[];
-  invoices: any[];
-  qualityReports: any[];
-  productionOrders: any[];
-  rndFormulations: any[];
+  quotations: Array<WithId<Quotation>>;
+  invoices: Array<WithId<Invoice>>;
+  qualityReports: Array<WithId<QualityInspection>>;
+  productionOrders: Array<WithId<ProductionOrder>>;
+  rndFormulations: Array<WithId<RnDFormulation>>;
   onNavigate: (tab: string) => void;
 }
 

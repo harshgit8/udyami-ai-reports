@@ -1,6 +1,8 @@
+import type { Invoice, ProductionOrder, QualityInspection, Quotation, RnDFormulation } from "@/types/documents";
+
 interface PDFContentProps {
   type: 'quotation' | 'invoice' | 'quality' | 'production' | 'rnd';
-  data: any;
+  data: unknown;
 }
 
 // Company Header Component
@@ -28,7 +30,7 @@ function CompanyHeader() {
 }
 
 // Quotation PDF Content
-function QuotationContent({ data }: { data: any }) {
+function QuotationContent({ data }: { data: Partial<Quotation> }) {
   return (
     <div className="text-sm">
       <CompanyHeader />
@@ -101,7 +103,7 @@ function QuotationContent({ data }: { data: any }) {
 }
 
 // Invoice PDF Content
-function InvoiceContent({ data }: { data: any }) {
+function InvoiceContent({ data }: { data: Partial<Invoice> }) {
   return (
     <div className="text-sm">
       <CompanyHeader />
@@ -171,7 +173,7 @@ function InvoiceContent({ data }: { data: any }) {
 }
 
 // Quality Inspection PDF Content
-function QualityContent({ data }: { data: any }) {
+function QualityContent({ data }: { data: Partial<QualityInspection> }) {
   return (
     <div className="text-sm">
       <CompanyHeader />
@@ -214,7 +216,7 @@ function QualityContent({ data }: { data: any }) {
 }
 
 // Production Report PDF Content
-function ProductionContent({ data }: { data: any }) {
+function ProductionContent({ data }: { data: Partial<ProductionOrder> }) {
   return (
     <div className="text-sm">
       <CompanyHeader />
@@ -254,7 +256,7 @@ function ProductionContent({ data }: { data: any }) {
 }
 
 // R&D Formulation PDF Content
-function RnDContent({ data }: { data: any }) {
+function RnDContent({ data }: { data: Partial<RnDFormulation> }) {
   return (
     <div className="text-sm">
       <CompanyHeader />
@@ -290,17 +292,20 @@ function RnDContent({ data }: { data: any }) {
 }
 
 export function PDFContent({ type, data }: PDFContentProps) {
+  const typed = data as Partial<
+    Quotation | Invoice | QualityInspection | ProductionOrder | RnDFormulation
+  >;
   switch (type) {
     case 'quotation':
-      return <QuotationContent data={data} />;
+      return <QuotationContent data={typed as Partial<Quotation>} />;
     case 'invoice':
-      return <InvoiceContent data={data} />;
+      return <InvoiceContent data={typed as Partial<Invoice>} />;
     case 'quality':
-      return <QualityContent data={data} />;
+      return <QualityContent data={typed as Partial<QualityInspection>} />;
     case 'production':
-      return <ProductionContent data={data} />;
+      return <ProductionContent data={typed as Partial<ProductionOrder>} />;
     case 'rnd':
-      return <RnDContent data={data} />;
+      return <RnDContent data={typed as Partial<RnDFormulation>} />;
     default:
       return <div>Unknown document type</div>;
   }

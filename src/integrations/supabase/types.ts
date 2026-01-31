@@ -14,7 +14,72 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      audit_logs: {
+        Row: {
+          id: string
+          action: string
+          entity: string
+          entity_id: string | null
+          payload: Json
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          action: string
+          entity: string
+          entity_id?: string | null
+          payload?: Json
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          action?: string
+          entity?: string
+          entity_id?: string | null
+          payload?: Json
+          created_at?: string
+        }
+        Relationships: []
+      }
+      documents: {
+        Row: {
+          id: string
+          type: "quotation" | "invoice" | "quality" | "production" | "rnd"
+          external_id: string | null
+          customer: string | null
+          status: string | null
+          total: number | null
+          data: Json
+          markdown: string | null
+          created_at: string
+          updated_at: string | null
+        }
+        Insert: {
+          id?: string
+          type: "quotation" | "invoice" | "quality" | "production" | "rnd"
+          external_id?: string | null
+          customer?: string | null
+          status?: string | null
+          total?: number | null
+          data?: Json
+          markdown?: string | null
+          created_at?: string
+          updated_at?: string | null
+        }
+        Update: {
+          id?: string
+          type?: "quotation" | "invoice" | "quality" | "production" | "rnd"
+          external_id?: string | null
+          customer?: string | null
+          status?: string | null
+          total?: number | null
+          data?: Json
+          markdown?: string | null
+          created_at?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

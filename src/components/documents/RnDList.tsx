@@ -4,16 +4,19 @@ import { DocumentCard } from "./DocumentCard";
 import { FilterBar } from "./FilterBar";
 import { PDFPreview } from "./PDFPreview";
 import { PDFContent } from "./PDFContent";
+import type { RnDFormulation } from "@/types/documents";
+
+type WithId<T> = Partial<T> & { id: string };
 
 interface RnDListProps {
-  formulations: any[];
+  formulations: Array<WithId<RnDFormulation>>;
 }
 
 export function RnDList({ formulations }: RnDListProps) {
   const [search, setSearch] = useState("");
   const [readinessFilter, setReadinessFilter] = useState("");
   const [applicationFilter, setApplicationFilter] = useState("");
-  const [selectedDoc, setSelectedDoc] = useState<any>(null);
+  const [selectedDoc, setSelectedDoc] = useState<WithId<RnDFormulation> | null>(null);
 
   const applications = useMemo(() => {
     const unique = [...new Set(formulations.map(f => f.application))];

@@ -1,0 +1,19 @@
+Tables (CSV → document type):
+  Orders - Quotation.csv      → quotation requests (Quote Request ID)
+  Orders - QuotationResult.csv → quotations (Quote ID, links to Request ID)
+  Orders - Invoice.csv        → invoice requests (Invoice Request ID, Quote ID, Order ID)
+  Orders - InvoiceResult.csv  → invoices (Invoice Number, Request ID, Order ID)
+  Orders - Quality.csv        → batch inspections (Batch ID, Product Type)
+  Orders - QualityResult.csv  → quality results (Inspection ID, Batch ID, Decision)
+  Orders - ProductionResult.csv → production orders (Order ID, Machine, Decision)
+  Production.csv              → orders (Order ID, Customer, Due Date)
+  Orders - RnD.csv           → R&D requests (Request ID, Application)
+  Orders - RnDResult.csv     → R&D formulations (Formulation ID, Request ID)
+
+Relationships:
+  QuotationResult.Quote ID → Quotation.Quote Request ID (QR001 etc)
+  InvoiceResult.Request ID → Invoice.Invoice Request ID
+  InvoiceResult.Order ID, Quote ID → Order / Quotation
+  QualityResult.Batch ID → Quality.Batch ID
+  ProductionResult.Order ID → Production.Order ID
+  RnDResult.Request ID → RnD.Request ID

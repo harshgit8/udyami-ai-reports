@@ -4,16 +4,19 @@ import { DocumentCard } from "./DocumentCard";
 import { FilterBar } from "./FilterBar";
 import { PDFPreview } from "./PDFPreview";
 import { PDFContent } from "./PDFContent";
+import type { QualityInspection } from "@/types/documents";
+
+type WithId<T> = Partial<T> & { id: string };
 
 interface QualityListProps {
-  reports: any[];
+  reports: Array<WithId<QualityInspection>>;
 }
 
 export function QualityList({ reports }: QualityListProps) {
   const [search, setSearch] = useState("");
   const [decisionFilter, setDecisionFilter] = useState("");
   const [productFilter, setProductFilter] = useState("");
-  const [selectedDoc, setSelectedDoc] = useState<any>(null);
+  const [selectedDoc, setSelectedDoc] = useState<WithId<QualityInspection> | null>(null);
 
   const products = useMemo(() => {
     const unique = [...new Set(reports.map(r => r.productType))];

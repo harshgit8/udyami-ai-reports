@@ -1,4 +1,7 @@
 import { supabase } from "@/integrations/supabase/client";
+import type { Invoice, ProductionOrder, QualityInspection, Quotation, RnDFormulation } from "@/types/documents";
+
+type WithId<T> = Partial<T> & { id: string; rawMarkdown: string };
 
 interface SheetData {
   values?: string[][];
@@ -61,8 +64,8 @@ export async function appendToSheet(values: string[][], sheetName: string = 'She
 }
 
 // Parse markdown quotation into structured data
-export function parseQuotationMarkdown(markdown: string): any[] {
-  const quotations: any[] = [];
+export function parseQuotationMarkdown(markdown: string): Array<WithId<Quotation>> {
+  const quotations: Array<WithId<Quotation>> = [];
   const sections = markdown.split('================================================================================');
   
   sections.forEach((section, index) => {
@@ -103,8 +106,8 @@ export function parseQuotationMarkdown(markdown: string): any[] {
 }
 
 // Parse markdown invoice into structured data
-export function parseInvoiceMarkdown(markdown: string): any[] {
-  const invoices: any[] = [];
+export function parseInvoiceMarkdown(markdown: string): Array<WithId<Invoice>> {
+  const invoices: Array<WithId<Invoice>> = [];
   const sections = markdown.split('================================================================================');
   
   sections.forEach((section, index) => {
@@ -141,8 +144,8 @@ export function parseInvoiceMarkdown(markdown: string): any[] {
 }
 
 // Parse markdown quality inspection into structured data
-export function parseQualityMarkdown(markdown: string): any[] {
-  const inspections: any[] = [];
+export function parseQualityMarkdown(markdown: string): Array<WithId<QualityInspection>> {
+  const inspections: Array<WithId<QualityInspection>> = [];
   const sections = markdown.split('================================================================================');
   
   sections.forEach((section, index) => {
@@ -179,8 +182,8 @@ export function parseQualityMarkdown(markdown: string): any[] {
 }
 
 // Parse markdown production report into structured data  
-export function parseProductionMarkdown(markdown: string): any[] {
-  const orders: any[] = [];
+export function parseProductionMarkdown(markdown: string): Array<WithId<ProductionOrder>> {
+  const orders: Array<WithId<ProductionOrder>> = [];
   const sections = markdown.split(/### (?:✅|⚠️|❌) Order /);
   
   sections.forEach((section, index) => {
@@ -217,8 +220,8 @@ export function parseProductionMarkdown(markdown: string): any[] {
 }
 
 // Parse markdown R&D formulation into structured data
-export function parseRnDMarkdown(markdown: string): any[] {
-  const formulations: any[] = [];
+export function parseRnDMarkdown(markdown: string): Array<WithId<RnDFormulation>> {
+  const formulations: Array<WithId<RnDFormulation>> = [];
   const sections = markdown.split('================================================================================');
   
   sections.forEach((section, index) => {

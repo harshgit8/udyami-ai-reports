@@ -4,16 +4,19 @@ import { DocumentCard } from "./DocumentCard";
 import { FilterBar } from "./FilterBar";
 import { PDFPreview } from "./PDFPreview";
 import { PDFContent } from "./PDFContent";
+import type { Invoice } from "@/types/documents";
+
+type WithId<T> = Partial<T> & { id: string };
 
 interface InvoiceListProps {
-  invoices: any[];
+  invoices: Array<WithId<Invoice>>;
 }
 
 export function InvoiceList({ invoices }: InvoiceListProps) {
   const [search, setSearch] = useState("");
   const [riskFilter, setRiskFilter] = useState("");
   const [customerFilter, setCustomerFilter] = useState("");
-  const [selectedDoc, setSelectedDoc] = useState<any>(null);
+  const [selectedDoc, setSelectedDoc] = useState<WithId<Invoice> | null>(null);
 
   const customers = useMemo(() => {
     const unique = [...new Set(invoices.map(i => i.customer))];
