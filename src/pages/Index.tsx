@@ -111,7 +111,7 @@ const Index = () => {
       <Header />
       <div className="flex flex-1 overflow-hidden">
         <Sidebar activeTab={activeTab} onTabChange={setActiveTab} />
-        <main className="flex-1 p-3 sm:p-4 md:p-6 overflow-y-auto h-[calc(100vh-49px)]">{renderContent()}</main>
+        <main className="flex-1 p-3 sm:p-4 md:p-6 pb-20 sm:pb-4 md:pb-6 overflow-y-auto h-[calc(100vh-49px)]">{renderContent()}</main>
       </div>
     </div>
   );
