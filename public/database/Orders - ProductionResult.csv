@@ -1,0 +1,1209 @@
+Order ID,Decision,Risk Score,Reason,Machine,Start Time,End Time
+ORD-001,PROCEED,0,All constraints satisfied,M3,2026-02-01T01:38:07,2026-02-01T06:38:07
+ORD-002,PROCEED,0,All constraints satisfied,M2,2026-02-01T08:03:19,2026-02-01T11:03:19
+ORD-003,PROCEED,0,All constraints satisfied,M2,2026-01-31T17:18:19,2026-01-31T23:33:19
+ORD-004,PROCEED,0,All constraints satisfied,M3,2026-02-02T00:38:07,2026-02-02T10:38:07
+ORD-005,PROCEED,0,All constraints satisfied,M2,2026-02-01T01:33:19,2026-02-01T06:03:19
+ORD-006,PROCEED,0,All constraints satisfied,M2,2026-02-01T22:03:19,2026-02-02T03:03:19
+ORD-007,PROCEED,0,All constraints satisfied,M3,2026-01-31T21:38:07,2026-02-01T00:08:07
+ORD-008,PROCEED,0,All constraints satisfied,M2,2026-02-01T13:03:19,2026-02-01T21:03:19
+ORD-009,PROCEED,0,All constraints satisfied,M2,2026-02-07T13:12:55,2026-02-07T16:12:55
+ORD-010,PROCEED,0,All constraints satisfied,M2,2026-02-04T19:08:07,2026-02-04T21:38:07
+ORD-011,PROCEED,0,All constraints satisfied,M2,2026-02-05T09:38:07,2026-02-05T12:08:07
+ORD-012,PROCEED,0,All constraints satisfied,M2,2026-02-08T14:48:19,2026-02-08T16:53:07
+ORD-013,PROCEED,0,All constraints satisfied,M3,2026-02-05T16:38:07,2026-02-05T19:38:07
+ORD-014,DELAY,7,Material shortages: aluminum,,,
+ORD-015,PROCEED,0,All constraints satisfied,M3,2026-02-03T01:38:07,2026-02-03T04:08:07
+ORD-016,PROCEED,1,All constraints satisfied,M2,2026-01-31T12:08:07,2026-01-31T16:18:19
+ORD-017,DELAY,8,Insufficient time to meet deadline (slack: -25.3 days),,,
+ORD-018,PROCEED,0,All constraints satisfied,M2,2026-02-03T23:38:07,2026-02-04T05:38:07
+ORD-019,PROCEED,0,All constraints satisfied,M3,2026-02-06T16:38:07,2026-02-07T00:08:07
+ORD-020,PROCEED,0,All constraints satisfied,M3,2026-02-02T16:38:07,2026-02-03T00:08:07
+ORD-021,PROCEED,0,All constraints satisfied,M2,2026-02-09T05:53:07,2026-02-09T09:38:07
+ORD-022,PROCEED,0,All constraints satisfied,M3,2026-02-07T01:38:07,2026-02-07T09:08:07
+ORD-023,PROCEED,0,All constraints satisfied,M2,2026-02-02T18:08:07,2026-02-02T23:08:07
+ORD-024,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-025,PROCEED,0,All constraints satisfied,M3,2026-02-03T10:08:07,2026-02-04T01:08:07
+ORD-026,PROCEED,0,All constraints satisfied,M2,2026-02-06T14:53:07,2026-02-06T23:12:55
+ORD-027,PROCEED,0,All constraints satisfied,M3,2026-02-05T21:08:07,2026-02-05T23:38:07
+ORD-028,PROCEED,0,All constraints satisfied,M3,2026-02-04T02:38:07,2026-02-04T08:38:07
+ORD-029,PROCEED,0,All constraints satisfied,M3,2026-02-01T08:08:07,2026-02-01T23:08:07
+ORD-030,PROCEED,0,All constraints satisfied,M3,2026-02-04T19:38:07,2026-02-05T03:38:07
+ORD-031,PROCEED,0,All constraints satisfied,M2,2026-02-06T06:38:07,2026-02-06T10:48:19
+ORD-032,PROCEED,1,All constraints satisfied,M3,2026-01-31T12:38:07,2026-01-31T20:08:07
+ORD-033,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-034,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-035,PROCEED,0,All constraints satisfied,M2,2026-02-03T04:38:07,2026-02-03T09:38:07
+ORD-036,PROCEED,0,All constraints satisfied,M2,2026-02-02T04:03:19,2026-02-02T06:08:07
+ORD-037,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-038,PROCEED,0,All constraints satisfied,M2,2026-02-03T11:38:07,2026-02-03T21:38:07
+ORD-039,PROCEED,0,All constraints satisfied,M2,2026-02-05T23:38:07,2026-02-06T05:38:07
+ORD-040,PROCEED,0,All constraints satisfied,M3,2026-02-06T01:08:07,2026-02-06T03:38:07
+ORD-041,PROCEED,0,All constraints satisfied,M2,2026-02-04T12:38:07,2026-02-04T17:08:07
+ORD-042,PROCEED,0,All constraints satisfied,M3,2026-02-04T10:08:07,2026-02-04T18:08:07
+ORD-043,PROCEED,0,All constraints satisfied,M2,2026-02-03T01:08:07,2026-02-03T03:38:07
+ORD-044,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-045,PROCEED,0,All constraints satisfied,M2,2026-02-07T23:23:07,2026-02-08T03:53:07
+ORD-046,PROCEED,0,All constraints satisfied,M2,2026-02-02T08:08:07,2026-02-02T16:08:07
+ORD-047,PROCEED,0,All constraints satisfied,M2,2026-02-08T18:53:07,2026-02-09T04:53:07
+ORD-048,PROCEED,0,All constraints satisfied,M3,2026-02-05T05:08:07,2026-02-05T15:08:07
+ORD-049,PROCEED,0,All constraints satisfied,M3,2026-02-03T05:38:07,2026-02-03T08:38:07
+ORD-050,DELAY,7,Material shortages: aluminum,,,
+ORD-051,PROCEED,0,All constraints satisfied,M2,2026-02-06T11:48:19,2026-02-06T13:53:07
+ORD-052,PROCEED,0,All constraints satisfied,M2,2026-02-08T09:38:07,2026-02-08T13:48:19
+ORD-053,DELAY,7,Material shortages: aluminum,,,
+ORD-054,DELAY,7,Material shortages: aluminum,,,
+ORD-055,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-056,DELAY,8,Insufficient time to meet deadline (slack: -22.6 days),,,
+ORD-057,PROCEED,0,All constraints satisfied,M2,2026-02-08T04:53:07,2026-02-08T08:38:07
+ORD-058,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-059,DELAY,7,Material shortages: aluminum,,,
+ORD-060,PROCEED,0,All constraints satisfied,M2,2026-02-04T23:38:07,2026-02-05T07:38:07
+ORD-061,DELAY,8,Insufficient time to meet deadline (slack: -15.8 days),,,
+ORD-062,PROCEED,0,All constraints satisfied,M2,2026-02-04T07:38:07,2026-02-04T10:38:07
+ORD-063,PROCEED,0,All constraints satisfied,M3,2026-02-08T03:08:07,2026-02-08T05:38:07
+ORD-064,PROCEED,0,All constraints satisfied,M2,2026-02-05T14:08:07,2026-02-05T21:38:07
+ORD-065,PROCEED,0,All constraints satisfied,M2,2026-02-07T17:12:55,2026-02-07T21:23:07
+ORD-066,PROCEED,0,All constraints satisfied,M3,2026-02-06T05:08:07,2026-02-06T15:08:07
+ORD-067,PROCEED,0,All constraints satisfied,M3,2026-02-07T10:38:07,2026-02-08T01:38:07
+ORD-068,PROCEED,0,All constraints satisfied,M3,2026-02-02T12:08:07,2026-02-02T15:08:07
+ORD-069,PROCEED,0,All constraints satisfied,M2,2026-02-07T01:12:55,2026-02-07T11:12:55
+ORD-070,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-071,PROCEED,0,All constraints satisfied,M1,2027-02-25T19:52:56,2027-02-26T03:22:56
+ORD-072,PROCEED,0,All constraints satisfied,M1,2026-05-15T23:36:08,2026-05-16T09:06:08
+ORD-073,PROCEED,0,All constraints satisfied,M1,2026-11-13T22:58:56,2026-11-14T03:58:56
+ORD-074,PROCEED,0,All constraints satisfied,M3,2027-01-26T03:08:32,2027-01-26T06:38:32
+ORD-075,DELAY,7,Material shortages: aluminum,,,
+ORD-076,DELAY,7,Material shortages: aluminum,,,
+ORD-077,PROCEED,0,All constraints satisfied,M3,2026-04-06T17:51:08,2026-04-06T22:36:08
+ORD-078,PROCEED,0,All constraints satisfied,M3,2026-10-03T09:18:44,2026-10-03T12:23:32
+ORD-079,PROCEED,0,All constraints satisfied,M1,2026-12-04T11:03:44,2026-12-04T17:33:44
+ORD-080,PROCEED,0,All constraints satisfied,M1,2026-10-05T04:53:32,2026-10-05T08:53:32
+ORD-081,PROCEED,0,All constraints satisfied,M1,2027-01-02T16:43:20,2027-01-02T23:43:20
+ORD-082,PROCEED,0,All constraints satisfied,M3,2026-12-25T22:42:44,2026-12-26T03:52:56
+ORD-083,PROCEED,0,All constraints satisfied,M1,2026-06-28T02:31:20,2026-06-28T12:01:20
+ORD-084,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-085,PROCEED,0,All constraints satisfied,M1,2026-11-27T10:08:32,2026-11-27T16:38:32
+ORD-086,PROCEED,0,All constraints satisfied,M1,2026-12-16T10:38:32,2026-12-16T20:08:32
+ORD-087,PROCEED,0,All constraints satisfied,M3,2026-07-25T15:16:56,2026-07-25T20:27:08
+ORD-088,PROCEED,0,All constraints satisfied,M1,2026-12-27T20:03:08,2026-12-28T06:03:08
+ORD-089,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-090,PROCEED,0,All constraints satisfied,M1,2026-09-03T08:08:32,2026-09-03T17:38:32
+ORD-091,PROCEED,0,All constraints satisfied,M1,2026-07-26T11:31:56,2026-07-26T19:31:56
+ORD-092,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-093,PROCEED,0,All constraints satisfied,M3,2026-06-06T23:01:20,2026-06-07T04:11:32
+ORD-094,PROCEED,0,All constraints satisfied,M1,2026-07-29T16:01:56,2026-07-30T04:01:56
+ORD-095,PROCEED,0,All constraints satisfied,M3,2026-07-23T15:16:56,2026-07-24T00:36:44
+ORD-096,PROCEED,0,All constraints satisfied,M1,2026-12-22T18:07:56,2026-12-23T00:37:56
+ORD-097,PROCEED,0,All constraints satisfied,M3,2026-07-26T19:31:56,2026-07-27T01:31:56
+ORD-098,PROCEED,0,All constraints satisfied,M1,2026-10-18T10:43:56,2026-10-18T20:13:56
+ORD-099,PROCEED,0,All constraints satisfied,M3,2027-02-14T12:08:32,2027-02-14T16:53:32
+ORD-100,PROCEED,0,All constraints satisfied,M1,2026-06-01T21:56:32,2026-06-02T09:26:32
+ORD-101,PROCEED,0,All constraints satisfied,M1,2026-08-26T03:38:32,2026-08-26T12:38:32
+ORD-102,PROCEED,0,All constraints satisfied,M1,2026-12-10T11:38:32,2026-12-10T16:08:32
+ORD-103,PROCEED,0,All constraints satisfied,M3,2026-07-14T15:27:08,2026-07-14T20:12:08
+ORD-104,PROCEED,0,All constraints satisfied,M1,2026-05-12T07:06:08,2026-05-12T12:06:08
+ORD-105,PROCEED,0,All constraints satisfied,M1,2026-12-09T07:38:32,2026-12-09T19:38:32
+ORD-106,DELAY,8,Insufficient time to meet deadline (slack: -21.28 days),,,
+ORD-107,PROCEED,0,All constraints satisfied,M1,2026-07-30T04:01:56,2026-07-30T13:31:56
+ORD-108,PROCEED,0,All constraints satisfied,M3,2027-01-27T04:08:32,2027-01-27T07:13:20
+ORD-109,PROCEED,0,All constraints satisfied,M1,2026-07-10T23:37:20,2026-07-11T08:37:20
+ORD-110,PROCEED,0,All constraints satisfied,M1,2026-07-20T08:12:08,2026-07-20T15:12:08
+ORD-111,PROCEED,0,All constraints satisfied,M1,2026-05-11T17:06:08,2026-05-11T21:36:08
+ORD-112,PROCEED,0,All constraints satisfied,M1,2026-11-07T19:04:20,2026-11-08T01:34:20
+ORD-113,DELAY,8,Insufficient time to meet deadline (slack: -25.21 days),,,
+ORD-114,PROCEED,0,All constraints satisfied,M1,2027-02-03T18:48:08,2027-02-04T01:48:08
+ORD-115,PROCEED,0,All constraints satisfied,M1,2026-09-08T12:38:32,2026-09-09T05:08:32
+ORD-116,PROCEED,0,All constraints satisfied,M1,2027-03-12T09:22:56,2027-03-12T18:52:56
+ORD-117,DELAY,8,Insufficient time to meet deadline (slack: -7.1 days),,,
+ORD-118,PROCEED,0,All constraints satisfied,M1,2026-05-04T12:01:20,2026-05-04T21:31:20
+ORD-119,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-120,PROCEED,0,All constraints satisfied,M1,2026-11-17T12:13:20,2026-11-17T19:43:20
+ORD-121,PROCEED,0,All constraints satisfied,M3,2026-03-13T16:01:20,2026-03-13T19:31:20
+ORD-122,DELAY,7,Material shortages: aluminum,,,
+ORD-123,DELAY,8,Insufficient time to meet deadline (slack: -26.1 days),,,
+ORD-124,PROCEED,0,All constraints satisfied,M1,2026-05-18T22:06:44,2026-05-19T06:06:44
+ORD-125,PROCEED,0,All constraints satisfied,M3,2027-03-01T10:27:44,2027-03-01T16:27:44
+ORD-126,DELAY,8,Insufficient time to meet deadline (slack: -2.1 days),,,
+ORD-127,PROCEED,0,All constraints satisfied,M3,2026-09-05T12:38:32,2026-09-05T18:38:32
+ORD-128,PROCEED,0,All constraints satisfied,M1,2026-08-18T05:38:32,2026-08-18T11:38:32
+ORD-129,PROCEED,0,All constraints satisfied,M1,2027-01-24T05:58:20,2027-01-24T22:28:20
+ORD-130,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-131,PROCEED,0,All constraints satisfied,M3,2026-10-10T19:13:56,2026-10-11T01:13:56
+ORD-132,PROCEED,0,All constraints satisfied,M1,2026-10-13T05:28:56,2026-10-13T11:58:56
+ORD-133,PROCEED,0,All constraints satisfied,M1,2026-11-04T11:24:08,2026-11-04T20:54:08
+ORD-134,PROCEED,0,All constraints satisfied,M1,2027-01-21T02:03:08,2027-01-21T13:33:08
+ORD-135,PROCEED,0,All constraints satisfied,M1,2026-07-04T04:41:32,2026-07-04T14:11:32
+ORD-136,PROCEED,0,All constraints satisfied,M1,2026-07-31T02:46:56,2026-07-31T09:16:56
+ORD-137,PROCEED,0,All constraints satisfied,M3,2026-10-23T01:13:56,2026-10-23T05:58:56
+ORD-138,PROCEED,0,All constraints satisfied,M1,2026-03-13T19:31:20,2026-03-14T01:31:20
+ORD-139,PROCEED,0,All constraints satisfied,M1,2026-10-18T20:13:56,2026-10-19T12:43:56
+ORD-140,PROCEED,0,All constraints satisfied,M1,2026-08-22T06:08:32,2026-08-22T10:08:32
+ORD-141,PROCEED,0,All constraints satisfied,M1,2026-12-19T23:38:32,2026-12-20T04:38:32
+ORD-142,PROCEED,0,All constraints satisfied,M3,2026-10-14T23:43:56,2026-10-15T05:43:56
+ORD-143,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-144,PROCEED,0,All constraints satisfied,M1,2026-10-16T15:13:56,2026-10-17T00:43:56
+ORD-145,PROCEED,0,All constraints satisfied,M3,2026-05-11T21:36:08,2026-05-12T01:06:08
+ORD-146,PROCEED,0,All constraints satisfied,M1,2027-02-15T05:58:20,2027-02-15T13:28:20
+ORD-147,PROCEED,0,All constraints satisfied,M1,2026-08-14T22:58:20,2026-08-15T06:28:20
+ORD-148,PROCEED,0,All constraints satisfied,M1,2026-06-18T05:31:20,2026-06-18T17:31:20
+ORD-149,PROCEED,0,All constraints satisfied,M3,2027-02-03T03:03:08,2027-02-03T07:48:08
+ORD-150,PROCEED,0,All constraints satisfied,M1,2027-01-16T02:52:56,2027-01-16T14:52:56
+ORD-151,PROCEED,0,All constraints satisfied,M1,2026-05-14T13:36:08,2026-05-14T18:06:08
+ORD-152,PROCEED,0,All constraints satisfied,M3,2026-04-30T10:10:56,2026-04-30T17:51:08
+ORD-153,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-154,PROCEED,0,All constraints satisfied,M3,2027-02-10T04:33:08,2027-02-10T09:43:20
+ORD-155,PROCEED,0,All constraints satisfied,M1,2026-08-21T21:08:32,2026-08-22T06:08:32
+ORD-156,PROCEED,0,All constraints satisfied,M1,2026-07-31T09:16:56,2026-07-31T22:46:56
+ORD-157,PROCEED,0,All constraints satisfied,M3,2026-09-29T13:53:32,2026-09-29T18:38:32
+ORD-158,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-159,DELAY,7,Material shortages: aluminum,,,
+ORD-160,PROCEED,0,All constraints satisfied,M1,2026-12-24T21:27:44,2026-12-25T02:27:44
+ORD-161,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-162,PROCEED,0,All constraints satisfied,M3,2026-08-02T16:16:56,2026-08-02T23:57:08
+ORD-163,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-164,PROCEED,0,All constraints satisfied,M1,2026-08-15T06:28:20,2026-08-15T19:58:20
+ORD-165,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-166,PROCEED,0,All constraints satisfied,M3,2027-03-03T11:12:44,2027-03-03T15:57:44
+ORD-167,PROCEED,0,All constraints satisfied,M3,2027-01-11T04:37:56,2027-01-11T12:18:08
+ORD-168,PROCEED,0,All constraints satisfied,M1,2026-09-07T09:08:32,2026-09-07T22:38:32
+ORD-169,PROCEED,0,All constraints satisfied,M1,2027-03-06T11:57:44,2027-03-06T23:27:44
+ORD-170,PROCEED,0,All constraints satisfied,M1,2026-05-25T08:16:56,2026-05-25T17:46:56
+ORD-171,PROCEED,0,All constraints satisfied,M1,2027-02-15T13:28:20,2027-02-15T17:58:20
+ORD-172,PROCEED,0,All constraints satisfied,M3,2026-12-25T02:27:44,2026-12-25T07:12:44
+ORD-173,PROCEED,0,All constraints satisfied,M1,2026-11-07T11:04:20,2026-11-07T15:04:20
+ORD-174,PROCEED,0,All constraints satisfied,M1,2027-02-12T21:58:20,2027-02-13T11:28:20
+ORD-175,PROCEED,0,All constraints satisfied,M3,2027-01-04T12:28:20,2027-01-04T17:13:20
+ORD-176,PROCEED,0,All constraints satisfied,M1,2026-07-20T15:12:08,2026-07-21T03:12:08
+ORD-177,PROCEED,0,All constraints satisfied,M1,2027-03-11T06:52:56,2027-03-11T16:22:56
+ORD-178,PROCEED,0,All constraints satisfied,M1,2027-01-28T04:43:20,2027-01-28T14:43:20
+ORD-179,PROCEED,0,All constraints satisfied,M1,2026-09-18T14:13:20,2026-09-18T23:13:20
+ORD-180,PROCEED,0,All constraints satisfied,M3,2026-03-16T16:25:56,2026-03-16T22:25:56
+ORD-181,PROCEED,0,All constraints satisfied,M1,2026-08-09T11:52:56,2026-08-10T01:22:56
+ORD-182,PROCEED,0,All constraints satisfied,M1,2026-10-12T14:28:56,2026-10-12T19:28:56
+ORD-183,PROCEED,0,All constraints satisfied,M3,2026-05-03T19:16:20,2026-05-04T02:31:20
+ORD-184,PROCEED,0,All constraints satisfied,M1,2026-12-18T21:08:32,2026-12-19T06:38:32
+ORD-185,PROCEED,0,All constraints satisfied,M3,2026-04-22T19:00:44,2026-04-23T00:10:56
+ORD-186,PROCEED,0,All constraints satisfied,M1,2026-04-21T21:00:44,2026-04-22T02:00:44
+ORD-187,PROCEED,0,All constraints satisfied,M3,2026-11-24T02:43:20,2026-11-24T08:43:20
+ORD-188,PROCEED,0,All constraints satisfied,M1,2026-11-11T21:04:20,2026-11-12T06:34:20
+ORD-189,PROCEED,0,All constraints satisfied,M1,2026-04-19T21:55:56,2026-04-20T05:55:56
+ORD-190,PROCEED,0,All constraints satisfied,M1,2026-12-10T16:08:32,2026-12-11T03:38:32
+ORD-191,PROCEED,0,All constraints satisfied,M3,2026-10-26T23:24:08,2026-10-27T02:54:08
+ORD-192,DELAY,8,Insufficient time to meet deadline (slack: -0.12 days),,,
+ORD-193,PROCEED,0,All constraints satisfied,M3,2026-09-29T18:38:32,2026-09-30T03:58:20
+ORD-194,PROCEED,0,All constraints satisfied,M1,2026-04-01T19:55:56,2026-04-02T09:25:56
+ORD-195,DELAY,7,Material shortages: aluminum,,,
+ORD-196,PROCEED,0,All constraints satisfied,M1,2026-06-11T12:41:32,2026-06-11T20:41:32
+ORD-197,DELAY,7,Material shortages: aluminum,,,
+ORD-198,DELAY,8,Insufficient time to meet deadline (slack: -18.31 days),,,
+ORD-199,PROCEED,0,All constraints satisfied,M3,2026-07-04T19:21:44,2026-07-05T00:31:56
+ORD-200,PROCEED,0,All constraints satisfied,M1,2026-10-07T23:33:44,2026-10-08T16:03:44
+ORD-201,PROCEED,0,All constraints satisfied,M1,2026-10-15T10:13:56,2026-10-15T17:13:56
+ORD-202,DELAY,8,Insufficient time to meet deadline (slack: -3.33 days),,,
+ORD-203,PROCEED,0,All constraints satisfied,M1,2026-10-31T05:49:20,2026-10-31T12:19:20
+ORD-204,PROCEED,0,All constraints satisfied,M3,2026-05-01T05:36:08,2026-05-01T09:06:08
+ORD-205,PROCEED,0,All constraints satisfied,M3,2026-03-15T18:51:08,2026-03-16T02:06:08
+ORD-206,PROCEED,0,All constraints satisfied,M3,2026-04-11T16:25:56,2026-04-11T19:55:56
+ORD-207,PROCEED,0,All constraints satisfied,M3,2026-09-09T09:38:32,2026-09-09T12:43:20
+ORD-208,PROCEED,0,All constraints satisfied,M3,2027-01-07T02:13:20,2027-01-07T08:13:20
+ORD-209,PROCEED,0,All constraints satisfied,M3,2026-09-13T03:43:20,2026-09-13T09:43:20
+ORD-210,PROCEED,0,All constraints satisfied,M1,2026-10-07T07:48:44,2026-10-07T12:18:44
+ORD-211,PROCEED,0,All constraints satisfied,M3,2026-10-07T12:18:44,2026-10-07T17:03:44
+ORD-212,PROCEED,0,All constraints satisfied,M3,2026-07-30T13:31:56,2026-07-30T19:31:56
+ORD-213,PROCEED,0,All constraints satisfied,M1,2027-03-21T16:27:44,2027-03-22T05:57:44
+ORD-214,DELAY,7,Material shortages: aluminum,,,
+ORD-215,PROCEED,0,All constraints satisfied,M1,2026-07-16T14:37:20,2026-07-16T21:07:20
+ORD-216,PROCEED,0,All constraints satisfied,M1,2026-05-29T07:06:44,2026-05-29T11:36:44
+ORD-217,PROCEED,0,All constraints satisfied,M1,2026-12-08T03:23:32,2026-12-08T12:53:32
+ORD-218,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-219,PROCEED,0,All constraints satisfied,M1,2027-02-20T02:13:20,2027-02-20T10:13:20
+ORD-220,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-221,PROCEED,0,All constraints satisfied,M3,2026-12-22T05:58:20,2026-12-22T09:03:08
+ORD-222,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-223,DELAY,8,Insufficient time to meet deadline (slack: -11.26 days),,,
+ORD-224,PROCEED,0,All constraints satisfied,M3,2026-06-16T11:11:32,2026-06-16T20:31:20
+ORD-225,PROCEED,0,All constraints satisfied,M1,2027-01-26T06:38:32,2027-01-26T18:38:32
+ORD-226,PROCEED,0,All constraints satisfied,M3,2026-11-16T04:18:44,2026-11-16T07:23:32
+ORD-227,PROCEED,0,All constraints satisfied,M1,2027-02-07T00:43:20,2027-02-07T10:13:20
+ORD-228,DELAY,7,Material shortages: aluminum,,,
+ORD-229,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-230,PROCEED,0,All constraints satisfied,M1,2027-01-11T12:18:08,2027-01-11T18:18:08
+ORD-231,DELAY,7,Material shortages: aluminum,,,
+ORD-232,PROCEED,0,All constraints satisfied,M1,2026-10-21T00:43:56,2026-10-21T07:13:56
+ORD-233,PROCEED,0,All constraints satisfied,M1,2026-12-23T00:37:56,2026-12-23T12:07:56
+ORD-234,PROCEED,3,All constraints satisfied,M3,2026-03-08T11:51:44,2026-03-08T21:11:32
+ORD-235,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-236,PROCEED,0,All constraints satisfied,M1,2026-10-15T17:13:56,2026-10-15T21:43:56
+ORD-237,PROCEED,0,All constraints satisfied,M1,2027-03-16T09:22:56,2027-03-16T13:52:56
+ORD-238,DELAY,8,Insufficient time to meet deadline (slack: -19.16 days),,,
+ORD-239,DELAY,7,Material shortages: aluminum,,,
+ORD-240,PROCEED,0,All constraints satisfied,M1,2026-07-05T16:01:56,2026-07-05T20:01:56
+ORD-241,PROCEED,0,All constraints satisfied,M1,2026-09-14T20:18:08,2026-09-15T01:18:08
+ORD-242,PROCEED,0,All constraints satisfied,M1,2027-02-26T03:22:56,2027-02-26T11:22:56
+ORD-243,PROCEED,0,All constraints satisfied,M1,2026-05-09T21:36:08,2026-05-10T04:06:08
+ORD-244,DELAY,8,Insufficient time to meet deadline (slack: -16.09 days),,,
+ORD-245,PROCEED,0,All constraints satisfied,M1,2027-03-09T06:37:56,2027-03-09T16:37:56
+ORD-246,PROCEED,0,All constraints satisfied,M1,2026-06-28T12:01:20,2026-06-29T00:01:20
+ORD-247,PROCEED,0,All constraints satisfied,M1,2026-06-02T09:26:32,2026-06-02T16:56:32
+ORD-248,PROCEED,0,All constraints satisfied,M1,2026-07-21T14:42:08,2026-07-22T00:42:08
+ORD-249,PROCEED,0,All constraints satisfied,M1,2026-03-30T23:36:08,2026-03-31T04:06:08
+ORD-250,PROCEED,0,All constraints satisfied,M1,2026-03-31T04:06:08,2026-03-31T08:36:08
+ORD-251,DELAY,8,Insufficient time to meet deadline (slack: -11.5 days),,,
+ORD-252,DELAY,7,Material shortages: aluminum,,,
+ORD-253,DELAY,8,Insufficient time to meet deadline (slack: -23.1 days),,,
+ORD-254,DELAY,7,Material shortages: aluminum,,,
+ORD-255,PROCEED,0,All constraints satisfied,M1,2026-03-31T08:36:08,2026-03-31T16:06:08
+ORD-256,PROCEED,0,All constraints satisfied,M1,2027-01-15T09:52:56,2027-01-15T17:52:56
+ORD-257,PROCEED,0,All constraints satisfied,M1,2026-10-19T12:43:56,2026-10-19T22:13:56
+ORD-258,PROCEED,0,All constraints satisfied,M3,2027-01-11T18:18:08,2027-01-12T01:33:08
+ORD-259,PROCEED,0,All constraints satisfied,M1,2026-09-30T03:58:20,2026-09-30T15:58:20
+ORD-260,PROCEED,0,All constraints satisfied,M1,2026-10-04T05:23:32,2026-10-04T10:23:32
+ORD-261,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-262,PROCEED,0,All constraints satisfied,M1,2027-02-27T16:27:44,2027-02-27T23:27:44
+ORD-263,PROCEED,0,All constraints satisfied,M3,2026-06-23T14:31:20,2026-06-23T22:11:32
+ORD-264,PROCEED,0,All constraints satisfied,M3,2026-09-26T22:13:20,2026-09-27T05:53:32
+ORD-265,DELAY,8,Insufficient time to meet deadline (slack: -27.28 days),,,
+ORD-266,PROCEED,0,All constraints satisfied,M1,2026-11-18T07:13:20,2026-11-18T18:43:20
+ORD-267,PROCEED,0,All constraints satisfied,M3,2026-06-03T17:56:32,2026-06-03T22:41:32
+ORD-268,PROCEED,0,All constraints satisfied,M3,2026-10-29T21:54:08,2026-10-30T03:54:08
+ORD-269,PROCEED,0,All constraints satisfied,M1,2027-01-28T14:43:20,2027-01-29T07:13:20
+ORD-270,PROCEED,0,All constraints satisfied,M1,2026-08-19T17:38:32,2026-08-19T21:38:32
+ORD-271,PROCEED,0,All constraints satisfied,M1,2026-10-06T10:08:32,2026-10-06T14:08:32
+ORD-272,PROCEED,0,All constraints satisfied,M1,2026-06-23T22:11:32,2026-06-24T04:41:32
+ORD-273,PROCEED,0,All constraints satisfied,M3,2026-11-17T19:43:20,2026-11-17T23:13:20
+ORD-274,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-275,PROCEED,0,All constraints satisfied,M3,2026-10-02T09:08:32,2026-10-02T15:08:32
+ORD-276,PROCEED,0,All constraints satisfied,M3,2027-02-04T01:48:08,2027-02-04T09:28:20
+ORD-277,PROCEED,0,All constraints satisfied,M3,2027-02-16T20:58:20,2027-02-17T00:03:08
+ORD-278,PROCEED,0,All constraints satisfied,M1,2026-04-17T01:15:44,2026-04-17T07:15:44
+ORD-279,PROCEED,0,All constraints satisfied,M1,2027-02-06T00:28:20,2027-02-06T09:28:20
+ORD-280,DELAY,8,Insufficient time to meet deadline (slack: -18.26 days),,,
+ORD-281,PROCEED,0,All constraints satisfied,M1,2027-02-27T23:27:44,2027-02-28T12:57:44
+ORD-282,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-283,PROCEED,0,All constraints satisfied,M1,2027-03-22T05:57:44,2027-03-22T19:27:44
+ORD-284,DELAY,8,Insufficient time to meet deadline (slack: -20.1 days),,,
+ORD-285,PROCEED,0,All constraints satisfied,M3,2027-01-08T09:18:08,2027-01-08T18:37:56
+ORD-286,PROCEED,0,All constraints satisfied,M1,2027-01-07T08:13:20,2027-01-07T18:13:20
+ORD-287,PROCEED,0,All constraints satisfied,M3,2026-08-14T01:07:56,2026-08-14T08:48:08
+ORD-288,PROCEED,0,All constraints satisfied,M1,2026-05-17T13:56:32,2026-05-18T06:26:32
+ORD-289,PROCEED,0,All constraints satisfied,M1,2027-01-21T13:33:08,2027-01-21T18:33:08
+ORD-290,PROCEED,0,All constraints satisfied,M1,2026-11-25T00:28:20,2026-11-25T16:58:20
+ORD-291,PROCEED,0,All constraints satisfied,M1,2026-07-12T15:57:08,2026-07-12T20:57:08
+ORD-292,PROCEED,0,All constraints satisfied,M1,2027-02-18T17:33:08,2027-02-19T01:33:08
+ORD-293,PROCEED,0,All constraints satisfied,M1,2026-12-23T22:42:44,2026-12-24T04:42:44
+ORD-294,PROCEED,0,All constraints satisfied,M1,2027-03-16T13:52:56,2027-03-17T01:22:56
+ORD-295,PROCEED,0,All constraints satisfied,M1,2026-04-17T11:15:44,2026-04-17T20:15:44
+ORD-296,PROCEED,0,All constraints satisfied,M1,2026-04-03T00:10:56,2026-04-03T05:10:56
+ORD-297,PROCEED,0,All constraints satisfied,M1,2027-02-14T04:38:32,2027-02-14T12:08:32
+ORD-298,PROCEED,0,All constraints satisfied,M1,2026-08-30T07:13:20,2026-08-30T14:43:20
+ORD-299,PROCEED,0,All constraints satisfied,M1,2026-12-17T02:38:32,2026-12-17T09:08:32
+ORD-300,PROCEED,0,All constraints satisfied,M1,2027-02-24T02:33:08,2027-02-24T09:33:08
+ORD-301,PROCEED,0,All constraints satisfied,M3,2026-12-20T17:38:32,2026-12-21T02:58:20
+ORD-302,PROCEED,0,All constraints satisfied,M1,2026-12-17T09:08:32,2026-12-17T15:38:32
+ORD-303,PROCEED,0,All constraints satisfied,M1,2026-12-28T06:03:08,2026-12-28T19:33:08
+ORD-304,DELAY,7,Material shortages: aluminum,,,
+ORD-305,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-306,PROCEED,0,All constraints satisfied,M3,2026-05-19T11:16:56,2026-05-19T20:36:44
+ORD-307,PROCEED,0,All constraints satisfied,M1,2026-07-08T18:37:20,2026-07-09T11:07:20
+ORD-308,PROCEED,0,All constraints satisfied,M1,2026-10-28T07:24:08,2026-10-28T12:24:08
+ORD-309,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-310,PROCEED,0,All constraints satisfied,M1,2026-07-22T00:42:08,2026-07-22T10:12:08
+ORD-311,PROCEED,0,All constraints satisfied,M1,2026-04-24T06:30:44,2026-04-24T16:00:44
+ORD-312,PROCEED,0,All constraints satisfied,M1,2026-10-23T23:58:56,2026-10-24T11:28:56
+ORD-313,PROCEED,0,All constraints satisfied,M3,2026-03-22T07:55:56,2026-03-22T15:10:56
+ORD-314,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-315,PROCEED,0,All constraints satisfied,M1,2026-05-10T04:06:08,2026-05-10T14:06:08
+ORD-316,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-317,PROCEED,0,All constraints satisfied,M3,2026-12-07T07:43:56,2026-12-07T10:48:44
+ORD-318,PROCEED,0,All constraints satisfied,M1,2026-08-06T22:32:32,2026-08-07T10:02:32
+ORD-319,PROCEED,0,All constraints satisfied,M1,2026-04-17T20:15:44,2026-04-18T02:45:44
+ORD-320,PROCEED,0,All constraints satisfied,M3,2027-02-23T00:28:20,2027-02-23T06:28:20
+ORD-321,PROCEED,0,All constraints satisfied,M1,2026-05-30T17:11:32,2026-05-31T03:11:32
+ORD-322,PROCEED,0,All constraints satisfied,M1,2027-03-03T15:57:44,2027-03-03T20:27:44
+ORD-323,PROCEED,0,All constraints satisfied,M3,2026-12-08T12:53:32,2026-12-08T17:38:32
+ORD-324,PROCEED,0,All constraints satisfied,M3,2026-03-11T07:36:44,2026-03-11T10:41:32
+ORD-325,PROCEED,0,All constraints satisfied,M3,2026-06-04T13:16:20,2026-06-04T20:31:20
+ORD-326,PROCEED,0,All constraints satisfied,M1,2026-06-14T11:41:32,2026-06-14T15:41:32
+ORD-327,PROCEED,0,All constraints satisfied,M1,2026-03-12T01:01:20,2026-03-12T10:31:20
+ORD-328,DELAY,8,Insufficient time to meet deadline (slack: -4.19 days),,,
+ORD-329,PROCEED,0,All constraints satisfied,M3,2026-11-18T18:43:20,2026-11-18T22:13:20
+ORD-330,PROCEED,0,All constraints satisfied,M1,2027-03-14T08:52:56,2027-03-14T20:22:56
+ORD-331,PROCEED,0,All constraints satisfied,M3,2026-10-13T11:58:56,2026-10-13T16:43:56
+ORD-332,PROCEED,0,All constraints satisfied,M3,2026-12-07T20:08:32,2026-12-08T03:23:32
+ORD-333,PROCEED,0,All constraints satisfied,M1,2026-07-12T20:57:08,2026-07-13T06:27:08
+ORD-334,PROCEED,0,All constraints satisfied,M1,2026-05-22T17:36:44,2026-05-23T02:36:44
+ORD-335,PROCEED,0,All constraints satisfied,M1,2027-02-07T23:43:20,2027-02-08T09:43:20
+ORD-336,PROCEED,0,All constraints satisfied,M1,2026-04-28T04:51:08,2026-04-28T14:21:08
+ORD-337,PROCEED,0,All constraints satisfied,M3,2026-07-25T20:27:08,2026-07-25T23:31:56
+ORD-338,PROCEED,0,All constraints satisfied,M1,2027-01-12T07:33:08,2027-01-12T16:33:08
+ORD-339,DELAY,8,Insufficient time to meet deadline (slack: -24.25 days),,,
+ORD-340,DELAY,8,Insufficient time to meet deadline (slack: -27.17 days),,,
+ORD-341,PROCEED,0,All constraints satisfied,M3,2027-02-06T09:28:20,2027-02-06T15:28:20
+ORD-342,PROCEED,0,All constraints satisfied,M1,2026-07-21T03:12:08,2026-07-21T07:42:08
+ORD-343,PROCEED,0,All constraints satisfied,M1,2026-08-15T19:58:20,2026-08-16T00:58:20
+ORD-344,DELAY,8,Insufficient time to meet deadline (slack: -15.1 days),,,
+ORD-345,PROCEED,0,All constraints satisfied,M1,2026-03-17T22:15:44,2026-03-18T10:15:44
+ORD-346,PROCEED,0,All constraints satisfied,M1,2026-05-11T06:36:08,2026-05-11T13:06:08
+ORD-347,PROCEED,0,All constraints satisfied,M3,2026-04-02T09:25:56,2026-04-02T16:40:56
+ORD-348,DELAY,8,Insufficient time to meet deadline (slack: -12.17 days),,,
+ORD-349,PROCEED,0,All constraints satisfied,M3,2026-07-11T08:37:20,2026-07-11T17:57:08
+ORD-350,DELAY,7,Material shortages: aluminum,,,
+ORD-351,PROCEED,0,All constraints satisfied,M1,2026-03-12T10:31:20,2026-03-12T22:31:20
+ORD-352,PROCEED,0,All constraints satisfied,M1,2026-12-25T07:12:44,2026-12-25T16:12:44
+ORD-353,PROCEED,0,All constraints satisfied,M3,2026-08-17T04:38:32,2026-08-17T11:53:32
+ORD-354,PROCEED,0,All constraints satisfied,M3,2026-10-27T02:54:08,2026-10-27T06:24:08
+ORD-355,DELAY,7,Material shortages: aluminum,,,
+ORD-356,PROCEED,0,All constraints satisfied,M3,2026-12-22T09:03:08,2026-12-22T12:07:56
+ORD-357,DELAY,7,Material shortages: aluminum,,,
+ORD-358,PROCEED,0,All constraints satisfied,M3,2026-06-29T17:01:20,2026-06-29T21:46:20
+ORD-359,PROCEED,0,All constraints satisfied,M1,2026-05-30T03:11:32,2026-05-30T12:11:32
+ORD-360,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-361,PROCEED,0,All constraints satisfied,M3,2026-03-12T22:31:20,2026-03-13T04:31:20
+ORD-362,PROCEED,0,All constraints satisfied,M3,2026-03-16T22:25:56,2026-03-17T01:30:44
+ORD-363,PROCEED,0,All constraints satisfied,M1,2027-01-23T08:48:08,2027-01-23T15:18:08
+ORD-364,PROCEED,0,All constraints satisfied,M1,2026-10-22T02:43:56,2026-10-22T11:43:56
+ORD-365,PROCEED,0,All constraints satisfied,M1,2026-07-09T11:07:20,2026-07-09T23:07:20
+ORD-366,PROCEED,0,All constraints satisfied,M3,2026-08-13T08:37:56,2026-08-13T12:07:56
+ORD-367,PROCEED,0,All constraints satisfied,M3,2027-03-17T01:22:56,2027-03-17T09:03:08
+ORD-368,PROCEED,0,All constraints satisfied,M1,2026-05-06T07:01:20,2026-05-06T14:31:20
+ORD-369,PROCEED,0,All constraints satisfied,M1,2026-06-10T02:31:20,2026-06-10T09:01:20
+ORD-370,PROCEED,0,All constraints satisfied,M1,2026-05-05T14:01:20,2026-05-05T23:01:20
+ORD-371,PROCEED,0,All constraints satisfied,M1,2026-04-07T20:36:08,2026-04-08T06:36:08
+ORD-372,PROCEED,0,All constraints satisfied,M1,2026-05-09T00:36:08,2026-05-09T10:36:08
+ORD-373,PROCEED,0,All constraints satisfied,M1,2027-01-13T03:33:08,2027-01-13T10:03:08
+ORD-374,PROCEED,0,All constraints satisfied,M1,2027-03-12T18:52:56,2027-03-13T08:22:56
+ORD-375,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-376,PROCEED,0,All constraints satisfied,M1,2026-11-04T20:54:08,2026-11-05T08:24:08
+ORD-377,PROCEED,0,All constraints satisfied,M1,2026-04-23T00:10:56,2026-04-23T09:40:56
+ORD-378,PROCEED,0,All constraints satisfied,M3,2026-09-30T15:58:20,2026-09-30T21:08:32
+ORD-379,DELAY,8,Insufficient time to meet deadline (slack: -9.17 days),,,
+ORD-380,PROCEED,0,All constraints satisfied,M1,2026-07-05T00:31:56,2026-07-05T10:01:56
+ORD-381,PROCEED,0,All constraints satisfied,M3,2027-02-24T09:33:08,2027-02-24T18:52:56
+ORD-382,PROCEED,0,All constraints satisfied,M1,2026-05-20T03:36:44,2026-05-20T10:36:44
+ORD-383,PROCEED,0,All constraints satisfied,M1,2026-12-17T15:38:32,2026-12-18T00:38:32
+ORD-384,PROCEED,0,All constraints satisfied,M1,2027-02-19T01:33:08,2027-02-19T11:33:08
+ORD-385,DELAY,7,Material shortages: aluminum,,,
+ORD-386,PROCEED,0,All constraints satisfied,M3,2026-11-20T05:43:20,2026-11-20T10:28:20
+ORD-387,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-388,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-389,DELAY,8,Insufficient time to meet deadline (slack: -28.19 days),,,
+ORD-390,PROCEED,0,All constraints satisfied,M3,2026-09-14T13:43:20,2026-09-14T17:13:20
+ORD-391,PROCEED,0,All constraints satisfied,M1,2026-07-16T21:07:20,2026-07-17T05:07:20
+ORD-392,PROCEED,0,All constraints satisfied,M1,2026-10-02T15:08:32,2026-10-02T19:08:32
+ORD-393,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-394,PROCEED,0,All constraints satisfied,M1,2026-11-05T08:24:08,2026-11-05T14:24:08
+ORD-395,PROCEED,0,All constraints satisfied,M1,2026-04-03T05:10:56,2026-04-03T18:40:56
+ORD-396,PROCEED,0,All constraints satisfied,M1,2026-08-11T00:07:56,2026-08-11T08:07:56
+ORD-397,PROCEED,0,All constraints satisfied,M1,2026-10-20T18:13:56,2026-10-21T00:43:56
+ORD-398,DELAY,8,Insufficient time to meet deadline (slack: -16.1 days),,,
+ORD-399,DELAY,7,Material shortages: aluminum,,,
+ORD-400,PROCEED,0,All constraints satisfied,M1,2026-12-13T00:08:32,2026-12-13T07:08:32
+ORD-401,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-402,PROCEED,0,All constraints satisfied,M3,2026-11-21T06:28:20,2026-11-21T12:28:20
+ORD-403,PROCEED,0,All constraints satisfied,M1,2026-03-30T04:21:08,2026-03-30T09:21:08
+ORD-404,PROCEED,0,All constraints satisfied,M1,2026-11-14T03:58:56,2026-11-14T08:58:56
+ORD-405,PROCEED,0,All constraints satisfied,M3,2027-03-20T16:22:56,2027-03-20T19:52:56
+ORD-406,PROCEED,0,All constraints satisfied,M3,2026-05-19T06:06:44,2026-05-19T11:16:56
+ORD-407,PROCEED,0,All constraints satisfied,M1,2026-09-05T18:38:32,2026-09-06T00:38:32
+ORD-408,PROCEED,6,All constraints satisfied,M1,2026-03-04T20:21:08,2026-03-05T04:21:08
+ORD-409,DELAY,7,Material shortages: aluminum,,,
+ORD-410,PROCEED,0,All constraints satisfied,M3,2026-11-25T16:58:20,2026-11-25T22:08:32
+ORD-411,PROCEED,0,All constraints satisfied,M1,2026-06-27T17:16:20,2026-06-27T21:46:20
+ORD-412,DELAY,8,Insufficient time to meet deadline (slack: -5.25 days),,,
+ORD-413,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-414,PROCEED,0,All constraints satisfied,M1,2026-12-05T01:13:56,2026-12-05T11:13:56
+ORD-415,DELAY,8,Insufficient time to meet deadline (slack: -31.19 days),,,
+ORD-416,PROCEED,0,All constraints satisfied,M1,2026-12-29T06:33:08,2026-12-29T10:33:08
+ORD-417,PROCEED,0,All constraints satisfied,M1,2026-11-21T12:28:20,2026-11-21T19:28:20
+ORD-418,PROCEED,0,All constraints satisfied,M3,2026-11-12T23:34:20,2026-11-13T02:39:08
+ORD-419,PROCEED,0,All constraints satisfied,M3,2027-01-23T15:18:08,2027-01-23T20:28:20
+ORD-420,PROCEED,0,All constraints satisfied,M3,2026-10-24T11:28:56,2026-10-24T14:33:44
+ORD-421,PROCEED,0,All constraints satisfied,M1,2027-02-01T10:33:08,2027-02-01T22:03:08
+ORD-422,PROCEED,0,All constraints satisfied,M1,2027-02-14T16:53:32,2027-02-15T02:53:32
+ORD-423,PROCEED,3,All constraints satisfied,M3,2026-03-07T14:41:32,2026-03-07T22:21:44
+ORD-424,PROCEED,0,All constraints satisfied,M1,2026-06-20T18:31:20,2026-06-21T08:01:20
+ORD-425,PROCEED,0,All constraints satisfied,M1,2026-10-17T00:43:56,2026-10-17T05:43:56
+ORD-426,DELAY,8,Insufficient time to meet deadline (slack: -29.1 days),,,
+ORD-427,PROCEED,0,All constraints satisfied,M1,2026-04-24T16:00:44,2026-04-24T20:00:44
+ORD-428,PROCEED,0,All constraints satisfied,M1,2026-05-24T16:36:44,2026-05-24T21:06:44
+ORD-429,PROCEED,0,All constraints satisfied,M1,2026-11-21T19:28:20,2026-11-22T03:28:20
+ORD-430,PROCEED,0,All constraints satisfied,M3,2026-10-30T03:54:08,2026-10-30T08:39:08
+ORD-431,PROCEED,0,All constraints satisfied,M1,2026-03-16T02:06:08,2026-03-16T07:06:08
+ORD-432,DELAY,7,Material shortages: aluminum,,,
+ORD-433,PROCEED,0,All constraints satisfied,M1,2026-10-19T22:13:56,2026-10-20T05:43:56
+ORD-434,PROCEED,0,All constraints satisfied,M3,2026-11-16T07:23:32,2026-11-16T16:43:20
+ORD-435,DELAY,7,Material shortages: aluminum,,,
+ORD-436,DELAY,7,Material shortages: aluminum,,,
+ORD-437,PROCEED,0,All constraints satisfied,M1,2026-05-28T16:36:44,2026-05-29T02:06:44
+ORD-438,PROCEED,0,All constraints satisfied,M1,2026-10-28T12:24:08,2026-10-28T16:54:08
+ORD-439,DELAY,8,Insufficient time to meet deadline (slack: -30.21 days),,,
+ORD-440,PROCEED,0,All constraints satisfied,M3,2026-03-16T07:06:08,2026-03-16T16:25:56
+ORD-441,PROCEED,0,All constraints satisfied,M3,2026-07-22T10:12:08,2026-07-22T13:16:56
+ORD-442,PROCEED,0,All constraints satisfied,M1,2027-01-24T22:28:20,2027-01-25T02:28:20
+ORD-443,PROCEED,0,All constraints satisfied,M1,2027-02-09T06:33:08,2027-02-09T11:03:08
+ORD-444,PROCEED,0,All constraints satisfied,M1,2026-05-24T21:06:44,2026-05-25T03:06:44
+ORD-445,DELAY,7,Material shortages: aluminum,,,
+ORD-446,DELAY,8,Insufficient time to meet deadline (slack: -10.19 days),,,
+ORD-447,PROCEED,0,All constraints satisfied,M3,2026-04-13T23:15:44,2026-04-14T04:00:44
+ORD-448,PROCEED,0,All constraints satisfied,M1,2026-09-24T18:43:20,2026-09-24T23:13:20
+ORD-449,PROCEED,0,All constraints satisfied,M3,2026-08-26T12:38:32,2026-08-26T15:43:20
+ORD-450,PROCEED,0,All constraints satisfied,M3,2026-09-21T02:13:20,2026-09-21T11:33:08
+ORD-451,DELAY,8,Insufficient time to meet deadline (slack: -22.19 days),,,
+ORD-452,DELAY,8,Insufficient time to meet deadline (slack: -10.21 days),,,
+ORD-453,PROCEED,6,All constraints satisfied,M1,2026-03-06T01:31:20,2026-03-06T11:01:20
+ORD-454,PROCEED,0,All constraints satisfied,M3,2026-05-02T09:06:08,2026-05-02T14:16:20
+ORD-455,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-456,PROCEED,0,All constraints satisfied,M3,2026-09-30T21:08:32,2026-10-01T03:08:32
+ORD-457,PROCEED,0,All constraints satisfied,M1,2026-10-15T21:43:56,2026-10-16T03:43:56
+ORD-458,DELAY,8,Insufficient time to meet deadline (slack: -11.1 days),,,
+ORD-459,PROCEED,0,All constraints satisfied,M1,2026-08-26T15:43:20,2026-08-27T01:13:20
+ORD-460,PROCEED,0,All constraints satisfied,M3,2026-07-05T20:01:56,2026-07-06T00:46:56
+ORD-461,PROCEED,0,All constraints satisfied,M3,2027-03-20T19:52:56,2027-03-20T22:57:44
+ORD-462,PROCEED,0,All constraints satisfied,M1,2027-03-07T11:27:44,2027-03-07T19:27:44
+ORD-463,PROCEED,0,All constraints satisfied,M3,2026-07-18T08:22:20,2026-07-18T15:37:20
+ORD-464,DELAY,8,Insufficient time to meet deadline (slack: -5.1 days),,,
+ORD-465,PROCEED,0,All constraints satisfied,M3,2026-07-28T15:31:56,2026-07-28T21:31:56
+ORD-466,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-467,PROCEED,0,All constraints satisfied,M3,2026-05-27T16:01:56,2026-05-27T23:16:56
+ORD-468,PROCEED,0,All constraints satisfied,M1,2026-09-27T05:53:32,2026-09-27T13:23:32
+ORD-469,PROCEED,0,All constraints satisfied,M1,2026-06-24T04:41:32,2026-06-24T14:41:32
+ORD-470,PROCEED,0,All constraints satisfied,M1,2027-03-20T22:57:44,2027-03-21T08:57:44
+ORD-471,DELAY,8,Insufficient time to meet deadline (slack: -9.31 days),,,
+ORD-472,PROCEED,0,All constraints satisfied,M1,2026-06-16T20:31:20,2026-06-17T06:01:20
+ORD-473,DELAY,8,Insufficient time to meet deadline (slack: -25.31 days),,,
+ORD-474,PROCEED,0,All constraints satisfied,M1,2027-01-13T10:03:08,2027-01-14T02:33:08
+ORD-475,PROCEED,3,All constraints satisfied,M1,2026-03-07T22:21:44,2026-03-08T02:51:44
+ORD-476,DELAY,8,Insufficient time to meet deadline (slack: -25.62 days),,,
+ORD-477,PROCEED,0,All constraints satisfied,M3,2026-09-11T09:13:20,2026-09-11T14:23:32
+ORD-478,PROCEED,0,All constraints satisfied,M1,2026-09-28T00:53:32,2026-09-28T17:23:32
+ORD-479,PROCEED,0,All constraints satisfied,M3,2026-07-06T00:46:56,2026-07-06T05:57:08
+ORD-480,PROCEED,0,All constraints satisfied,M1,2026-06-11T20:41:32,2026-06-12T01:41:32
+ORD-481,PROCEED,3,All constraints satisfied,M1,2026-03-08T21:11:32,2026-03-09T01:11:32
+ORD-482,PROCEED,0,All constraints satisfied,M1,2026-10-11T01:13:56,2026-10-11T12:43:56
+ORD-483,PROCEED,0,All constraints satisfied,M1,2026-03-19T08:15:44,2026-03-19T16:15:44
+ORD-484,PROCEED,0,All constraints satisfied,M1,2027-01-05T23:13:20,2027-01-06T12:43:20
+ORD-485,DELAY,8,Insufficient time to meet deadline (slack: -26.35 days),,,
+ORD-486,PROCEED,0,All constraints satisfied,M1,2026-06-07T04:11:32,2026-06-07T12:11:32
+ORD-487,DELAY,7,Material shortages: aluminum,,,
+ORD-488,PROCEED,0,All constraints satisfied,M1,2026-06-04T20:31:20,2026-06-05T01:01:20
+ORD-489,PROCEED,0,All constraints satisfied,M1,2026-03-19T16:15:44,2026-03-19T21:15:44
+ORD-490,PROCEED,0,All constraints satisfied,M3,2026-04-29T18:21:08,2026-04-30T03:40:56
+ORD-491,PROCEED,0,All constraints satisfied,M1,2027-03-22T19:27:44,2027-03-23T04:57:44
+ORD-492,PROCEED,0,All constraints satisfied,M1,2027-01-17T21:52:56,2027-01-18T11:22:56
+ORD-493,PROCEED,0,All constraints satisfied,M3,2026-05-16T09:06:08,2026-05-16T16:46:20
+ORD-494,PROCEED,0,All constraints satisfied,M3,2027-02-10T09:43:20,2027-02-10T14:28:20
+ORD-495,PROCEED,0,All constraints satisfied,M1,2026-04-21T04:30:44,2026-04-21T21:00:44
+ORD-496,PROCEED,0,All constraints satisfied,M3,2026-12-21T02:58:20,2026-12-21T12:18:08
+ORD-497,PROCEED,0,All constraints satisfied,M1,2026-05-02T14:16:20,2026-05-02T21:46:20
+ORD-498,PROCEED,0,All constraints satisfied,M1,2027-02-26T11:22:56,2027-02-26T15:52:56
+ORD-499,PROCEED,0,All constraints satisfied,M3,2026-08-08T21:02:32,2026-08-09T02:12:44
+ORD-500,PROCEED,0,All constraints satisfied,M1,2026-04-20T05:55:56,2026-04-20T17:25:56
+ORD-501,PROCEED,0,All constraints satisfied,M1,2026-11-29T10:48:44,2026-11-29T20:18:44
+ORD-502,PROCEED,0,All constraints satisfied,M1,2026-04-12T23:55:56,2026-04-13T09:25:56
+ORD-503,DELAY,8,Insufficient time to meet deadline (slack: -15.28 days),,,
+ORD-504,PROCEED,0,All constraints satisfied,M1,2026-06-02T16:56:32,2026-06-03T04:26:32
+ORD-505,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-506,PROCEED,0,All constraints satisfied,M1,2026-11-08T01:34:20,2026-11-08T05:34:20
+ORD-507,PROCEED,0,All constraints satisfied,M1,2026-12-05T11:13:56,2026-12-05T18:13:56
+ORD-508,PROCEED,0,All constraints satisfied,M1,2027-03-04T07:27:44,2027-03-04T23:57:44
+ORD-509,PROCEED,0,All constraints satisfied,M1,2026-09-16T21:43:20,2026-09-17T14:13:20
+ORD-510,PROCEED,0,All constraints satisfied,M3,2026-06-30T21:40:56,2026-07-01T05:21:08
+ORD-511,PROCEED,0,All constraints satisfied,M1,2026-05-06T14:31:20,2026-05-07T00:01:20
+ORD-512,PROCEED,0,All constraints satisfied,M1,2026-03-26T15:51:08,2026-03-27T03:51:08
+ORD-513,PROCEED,0,All constraints satisfied,M3,2026-05-01T09:06:08,2026-05-01T15:06:08
+ORD-514,PROCEED,0,All constraints satisfied,M1,2026-09-13T09:43:20,2026-09-13T19:13:20
+ORD-515,PROCEED,0,All constraints satisfied,M1,2026-07-13T06:27:08,2026-07-13T15:57:08
+ORD-516,PROCEED,0,All constraints satisfied,M3,2026-12-21T18:48:08,2026-12-21T22:18:08
+ORD-517,PROCEED,0,All constraints satisfied,M1,2027-02-17T19:03:08,2027-02-17T23:33:08
+ORD-518,PROCEED,0,All constraints satisfied,M1,2026-08-31T12:28:20,2026-09-01T00:28:20
+ORD-519,PROCEED,3,All constraints satisfied,M1,2026-03-09T01:11:32,2026-03-09T05:41:32
+ORD-520,PROCEED,0,All constraints satisfied,M3,2026-06-29T21:46:20,2026-06-30T07:06:08
+ORD-521,PROCEED,0,All constraints satisfied,M1,2027-03-19T08:22:56,2027-03-19T16:22:56
+ORD-522,PROCEED,0,All constraints satisfied,M1,2026-04-06T22:36:08,2026-04-07T10:36:08
+ORD-523,PROCEED,0,All constraints satisfied,M1,2027-02-20T10:13:20,2027-02-20T14:13:20
+ORD-524,PROCEED,0,All constraints satisfied,M3,2026-04-27T11:51:08,2026-04-27T21:10:56
+ORD-525,PROCEED,0,All constraints satisfied,M3,2026-10-21T07:13:56,2026-10-21T13:13:56
+ORD-526,PROCEED,0,All constraints satisfied,M3,2026-03-27T03:51:08,2026-03-27T07:21:08
+ORD-527,PROCEED,0,All constraints satisfied,M1,2026-07-25T23:31:56,2026-07-26T11:31:56
+ORD-528,PROCEED,0,All constraints satisfied,M1,2026-07-09T23:07:20,2026-07-10T06:37:20
+ORD-529,PROCEED,0,All constraints satisfied,M3,2026-07-03T04:01:20,2026-07-03T09:11:32
+ORD-530,PROCEED,0,All constraints satisfied,M1,2026-09-22T13:43:20,2026-09-22T20:43:20
+ORD-531,PROCEED,0,All constraints satisfied,M1,2026-09-13T19:13:20,2026-09-14T02:43:20
+ORD-532,PROCEED,0,All constraints satisfied,M3,2026-04-26T13:10:56,2026-04-26T16:40:56
+ORD-533,PROCEED,0,All constraints satisfied,M1,2027-01-12T16:33:08,2027-01-12T21:03:08
+ORD-534,DELAY,8,Insufficient time to meet deadline (slack: -12.19 days),,,
+ORD-535,PROCEED,0,All constraints satisfied,M3,2026-06-25T22:16:20,2026-06-26T05:31:20
+ORD-536,PROCEED,0,All constraints satisfied,M1,2026-08-25T06:08:32,2026-08-25T10:08:32
+ORD-537,PROCEED,0,All constraints satisfied,M3,2026-09-21T11:33:08,2026-09-21T19:13:20
+ORD-538,PROCEED,0,All constraints satisfied,M1,2026-12-29T10:33:08,2026-12-29T18:33:08
+ORD-539,DELAY,8,Insufficient time to meet deadline (slack: -10.1 days),,,
+ORD-540,DELAY,8,Insufficient time to meet deadline (slack: -3.19 days),,,
+ORD-541,PROCEED,0,All constraints satisfied,M1,2026-06-05T01:01:20,2026-06-05T05:31:20
+ORD-542,PROCEED,0,All constraints satisfied,M1,2026-11-29T20:18:44,2026-11-30T08:18:44
+ORD-543,PROCEED,0,All constraints satisfied,M1,2026-03-22T15:10:56,2026-03-22T21:40:56
+ORD-544,PROCEED,0,All constraints satisfied,M1,2026-04-16T10:15:44,2026-04-16T15:15:44
+ORD-545,PROCEED,0,All constraints satisfied,M1,2026-05-01T15:06:08,2026-05-01T23:06:08
+ORD-546,PROCEED,0,All constraints satisfied,M1,2027-02-03T07:48:08,2027-02-03T13:48:08
+ORD-547,PROCEED,0,All constraints satisfied,M1,2026-10-13T16:43:56,2026-10-14T01:43:56
+ORD-548,PROCEED,0,All constraints satisfied,M1,2026-04-08T20:06:08,2026-04-09T00:06:08
+ORD-549,PROCEED,0,All constraints satisfied,M3,2026-07-17T05:07:20,2026-07-17T12:47:32
+ORD-550,PROCEED,0,All constraints satisfied,M1,2026-03-13T04:31:20,2026-03-13T11:01:20
+ORD-551,PROCEED,0,All constraints satisfied,M1,2027-02-08T09:43:20,2027-02-08T21:13:20
+ORD-552,PROCEED,0,All constraints satisfied,M1,2026-05-18T06:26:32,2026-05-18T10:56:32
+ORD-553,PROCEED,0,All constraints satisfied,M1,2026-09-01T13:58:20,2026-09-01T19:58:20
+ORD-554,PROCEED,0,All constraints satisfied,M1,2026-05-11T13:06:08,2026-05-11T17:06:08
+ORD-555,DELAY,8,Insufficient time to meet deadline (slack: -20.21 days),,,
+ORD-556,PROCEED,0,All constraints satisfied,M3,2027-02-19T11:33:08,2027-02-19T16:43:20
+ORD-557,PROCEED,0,All constraints satisfied,M1,2026-03-24T07:51:08,2026-03-24T19:51:08
+ORD-558,PROCEED,0,All constraints satisfied,M1,2026-05-27T23:16:56,2026-05-28T03:46:56
+ORD-559,PROCEED,0,All constraints satisfied,M3,2026-08-09T02:12:44,2026-08-09T07:22:56
+ORD-560,PROCEED,3,All constraints satisfied,M1,2026-03-10T04:51:44,2026-03-10T12:21:44
+ORD-561,PROCEED,0,All constraints satisfied,M3,2026-07-04T14:11:32,2026-07-04T19:21:44
+ORD-562,PROCEED,0,All constraints satisfied,M1,2026-12-11T03:38:32,2026-12-11T10:38:32
+ORD-563,PROCEED,0,All constraints satisfied,M1,2026-07-01T05:21:08,2026-07-01T11:51:08
+ORD-564,PROCEED,0,All constraints satisfied,M3,2027-01-07T18:13:20,2027-01-07T21:18:08
+ORD-565,PROCEED,0,All constraints satisfied,M1,2026-10-30T08:39:08,2026-10-30T22:09:08
+ORD-566,PROCEED,0,All constraints satisfied,M1,2026-06-21T08:01:20,2026-06-21T12:31:20
+ORD-567,DELAY,8,Insufficient time to meet deadline (slack: -3.17 days),,,
+ORD-568,PROCEED,0,All constraints satisfied,M1,2026-11-14T08:58:56,2026-11-15T01:28:56
+ORD-569,DELAY,7,Material shortages: aluminum,,,
+ORD-570,PROCEED,0,All constraints satisfied,M1,2026-03-11T10:41:32,2026-03-11T15:41:32
+ORD-571,PROCEED,0,All constraints satisfied,M3,2026-07-14T20:12:08,2026-07-15T01:22:20
+ORD-572,PROCEED,0,All constraints satisfied,M1,2026-10-14T01:43:56,2026-10-14T13:43:56
+ORD-573,PROCEED,0,All constraints satisfied,M1,2026-04-24T20:00:44,2026-04-25T02:30:44
+ORD-574,PROCEED,0,All constraints satisfied,M3,2026-10-08T16:03:44,2026-10-08T22:03:44
+ORD-575,PROCEED,0,All constraints satisfied,M1,2026-09-12T01:53:32,2026-09-12T18:23:32
+ORD-576,PROCEED,0,All constraints satisfied,M1,2027-01-19T14:22:56,2027-01-20T00:22:56
+ORD-577,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-578,PROCEED,0,All constraints satisfied,M3,2027-03-18T11:03:08,2027-03-18T14:07:56
+ORD-579,PROCEED,0,All constraints satisfied,M1,2026-03-22T21:40:56,2026-03-23T04:10:56
+ORD-580,DELAY,7,Material shortages: aluminum,,,
+ORD-581,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-582,DELAY,7,Material shortages: aluminum,,,
+ORD-583,DELAY,8,Insufficient time to meet deadline (slack: -9.26 days),,,
+ORD-584,PROCEED,0,All constraints satisfied,M1,2026-12-31T23:13:20,2027-01-01T07:13:20
+ORD-585,PROCEED,0,All constraints satisfied,M1,2026-04-02T16:40:56,2026-04-03T00:10:56
+ORD-586,PROCEED,0,All constraints satisfied,M3,2026-05-16T16:46:20,2026-05-16T21:56:32
+ORD-587,PROCEED,0,All constraints satisfied,M1,2026-05-30T12:11:32,2026-05-30T17:11:32
+ORD-588,PROCEED,0,All constraints satisfied,M1,2026-09-11T14:23:32,2026-09-11T19:23:32
+ORD-589,PROCEED,0,All constraints satisfied,M1,2027-01-01T07:13:20,2027-01-01T14:43:20
+ORD-590,DELAY,7,Material shortages: aluminum,,,
+ORD-591,PROCEED,0,All constraints satisfied,M1,2026-09-24T23:13:20,2026-09-25T05:13:20
+ORD-592,PROCEED,0,All constraints satisfied,M1,2026-03-29T08:55:56,2026-03-29T18:25:56
+ORD-593,PROCEED,0,All constraints satisfied,M1,2026-03-14T01:31:20,2026-03-14T07:31:20
+ORD-594,PROCEED,0,All constraints satisfied,M1,2026-08-17T11:53:32,2026-08-17T17:53:32
+ORD-595,PROCEED,0,All constraints satisfied,M1,2026-11-16T16:43:20,2026-11-16T22:43:20
+ORD-596,DELAY,7,Material shortages: aluminum,,,
+ORD-597,PROCEED,0,All constraints satisfied,M1,2026-06-26T05:31:20,2026-06-26T09:31:20
+ORD-598,PROCEED,0,All constraints satisfied,M1,2027-01-14T02:33:08,2027-01-14T08:33:08
+ORD-599,PROCEED,0,All constraints satisfied,M3,2026-09-16T09:18:08,2026-09-16T14:03:08
+ORD-600,PROCEED,0,All constraints satisfied,M3,2027-01-29T23:43:20,2027-01-30T09:03:08
+ORD-601,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-602,PROCEED,0,All constraints satisfied,M1,2026-04-13T09:25:56,2026-04-13T13:55:56
+ORD-603,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-604,PROCEED,0,All constraints satisfied,M1,2026-12-11T10:38:32,2026-12-11T19:38:32
+ORD-605,DELAY,8,Insufficient time to meet deadline (slack: -3.28 days),,,
+ORD-606,PROCEED,0,All constraints satisfied,M1,2026-07-18T15:37:20,2026-07-18T22:37:20
+ORD-607,DELAY,7,Material shortages: aluminum,,,
+ORD-608,PROCEED,0,All constraints satisfied,M3,2026-06-26T09:31:20,2026-06-26T13:01:20
+ORD-609,PROCEED,0,All constraints satisfied,M3,2026-03-30T09:21:08,2026-03-30T14:06:08
+ORD-610,PROCEED,0,All constraints satisfied,M1,2026-12-02T22:03:44,2026-12-03T05:33:44
+ORD-611,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-612,PROCEED,0,All constraints satisfied,M1,2026-04-10T10:06:08,2026-04-10T19:36:08
+ORD-613,PROCEED,0,All constraints satisfied,M1,2026-06-14T15:41:32,2026-06-15T08:11:32
+ORD-614,PROCEED,0,All constraints satisfied,M1,2026-03-13T11:01:20,2026-03-13T16:01:20
+ORD-615,PROCEED,0,All constraints satisfied,M3,2026-07-08T08:57:08,2026-07-08T14:07:20
+ORD-616,PROCEED,0,All constraints satisfied,M1,2026-08-22T10:08:32,2026-08-22T23:38:32
+ORD-617,PROCEED,0,All constraints satisfied,M3,2026-06-09T09:11:32,2026-06-09T13:56:32
+ORD-618,PROCEED,0,All constraints satisfied,M1,2026-03-27T07:21:08,2026-03-27T19:21:08
+ORD-619,DELAY,7,Material shortages: aluminum,,,
+ORD-620,DELAY,7,Material shortages: aluminum,,,
+ORD-621,PROCEED,0,All constraints satisfied,M3,2026-04-26T16:40:56,2026-04-26T21:51:08
+ORD-622,PROCEED,0,All constraints satisfied,M1,2026-12-05T18:13:56,2026-12-05T22:43:56
+ORD-623,DELAY,8,Insufficient time to meet deadline (slack: -24.5 days),,,
+ORD-624,DELAY,8,Insufficient time to meet deadline (slack: -28.16 days),,,
+ORD-625,PROCEED,0,All constraints satisfied,M1,2026-05-31T03:11:32,2026-05-31T10:41:32
+ORD-626,PROCEED,0,All constraints satisfied,M3,2026-09-06T00:38:32,2026-09-06T03:43:20
+ORD-627,PROCEED,0,All constraints satisfied,M3,2026-06-05T05:31:20,2026-06-05T10:16:20
+ORD-628,PROCEED,0,All constraints satisfied,M1,2026-04-23T09:40:56,2026-04-23T18:40:56
+ORD-629,PROCEED,0,All constraints satisfied,M3,2027-03-07T19:27:44,2027-03-08T03:07:56
+ORD-630,PROCEED,0,All constraints satisfied,M1,2027-02-03T13:48:08,2027-02-03T18:48:08
+ORD-631,DELAY,8,Insufficient time to meet deadline (slack: -24.35 days),,,
+ORD-632,PROCEED,0,All constraints satisfied,M1,2026-04-26T21:51:08,2026-04-27T02:21:08
+ORD-633,PROCEED,0,All constraints satisfied,M1,2027-01-15T17:52:56,2027-01-15T21:52:56
+ORD-634,PROCEED,0,All constraints satisfied,M1,2026-09-19T16:13:20,2026-09-20T00:13:20
+ORD-635,PROCEED,0,All constraints satisfied,M1,2026-08-22T23:38:32,2026-08-23T06:08:32
+ORD-636,PROCEED,0,All constraints satisfied,M1,2026-06-26T13:01:20,2026-06-26T20:31:20
+ORD-637,PROCEED,0,All constraints satisfied,M1,2026-10-22T11:43:56,2026-10-23T01:13:56
+ORD-638,PROCEED,3,All constraints satisfied,M1,2026-03-09T05:41:32,2026-03-09T09:41:32
+ORD-639,PROCEED,0,All constraints satisfied,M1,2026-05-23T02:36:44,2026-05-23T14:06:44
+ORD-640,PROCEED,0,All constraints satisfied,M1,2026-12-05T22:43:56,2026-12-06T03:13:56
+ORD-641,PROCEED,0,All constraints satisfied,M1,2026-12-03T05:33:44,2026-12-03T15:33:44
+ORD-642,PROCEED,0,All constraints satisfied,M1,2026-05-05T23:01:20,2026-05-06T07:01:20
+ORD-643,PROCEED,0,All constraints satisfied,M3,2026-04-03T18:40:56,2026-04-03T23:51:08
+ORD-644,PROCEED,0,All constraints satisfied,M1,2026-07-21T07:42:08,2026-07-21T14:42:08
+ORD-645,PROCEED,0,All constraints satisfied,M3,2026-07-02T18:21:08,2026-07-02T23:31:20
+ORD-646,PROCEED,0,All constraints satisfied,M1,2026-08-07T23:32:32,2026-08-08T11:32:32
+ORD-647,PROCEED,0,All constraints satisfied,M3,2026-12-30T19:03:08,2026-12-31T02:43:20
+ORD-648,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-649,PROCEED,0,All constraints satisfied,M3,2026-06-26T20:31:20,2026-06-27T01:16:20
+ORD-650,PROCEED,0,All constraints satisfied,M3,2027-02-11T11:13:20,2027-02-11T18:28:20
+ORD-651,PROCEED,0,All constraints satisfied,M1,2026-07-17T12:47:32,2026-07-17T17:17:32
+ORD-652,DELAY,8,Insufficient time to meet deadline (slack: -9.33 days),,,
+ORD-653,PROCEED,0,All constraints satisfied,M1,2026-04-18T02:45:44,2026-04-18T12:15:44
+ORD-654,PROCEED,0,All constraints satisfied,M3,2026-06-30T18:36:08,2026-06-30T21:40:56
+ORD-655,PROCEED,0,All constraints satisfied,M1,2026-05-20T10:36:44,2026-05-20T16:36:44
+ORD-656,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-657,PROCEED,0,All constraints satisfied,M1,2026-08-01T12:46:56,2026-08-01T17:16:56
+ORD-658,PROCEED,0,All constraints satisfied,M3,2027-01-12T01:33:08,2027-01-12T07:33:08
+ORD-659,DELAY,8,Insufficient time to meet deadline (slack: -26.12 days),,,
+ORD-660,PROCEED,0,All constraints satisfied,M1,2026-07-08T14:07:20,2026-07-08T18:37:20
+ORD-661,PROCEED,0,All constraints satisfied,M3,2027-02-10T14:28:20,2027-02-10T21:43:20
+ORD-662,PROCEED,0,All constraints satisfied,M1,2026-11-08T05:34:20,2026-11-08T12:34:20
+ORD-663,PROCEED,0,All constraints satisfied,M1,2026-08-08T11:32:32,2026-08-08T21:02:32
+ORD-664,PROCEED,0,All constraints satisfied,M1,2026-09-10T15:43:20,2026-09-10T22:13:20
+ORD-665,PROCEED,0,All constraints satisfied,M3,2026-11-17T23:13:20,2026-11-18T02:43:20
+ORD-666,DELAY,8,Insufficient time to meet deadline (slack: -29.28 days),,,
+ORD-667,PROCEED,0,All constraints satisfied,M3,2026-03-19T21:15:44,2026-03-20T02:00:44
+ORD-668,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-669,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-670,PROCEED,0,All constraints satisfied,M1,2026-03-14T07:31:20,2026-03-14T12:01:20
+ORD-671,PROCEED,0,All constraints satisfied,M3,2027-03-23T04:57:44,2027-03-23T12:37:56
+ORD-672,PROCEED,0,All constraints satisfied,M3,2026-12-06T03:13:56,2026-12-06T06:43:56
+ORD-673,DELAY,7,Material shortages: aluminum,,,
+ORD-674,PROCEED,0,All constraints satisfied,M1,2026-04-09T00:06:08,2026-04-09T05:06:08
+ORD-675,PROCEED,0,All constraints satisfied,M1,2026-04-03T23:51:08,2026-04-04T07:21:08
+ORD-676,PROCEED,0,All constraints satisfied,M1,2026-04-14T04:00:44,2026-04-14T10:00:44
+ORD-677,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-678,PROCEED,0,All constraints satisfied,M3,2027-02-23T06:28:20,2027-02-23T09:33:08
+ORD-679,PROCEED,0,All constraints satisfied,M1,2027-01-10T02:37:56,2027-01-10T14:37:56
+ORD-680,PROCEED,0,All constraints satisfied,M3,2026-07-05T10:01:56,2026-07-05T16:01:56
+ORD-681,DELAY,7,Material shortages: aluminum,,,
+ORD-682,PROCEED,0,All constraints satisfied,M1,2026-04-18T12:15:44,2026-04-19T04:45:44
+ORD-683,PROCEED,0,All constraints satisfied,M1,2026-05-31T10:41:32,2026-05-31T17:11:32
+ORD-684,PROCEED,0,All constraints satisfied,M1,2026-12-26T03:52:56,2026-12-26T10:22:56
+ORD-685,PROCEED,0,All constraints satisfied,M1,2027-02-17T00:03:08,2027-02-17T07:33:08
+ORD-686,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-687,PROCEED,0,All constraints satisfied,M3,2026-04-20T17:25:56,2026-04-20T20:30:44
+ORD-688,PROCEED,0,All constraints satisfied,M3,2026-11-15T15:28:56,2026-11-15T18:58:56
+ORD-689,PROCEED,0,All constraints satisfied,M1,2026-08-18T11:38:32,2026-08-18T18:38:32
+ORD-690,PROCEED,0,All constraints satisfied,M1,2026-04-09T05:06:08,2026-04-09T18:36:08
+ORD-691,PROCEED,0,All constraints satisfied,M1,2026-07-02T23:31:20,2026-07-03T04:01:20
+ORD-692,DELAY,8,Insufficient time to meet deadline (slack: -10.31 days),,,
+ORD-693,PROCEED,0,All constraints satisfied,M1,2027-03-08T03:07:56,2027-03-08T09:37:56
+ORD-694,DELAY,8,Insufficient time to meet deadline (slack: -29.28 days),,,
+ORD-695,PROCEED,0,All constraints satisfied,M3,2026-07-17T17:17:32,2026-07-17T20:22:20
+ORD-696,PROCEED,0,All constraints satisfied,M1,2026-10-14T13:43:56,2026-10-14T18:43:56
+ORD-697,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-698,DELAY,8,Insufficient time to meet deadline (slack: -16.28 days),,,
+ORD-699,PROCEED,0,All constraints satisfied,M3,2026-11-24T08:43:20,2026-11-24T13:28:20
+ORD-700,PROCEED,0,All constraints satisfied,M3,2027-01-03T23:03:08,2027-01-04T02:33:08
+ORD-701,DELAY,7,Material shortages: aluminum,,,
+ORD-702,PROCEED,0,All constraints satisfied,M1,2026-08-23T06:08:32,2026-08-23T22:38:32
+ORD-703,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-704,DELAY,7,Material shortages: aluminum,,,
+ORD-705,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-706,DELAY,8,Insufficient time to meet deadline (slack: -23.33 days),,,
+ORD-707,PROCEED,0,All constraints satisfied,M1,2027-03-24T12:37:56,2027-03-24T18:37:56
+ORD-708,PROCEED,0,All constraints satisfied,M1,2026-10-09T16:43:56,2026-10-10T01:43:56
+ORD-709,DELAY,8,Insufficient time to meet deadline (slack: -10.62 days),,,
+ORD-710,PROCEED,0,All constraints satisfied,M3,2027-01-22T11:33:08,2027-01-22T16:18:08
+ORD-711,PROCEED,0,All constraints satisfied,M3,2027-03-09T16:37:56,2027-03-09T23:52:56
+ORD-712,PROCEED,0,All constraints satisfied,M3,2026-08-04T00:57:08,2026-08-04T06:07:20
+ORD-713,PROCEED,0,All constraints satisfied,M3,2026-07-15T14:52:20,2026-07-15T19:37:20
+ORD-714,PROCEED,0,All constraints satisfied,M3,2026-08-06T01:22:20,2026-08-06T09:02:32
+ORD-715,PROCEED,0,All constraints satisfied,M1,2026-08-30T14:43:20,2026-08-30T20:43:20
+ORD-716,PROCEED,0,All constraints satisfied,M3,2026-10-10T01:43:56,2026-10-10T05:13:56
+ORD-717,PROCEED,0,All constraints satisfied,M3,2026-03-23T04:10:56,2026-03-23T11:51:08
+ORD-718,PROCEED,0,All constraints satisfied,M1,2026-12-20T04:38:32,2026-12-20T14:08:32
+ORD-719,PROCEED,0,All constraints satisfied,M3,2026-05-18T10:56:32,2026-05-18T16:06:44
+ORD-720,PROCEED,6,All constraints satisfied,M1,2026-03-06T11:01:20,2026-03-06T19:01:20
+ORD-721,PROCEED,0,All constraints satisfied,M1,2026-07-06T16:57:08,2026-07-06T23:27:08
+ORD-722,PROCEED,0,All constraints satisfied,M1,2026-06-10T09:01:20,2026-06-11T01:31:20
+ORD-723,PROCEED,0,All constraints satisfied,M3,2026-04-27T21:10:56,2026-04-28T04:51:08
+ORD-724,PROCEED,0,All constraints satisfied,M1,2027-03-02T20:27:44,2027-03-03T03:57:44
+ORD-725,PROCEED,0,All constraints satisfied,M3,2026-07-30T19:31:56,2026-07-31T02:46:56
+ORD-726,PROCEED,0,All constraints satisfied,M3,2027-01-14T08:33:08,2027-01-14T17:52:56
+ORD-727,PROCEED,0,All constraints satisfied,M3,2026-06-09T13:56:32,2026-06-09T17:01:20
+ORD-728,PROCEED,0,All constraints satisfied,M1,2026-12-26T10:22:56,2026-12-26T20:22:56
+ORD-729,DELAY,8,Insufficient time to meet deadline (slack: -22.21 days),,,
+ORD-730,PROCEED,0,All constraints satisfied,M3,2027-01-01T14:43:20,2027-01-01T19:28:20
+ORD-731,PROCEED,0,All constraints satisfied,M1,2026-04-15T16:45:44,2026-04-16T04:15:44
+ORD-732,PROCEED,0,All constraints satisfied,M3,2026-05-12T01:06:08,2026-05-12T07:06:08
+ORD-733,PROCEED,0,All constraints satisfied,M3,2026-03-14T12:01:20,2026-03-14T19:16:20
+ORD-734,PROCEED,0,All constraints satisfied,M1,2026-08-28T22:13:20,2026-08-29T09:43:20
+ORD-735,DELAY,8,Insufficient time to meet deadline (slack: -4.31 days),,,
+ORD-736,PROCEED,0,All constraints satisfied,M3,2026-04-19T04:45:44,2026-04-19T09:55:56
+ORD-737,PROCEED,0,All constraints satisfied,M1,2026-04-09T18:36:08,2026-04-10T04:06:08
+ORD-738,PROCEED,0,All constraints satisfied,M3,2026-06-01T10:11:32,2026-06-01T14:56:32
+ORD-739,PROCEED,0,All constraints satisfied,M1,2026-04-25T02:30:44,2026-04-25T06:30:44
+ORD-740,DELAY,8,Insufficient time to meet deadline (slack: -22.31 days),,,
+ORD-741,PROCEED,0,All constraints satisfied,M1,2026-11-18T02:43:20,2026-11-18T07:13:20
+ORD-742,PROCEED,0,All constraints satisfied,M3,2026-11-05T14:24:08,2026-11-05T22:04:20
+ORD-743,PROCEED,0,All constraints satisfied,M1,2026-06-27T01:16:20,2026-06-27T12:46:20
+ORD-744,PROCEED,0,All constraints satisfied,M3,2026-03-20T19:45:44,2026-03-21T03:25:56
+ORD-745,PROCEED,0,All constraints satisfied,M3,2026-12-26T20:22:56,2026-12-27T01:33:08
+ORD-746,PROCEED,0,All constraints satisfied,M3,2026-09-06T08:53:32,2026-09-06T16:08:32
+ORD-747,DELAY,7,Material shortages: aluminum,,,
+ORD-748,PROCEED,0,All constraints satisfied,M3,2026-06-13T08:11:32,2026-06-13T15:51:44
+ORD-749,PROCEED,0,All constraints satisfied,M1,2026-10-28T02:24:08,2026-10-28T07:24:08
+ORD-750,PROCEED,0,All constraints satisfied,M1,2026-04-14T10:00:44,2026-04-14T17:00:44
+ORD-751,PROCEED,0,All constraints satisfied,M3,2026-09-17T14:13:20,2026-09-17T21:28:20
+ORD-752,DELAY,7,Material shortages: aluminum,,,
+ORD-753,PROCEED,0,All constraints satisfied,M1,2026-04-23T18:40:56,2026-04-23T22:40:56
+ORD-754,PROCEED,0,All constraints satisfied,M1,2027-02-01T22:03:08,2027-02-02T06:03:08
+ORD-755,PROCEED,0,All constraints satisfied,M1,2026-06-07T12:11:32,2026-06-08T01:41:32
+ORD-756,PROCEED,0,All constraints satisfied,M1,2027-02-13T11:28:20,2027-02-13T23:28:20
+ORD-757,PROCEED,0,All constraints satisfied,M1,2026-08-14T08:48:08,2026-08-14T13:48:08
+ORD-758,PROCEED,3,All constraints satisfied,M3,2026-03-10T12:21:44,2026-03-10T19:36:44
+ORD-759,DELAY,7,Material shortages: aluminum,,,
+ORD-760,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-761,PROCEED,0,All constraints satisfied,M1,2026-12-01T11:18:44,2026-12-01T22:48:44
+ORD-762,PROCEED,0,All constraints satisfied,M1,2026-06-03T22:41:32,2026-06-04T10:11:32
+ORD-763,PROCEED,0,All constraints satisfied,M3,2026-09-22T20:43:20,2026-09-23T03:58:20
+ORD-764,PROCEED,0,All constraints satisfied,M1,2026-12-25T16:12:44,2026-12-25T22:42:44
+ORD-765,PROCEED,0,All constraints satisfied,M3,2026-07-24T14:36:44,2026-07-24T22:16:56
+ORD-766,PROCEED,0,All constraints satisfied,M1,2026-04-04T07:21:08,2026-04-04T18:51:08
+ORD-767,PROCEED,0,All constraints satisfied,M1,2027-03-19T16:22:56,2027-03-19T22:52:56
+ORD-768,PROCEED,0,All constraints satisfied,M3,2026-12-20T14:08:32,2026-12-20T17:38:32
+ORD-769,PROCEED,0,All constraints satisfied,M1,2026-07-22T13:16:56,2026-07-23T05:46:56
+ORD-770,PROCEED,0,All constraints satisfied,M1,2026-05-12T12:06:08,2026-05-12T17:06:08
+ORD-771,DELAY,8,Insufficient time to meet deadline (slack: -9.12 days),,,
+ORD-772,PROCEED,0,All constraints satisfied,M1,2026-06-08T01:41:32,2026-06-08T11:11:32
+ORD-773,PROCEED,0,All constraints satisfied,M1,2026-10-14T18:43:56,2026-10-14T23:43:56
+ORD-774,PROCEED,0,All constraints satisfied,M3,2026-12-21T22:18:08,2026-12-22T05:58:20
+ORD-775,PROCEED,0,All constraints satisfied,M1,2026-08-10T01:22:56,2026-08-10T07:52:56
+ORD-776,PROCEED,0,All constraints satisfied,M1,2026-07-19T05:52:20,2026-07-19T14:52:20
+ORD-777,PROCEED,0,All constraints satisfied,M1,2026-07-15T19:37:20,2026-07-16T04:37:20
+ORD-778,PROCEED,0,All constraints satisfied,M1,2026-10-20T05:43:56,2026-10-20T12:13:56
+ORD-779,PROCEED,0,All constraints satisfied,M1,2026-06-15T08:11:32,2026-06-15T17:41:32
+ORD-780,PROCEED,0,All constraints satisfied,M3,2026-04-13T13:55:56,2026-04-13T23:15:44
+ORD-781,PROCEED,0,All constraints satisfied,M1,2027-01-15T21:52:56,2027-01-16T02:52:56
+ORD-782,PROCEED,0,All constraints satisfied,M1,2027-02-22T16:58:20,2027-02-23T00:28:20
+ORD-783,DELAY,8,Insufficient time to meet deadline (slack: -17.12 days),,,
+ORD-784,DELAY,7,Material shortages: aluminum,,,
+ORD-785,PROCEED,0,All constraints satisfied,M1,2026-04-25T06:30:44,2026-04-25T15:30:44
+ORD-786,PROCEED,0,All constraints satisfied,M1,2027-02-02T06:03:08,2027-02-02T10:33:08
+ORD-787,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-788,PROCEED,0,All constraints satisfied,M1,2027-01-20T00:22:56,2027-01-20T11:52:56
+ORD-789,PROCEED,0,All constraints satisfied,M3,2026-06-04T10:11:32,2026-06-04T13:16:20
+ORD-790,PROCEED,0,All constraints satisfied,M1,2027-01-26T18:38:32,2027-01-27T04:08:32
+ORD-791,PROCEED,0,All constraints satisfied,M1,2026-09-09T05:08:32,2026-09-09T09:38:32
+ORD-792,PROCEED,0,All constraints satisfied,M3,2026-03-11T15:41:32,2026-03-12T01:01:20
+ORD-793,PROCEED,0,All constraints satisfied,M1,2026-10-25T21:58:56,2026-10-26T04:58:56
+ORD-794,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-795,PROCEED,0,All constraints satisfied,M3,2026-05-28T03:46:56,2026-05-28T07:16:56
+ORD-796,PROCEED,0,All constraints satisfied,M3,2026-11-23T03:28:20,2026-11-23T08:13:20
+ORD-797,PROCEED,0,All constraints satisfied,M1,2027-02-11T18:28:20,2027-02-12T00:58:20
+ORD-798,PROCEED,0,All constraints satisfied,M1,2027-02-02T10:33:08,2027-02-03T03:03:08
+ORD-799,PROCEED,0,All constraints satisfied,M3,2026-03-29T18:25:56,2026-03-29T23:10:56
+ORD-800,PROCEED,0,All constraints satisfied,M1,2026-04-12T09:25:56,2026-04-12T18:55:56
+ORD-801,PROCEED,0,All constraints satisfied,M1,2026-09-20T00:13:20,2026-09-20T07:43:20
+ORD-802,PROCEED,0,All constraints satisfied,M3,2026-08-10T07:52:56,2026-08-10T12:37:56
+ORD-803,PROCEED,0,All constraints satisfied,M3,2027-01-07T21:18:08,2027-01-08T03:18:08
+ORD-804,PROCEED,0,All constraints satisfied,M1,2026-05-16T21:56:32,2026-05-17T02:56:32
+ORD-805,PROCEED,0,All constraints satisfied,M1,2026-07-16T04:37:20,2026-07-16T14:37:20
+ORD-806,PROCEED,0,All constraints satisfied,M1,2026-11-08T12:34:20,2026-11-08T17:04:20
+ORD-807,PROCEED,0,All constraints satisfied,M1,2026-06-05T10:16:20,2026-06-05T21:46:20
+ORD-808,PROCEED,0,All constraints satisfied,M1,2026-10-17T05:43:56,2026-10-17T15:13:56
+ORD-809,PROCEED,0,All constraints satisfied,M3,2026-12-24T04:42:44,2026-12-24T09:27:44
+ORD-810,PROCEED,0,All constraints satisfied,M1,2026-03-31T16:06:08,2026-04-01T01:06:08
+ORD-811,PROCEED,0,All constraints satisfied,M1,2026-11-25T22:08:32,2026-11-26T03:08:32
+ORD-812,PROCEED,0,All constraints satisfied,M1,2027-01-05T14:13:20,2027-01-05T23:13:20
+ORD-813,PROCEED,0,All constraints satisfied,M1,2027-02-04T09:28:20,2027-02-04T13:28:20
+ORD-814,PROCEED,0,All constraints satisfied,M1,2026-06-12T01:41:32,2026-06-12T11:11:32
+ORD-815,PROCEED,0,All constraints satisfied,M1,2026-05-15T11:06:08,2026-05-15T19:06:08
+ORD-816,PROCEED,0,All constraints satisfied,M1,2026-04-17T07:15:44,2026-04-17T11:15:44
+ORD-817,PROCEED,0,All constraints satisfied,M1,2027-03-14T20:22:56,2027-03-15T05:22:56
+ORD-818,PROCEED,0,All constraints satisfied,M1,2026-10-31T12:19:20,2026-10-31T19:19:20
+ORD-819,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-820,PROCEED,0,All constraints satisfied,M1,2027-01-23T20:28:20,2027-01-24T05:58:20
+ORD-821,PROCEED,0,All constraints satisfied,M1,2026-07-28T21:31:56,2026-07-29T06:31:56
+ORD-822,PROCEED,0,All constraints satisfied,M3,2026-05-25T03:06:44,2026-05-25T08:16:56
+ORD-823,PROCEED,0,All constraints satisfied,M1,2026-11-23T08:13:20,2026-11-23T13:13:20
+ORD-824,PROCEED,0,All constraints satisfied,M1,2026-10-28T16:54:08,2026-10-29T01:54:08
+ORD-825,PROCEED,0,All constraints satisfied,M1,2027-02-22T12:58:20,2027-02-22T16:58:20
+ORD-826,DELAY,8,Insufficient time to meet deadline (slack: -26.16 days),,,
+ORD-827,PROCEED,0,All constraints satisfied,M1,2026-06-09T17:01:20,2026-06-10T02:31:20
+ORD-828,DELAY,8,Insufficient time to meet deadline (slack: -26.09 days),,,
+ORD-829,PROCEED,0,All constraints satisfied,M3,2026-06-11T01:31:20,2026-06-11T09:11:32
+ORD-830,PROCEED,0,All constraints satisfied,M1,2026-09-27T13:23:32,2026-09-28T00:53:32
+ORD-831,DELAY,8,Insufficient time to meet deadline (slack: -6.12 days),,,
+ORD-832,DELAY,7,Material shortages: aluminum,,,
+ORD-833,PROCEED,0,All constraints satisfied,M1,2027-03-17T09:03:08,2027-03-17T18:33:08
+ORD-834,PROCEED,0,All constraints satisfied,M3,2026-03-27T19:21:08,2026-03-27T22:25:56
+ORD-835,PROCEED,0,All constraints satisfied,M1,2026-06-18T17:31:20,2026-06-19T03:31:20
+ORD-836,PROCEED,0,All constraints satisfied,M3,2026-06-15T17:41:32,2026-06-15T23:41:32
+ORD-837,PROCEED,0,All constraints satisfied,M3,2026-06-13T15:51:44,2026-06-14T01:11:32
+ORD-838,PROCEED,0,All constraints satisfied,M1,2026-10-24T14:33:44,2026-10-24T22:03:44
+ORD-839,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-840,PROCEED,0,All constraints satisfied,M1,2026-06-30T07:06:08,2026-06-30T18:36:08
+ORD-841,PROCEED,0,All constraints satisfied,M1,2026-10-11T12:43:56,2026-10-11T17:13:56
+ORD-842,PROCEED,0,All constraints satisfied,M1,2027-03-01T16:27:44,2027-03-01T22:27:44
+ORD-843,PROCEED,0,All constraints satisfied,M1,2026-06-05T21:46:20,2026-06-06T07:16:20
+ORD-844,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-845,PROCEED,0,All constraints satisfied,M3,2026-03-20T02:00:44,2026-03-20T09:15:44
+ORD-846,PROCEED,0,All constraints satisfied,M3,2026-03-18T10:15:44,2026-03-18T16:15:44
+ORD-847,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-848,DELAY,7,Material shortages: aluminum,,,
+ORD-849,PROCEED,0,All constraints satisfied,M1,2026-10-06T14:08:32,2026-10-07T00:08:32
+ORD-850,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-851,PROCEED,0,All constraints satisfied,M1,2026-11-26T03:08:32,2026-11-26T10:08:32
+ORD-852,DELAY,7,Material shortages: aluminum,,,
+ORD-853,PROCEED,0,All constraints satisfied,M1,2027-01-14T17:52:56,2027-01-15T02:52:56
+ORD-854,PROCEED,6,All constraints satisfied,M1,2026-03-05T04:21:08,2026-03-05T17:51:08
+ORD-855,DELAY,7,Material shortages: aluminum,,,
+ORD-856,PROCEED,0,All constraints satisfied,M1,2026-12-09T19:38:32,2026-12-10T07:08:32
+ORD-857,DELAY,8,Insufficient time to meet deadline (slack: -23.1 days),,,
+ORD-858,DELAY,7,Material shortages: aluminum,,,
+ORD-859,PROCEED,0,All constraints satisfied,M1,2026-10-27T06:24:08,2026-10-27T19:54:08
+ORD-860,PROCEED,0,All constraints satisfied,M3,2026-05-12T17:06:08,2026-05-12T23:06:08
+ORD-861,DELAY,7,Material shortages: aluminum,,,
+ORD-862,PROCEED,0,All constraints satisfied,M1,2026-08-29T21:43:20,2026-08-30T07:13:20
+ORD-863,PROCEED,0,All constraints satisfied,M1,2026-11-10T00:04:20,2026-11-10T06:34:20
+ORD-864,PROCEED,0,All constraints satisfied,M3,2026-09-06T03:43:20,2026-09-06T08:53:32
+ORD-865,PROCEED,0,All constraints satisfied,M1,2026-03-24T19:51:08,2026-03-25T12:21:08
+ORD-866,PROCEED,0,All constraints satisfied,M3,2026-10-24T22:03:44,2026-10-25T03:13:56
+ORD-867,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-868,PROCEED,0,All constraints satisfied,M3,2026-10-30T22:09:08,2026-10-31T05:49:20
+ORD-869,PROCEED,0,All constraints satisfied,M1,2026-07-27T15:31:56,2026-07-28T03:31:56
+ORD-870,PROCEED,0,All constraints satisfied,M1,2026-08-24T05:53:32,2026-08-24T15:53:32
+ORD-871,PROCEED,0,All constraints satisfied,M1,2027-03-19T22:52:56,2027-03-20T04:52:56
+ORD-872,PROCEED,0,All constraints satisfied,M3,2026-10-08T22:03:44,2026-10-09T05:43:56
+ORD-873,PROCEED,0,All constraints satisfied,M1,2026-03-14T19:16:20,2026-03-15T02:16:20
+ORD-874,PROCEED,0,All constraints satisfied,M1,2026-08-17T17:53:32,2026-08-17T22:23:32
+ORD-875,PROCEED,0,All constraints satisfied,M1,2026-05-25T17:46:56,2026-05-25T22:16:56
+ORD-876,PROCEED,0,All constraints satisfied,M1,2026-07-29T06:31:56,2026-07-29T12:31:56
+ORD-877,PROCEED,0,All constraints satisfied,M1,2026-10-10T05:13:56,2026-10-10T11:13:56
+ORD-878,PROCEED,0,All constraints satisfied,M3,2026-09-04T21:08:32,2026-09-05T03:08:32
+ORD-879,PROCEED,0,All constraints satisfied,M1,2026-07-12T07:57:08,2026-07-12T15:57:08
+ORD-880,PROCEED,0,All constraints satisfied,M1,2026-09-15T15:18:08,2026-09-16T02:48:08
+ORD-881,PROCEED,0,All constraints satisfied,M1,2026-06-12T11:11:32,2026-06-12T18:11:32
+ORD-882,DELAY,8,Insufficient time to meet deadline (slack: -6.12 days),,,
+ORD-883,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-884,PROCEED,0,All constraints satisfied,M3,2026-04-01T01:06:08,2026-04-01T10:25:56
+ORD-885,DELAY,8,Insufficient time to meet deadline (slack: -21.26 days),,,
+ORD-886,DELAY,7,Material shortages: aluminum,,,
+ORD-887,PROCEED,0,All constraints satisfied,M1,2026-10-27T19:54:08,2026-10-28T02:24:08
+ORD-888,PROCEED,0,All constraints satisfied,M3,2026-09-23T03:58:20,2026-09-23T08:43:20
+ORD-889,DELAY,7,Material shortages: aluminum,,,
+ORD-890,PROCEED,0,All constraints satisfied,M1,2026-05-08T14:01:20,2026-05-08T21:31:20
+ORD-891,PROCEED,0,All constraints satisfied,M3,2026-06-24T14:41:32,2026-06-24T17:46:20
+ORD-892,PROCEED,0,All constraints satisfied,M1,2026-04-12T18:55:56,2026-04-12T23:55:56
+ORD-893,PROCEED,0,All constraints satisfied,M3,2026-03-15T02:16:20,2026-03-15T11:36:08
+ORD-894,PROCEED,0,All constraints satisfied,M3,2027-02-08T21:13:20,2027-02-09T06:33:08
+ORD-895,PROCEED,0,All constraints satisfied,M1,2026-08-09T07:22:56,2026-08-09T11:52:56
+ORD-896,PROCEED,0,All constraints satisfied,M1,2026-05-12T23:06:08,2026-05-13T09:06:08
+ORD-897,DELAY,8,Insufficient time to meet deadline (slack: -31.31 days),,,
+ORD-898,PROCEED,0,All constraints satisfied,M1,2027-02-19T16:43:20,2027-02-20T02:13:20
+ORD-899,PROCEED,0,All constraints satisfied,M3,2026-05-29T11:36:44,2026-05-29T14:41:32
+ORD-900,PROCEED,0,All constraints satisfied,M1,2026-09-23T08:43:20,2026-09-23T18:13:20
+ORD-901,PROCEED,0,All constraints satisfied,M1,2026-04-19T09:55:56,2026-04-19T17:55:56
+ORD-902,PROCEED,0,All constraints satisfied,M1,2027-03-23T12:37:56,2027-03-24T02:07:56
+ORD-903,PROCEED,0,All constraints satisfied,M1,2026-03-17T01:30:44,2026-03-17T11:00:44
+ORD-904,PROCEED,0,All constraints satisfied,M3,2026-12-01T22:48:44,2026-12-02T02:18:44
+ORD-905,DELAY,8,Insufficient time to meet deadline (slack: -18.1 days),,,
+ORD-906,PROCEED,0,All constraints satisfied,M1,2026-10-23T05:58:56,2026-10-23T12:58:56
+ORD-907,PROCEED,0,All constraints satisfied,M3,2026-10-05T08:53:32,2026-10-05T13:38:32
+ORD-908,DELAY,7,Material shortages: aluminum,,,
+ORD-909,PROCEED,0,All constraints satisfied,M1,2026-05-19T20:36:44,2026-05-20T03:36:44
+ORD-910,DELAY,7,Material shortages: aluminum,,,
+ORD-911,PROCEED,0,All constraints satisfied,M1,2027-02-04T13:28:20,2027-02-04T19:58:20
+ORD-912,PROCEED,0,All constraints satisfied,M1,2026-11-22T03:28:20,2026-11-22T10:28:20
+ORD-913,PROCEED,0,All constraints satisfied,M1,2026-11-20T10:28:20,2026-11-20T18:28:20
+ORD-914,PROCEED,0,All constraints satisfied,M3,2027-01-04T02:33:08,2027-01-04T07:43:20
+ORD-915,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-916,DELAY,7,Material shortages: aluminum,,,
+ORD-917,PROCEED,0,All constraints satisfied,M3,2026-12-23T12:07:56,2026-12-23T15:12:44
+ORD-918,PROCEED,0,All constraints satisfied,M1,2026-03-30T14:06:08,2026-03-30T18:36:08
+ORD-919,PROCEED,0,All constraints satisfied,M3,2026-05-28T07:16:56,2026-05-28T16:36:44
+ORD-920,PROCEED,0,All constraints satisfied,M1,2026-10-07T17:03:44,2026-10-07T23:33:44
+ORD-921,PROCEED,0,All constraints satisfied,M1,2026-07-03T09:11:32,2026-07-03T18:41:32
+ORD-922,DELAY,8,Insufficient time to meet deadline (slack: -6.1 days),,,
+ORD-923,PROCEED,0,All constraints satisfied,M1,2026-05-04T21:31:20,2026-05-05T05:01:20
+ORD-924,PROCEED,0,All constraints satisfied,M3,2026-11-13T02:39:08,2026-11-13T06:09:08
+ORD-925,PROCEED,0,All constraints satisfied,M1,2026-08-29T09:43:20,2026-08-29T21:43:20
+ORD-926,PROCEED,0,All constraints satisfied,M1,2027-03-24T18:37:56,2027-03-25T11:07:56
+ORD-927,PROCEED,0,All constraints satisfied,M1,2026-04-16T15:15:44,2026-04-17T01:15:44
+ORD-928,DELAY,7,Material shortages: aluminum,,,
+ORD-929,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-930,PROCEED,0,All constraints satisfied,M1,2026-10-25T03:13:56,2026-10-25T14:43:56
+ORD-931,PROCEED,0,All constraints satisfied,M1,2026-10-12T19:28:56,2026-10-13T05:28:56
+ORD-932,PROCEED,0,All constraints satisfied,M3,2027-01-02T23:43:20,2027-01-03T09:03:08
+ORD-933,DELAY,8,Insufficient time to meet deadline (slack: -13.5 days),,,
+ORD-934,PROCEED,0,All constraints satisfied,M1,2026-10-20T12:13:56,2026-10-20T18:13:56
+ORD-935,PROCEED,0,All constraints satisfied,M1,2026-06-17T06:01:20,2026-06-17T22:31:20
+ORD-936,PROCEED,0,All constraints satisfied,M1,2026-12-13T07:08:32,2026-12-13T16:38:32
+ORD-937,DELAY,8,Insufficient time to meet deadline (slack: -17.26 days),,,
+ORD-938,PROCEED,0,All constraints satisfied,M1,2027-03-18T14:07:56,2027-03-19T03:37:56
+ORD-939,PROCEED,0,All constraints satisfied,M1,2027-01-09T08:07:56,2027-01-09T17:37:56
+ORD-940,PROCEED,0,All constraints satisfied,M1,2027-01-29T07:13:20,2027-01-29T23:43:20
+ORD-941,DELAY,7,Material shortages: aluminum,,,
+ORD-942,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-943,PROCEED,6,All constraints satisfied,M3,2026-03-05T17:51:08,2026-03-06T01:31:20
+ORD-944,PROCEED,0,All constraints satisfied,M1,2026-09-26T08:43:20,2026-09-26T15:43:20
+ORD-945,PROCEED,0,All constraints satisfied,M3,2026-11-28T06:38:32,2026-11-28T14:18:44
+ORD-946,DELAY,8,Insufficient time to meet deadline (slack: -13.33 days),,,
+ORD-947,PROCEED,0,All constraints satisfied,M1,2027-03-21T08:57:44,2027-03-21T16:27:44
+ORD-948,PROCEED,0,All constraints satisfied,M3,2027-01-20T11:52:56,2027-01-20T19:33:08
+ORD-949,DELAY,8,Insufficient time to meet deadline (slack: -2.62 days),,,
+ORD-950,PROCEED,0,All constraints satisfied,M1,2026-08-05T20:22:20,2026-08-06T01:22:20
+ORD-951,PROCEED,0,All constraints satisfied,M3,2026-09-16T14:03:08,2026-09-16T21:43:20
+ORD-952,PROCEED,0,All constraints satisfied,M1,2026-08-14T13:48:08,2026-08-14T17:48:08
+ORD-953,PROCEED,0,All constraints satisfied,M1,2026-07-03T18:41:32,2026-07-04T04:41:32
+ORD-954,DELAY,8,Insufficient time to meet deadline (slack: -31.25 days),,,
+ORD-955,PROCEED,0,All constraints satisfied,M1,2026-03-18T16:15:44,2026-03-19T03:45:44
+ORD-956,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-957,PROCEED,0,All constraints satisfied,M1,2027-01-30T20:03:08,2027-01-31T00:33:08
+ORD-958,PROCEED,0,All constraints satisfied,M1,2027-02-28T12:57:44,2027-02-28T20:57:44
+ORD-959,PROCEED,0,All constraints satisfied,M1,2026-04-28T14:21:08,2026-04-28T21:51:08
+ORD-960,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-961,PROCEED,0,All constraints satisfied,M3,2026-11-26T10:08:32,2026-11-26T16:08:32
+ORD-962,DELAY,8,Insufficient time to meet deadline (slack: -20.25 days),,,
+ORD-963,PROCEED,0,All constraints satisfied,M1,2026-05-15T19:06:08,2026-05-15T23:36:08
+ORD-964,PROCEED,0,All constraints satisfied,M1,2026-10-05T13:38:32,2026-10-05T23:08:32
+ORD-965,PROCEED,0,All constraints satisfied,M1,2027-02-06T15:28:20,2027-02-06T19:58:20
+ORD-966,PROCEED,0,All constraints satisfied,M3,2026-05-25T22:16:56,2026-05-26T03:01:56
+ORD-967,PROCEED,0,All constraints satisfied,M1,2026-05-10T20:36:08,2026-05-11T06:36:08
+ORD-968,PROCEED,0,All constraints satisfied,M1,2027-01-04T17:13:20,2027-01-05T03:13:20
+ORD-969,PROCEED,0,All constraints satisfied,M3,2026-06-27T21:46:20,2026-06-28T02:31:20
+ORD-970,DELAY,7,Material shortages: aluminum,,,
+ORD-971,PROCEED,0,All constraints satisfied,M1,2026-11-04T03:54:08,2026-11-04T07:54:08
+ORD-972,DELAY,8,Insufficient time to meet deadline (slack: -13.31 days),,,
+ORD-973,PROCEED,0,All constraints satisfied,M3,2026-10-02T19:08:32,2026-10-03T02:48:44
+ORD-974,DELAY,8,Insufficient time to meet deadline (slack: -1.33 days),,,
+ORD-975,PROCEED,0,All constraints satisfied,M1,2026-08-18T18:38:32,2026-08-19T04:08:32
+ORD-976,PROCEED,0,All constraints satisfied,M1,2026-05-22T08:06:44,2026-05-22T17:36:44
+ORD-977,PROCEED,0,All constraints satisfied,M3,2026-08-23T22:38:32,2026-08-24T05:53:32
+ORD-978,PROCEED,0,All constraints satisfied,M1,2026-05-29T14:41:32,2026-05-29T22:11:32
+ORD-979,PROCEED,0,All constraints satisfied,M1,2027-02-09T22:03:08,2027-02-10T04:33:08
+ORD-980,DELAY,8,Insufficient time to meet deadline (slack: -22.1 days),,,
+ORD-981,PROCEED,0,All constraints satisfied,M1,2026-04-14T17:00:44,2026-04-15T09:30:44
+ORD-982,PROCEED,0,All constraints satisfied,M1,2026-05-24T04:06:44,2026-05-24T10:06:44
+ORD-983,PROCEED,0,All constraints satisfied,M1,2026-05-10T14:06:08,2026-05-10T20:36:08
+ORD-984,PROCEED,0,All constraints satisfied,M1,2027-03-15T05:22:56,2027-03-15T18:52:56
+ORD-985,PROCEED,0,All constraints satisfied,M1,2026-10-11T17:13:56,2026-10-12T09:43:56
+ORD-986,DELAY,7,Material shortages: aluminum,,,
+ORD-987,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-988,PROCEED,0,All constraints satisfied,M1,2027-03-01T22:27:44,2027-03-02T02:57:44
+ORD-989,PROCEED,0,All constraints satisfied,M1,2026-10-15T05:43:56,2026-10-15T10:13:56
+ORD-990,PROCEED,0,All constraints satisfied,M3,2027-01-04T07:43:20,2027-01-04T12:28:20
+ORD-991,PROCEED,0,All constraints satisfied,M1,2026-11-10T06:34:20,2026-11-10T13:04:20
+ORD-992,PROCEED,0,All constraints satisfied,M1,2026-10-31T19:19:20,2026-11-01T08:49:20
+ORD-993,PROCEED,0,All constraints satisfied,M3,2026-12-19T17:38:32,2026-12-19T23:38:32
+ORD-994,PROCEED,0,All constraints satisfied,M1,2026-04-19T17:55:56,2026-04-19T21:55:56
+ORD-995,DELAY,8,Insufficient time to meet deadline (slack: -29.12 days),,,
+ORD-996,DELAY,8,Insufficient time to meet deadline (slack: -0.25 days),,,
+ORD-997,PROCEED,0,All constraints satisfied,M1,2027-01-01T19:28:20,2027-01-02T11:58:20
+ORD-998,PROCEED,0,All constraints satisfied,M3,2026-10-26T04:58:56,2026-10-26T12:39:08
+ORD-999,PROCEED,0,All constraints satisfied,M1,2026-08-16T00:58:20,2026-08-16T07:58:20
+ORD-1000,PROCEED,0,All constraints satisfied,M3,2027-03-03T03:57:44,2027-03-03T11:12:44
+ORD-1001,DELAY,7,Material shortages: aluminum,,,
+ORD-1002,PROCEED,6,All constraints satisfied,M1,2026-03-06T19:01:20,2026-03-07T00:01:20
+ORD-1003,DELAY,8,Insufficient time to meet deadline (slack: -17.12 days),,,
+ORD-1004,PROCEED,0,All constraints satisfied,M1,2026-04-27T02:21:08,2026-04-27T11:51:08
+ORD-1005,PROCEED,0,All constraints satisfied,M1,2026-08-27T01:13:20,2026-08-27T08:43:20
+ORD-1006,DELAY,8,Insufficient time to meet deadline (slack: -4.62 days),,,
+ORD-1007,PROCEED,0,All constraints satisfied,M1,2026-12-10T07:08:32,2026-12-10T11:38:32
+ORD-1008,PROCEED,0,All constraints satisfied,M3,2026-09-14T17:13:20,2026-09-14T20:18:08
+ORD-1009,PROCEED,0,All constraints satisfied,M1,2026-06-22T16:31:20,2026-06-23T02:31:20
+ORD-1010,PROCEED,0,All constraints satisfied,M1,2026-11-05T22:04:20,2026-11-06T04:34:20
+ORD-1011,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-1012,PROCEED,0,All constraints satisfied,M3,2026-04-23T22:40:56,2026-04-24T03:25:56
+ORD-1013,PROCEED,0,All constraints satisfied,M1,2027-03-02T02:57:44,2027-03-02T09:27:44
+ORD-1014,PROCEED,0,All constraints satisfied,M1,2026-04-20T20:30:44,2026-04-21T04:30:44
+ORD-1015,PROCEED,0,All constraints satisfied,M3,2026-10-26T12:39:08,2026-10-26T18:39:08
+ORD-1016,PROCEED,0,All constraints satisfied,M3,2026-05-08T21:31:20,2026-05-09T00:36:08
+ORD-1017,DELAY,8,Insufficient time to meet deadline (slack: -0.25 days),,,
+ORD-1018,PROCEED,0,All constraints satisfied,M3,2026-03-17T11:00:44,2026-03-17T18:15:44
+ORD-1019,PROCEED,0,All constraints satisfied,M3,2026-08-16T07:58:20,2026-08-16T13:08:32
+ORD-1020,DELAY,7,Material shortages: aluminum,,,
+ORD-1021,PROCEED,0,All constraints satisfied,M1,2026-12-15T12:08:32,2026-12-15T23:38:32
+ORD-1022,PROCEED,0,All constraints satisfied,M1,2026-11-01T08:49:20,2026-11-01T13:49:20
+ORD-1023,PROCEED,0,All constraints satisfied,M1,2026-03-21T03:25:56,2026-03-21T08:25:56
+ORD-1024,PROCEED,0,All constraints satisfied,M3,2026-10-25T14:43:56,2026-10-25T21:58:56
+ORD-1025,PROCEED,0,All constraints satisfied,M1,2026-07-17T20:22:20,2026-07-18T08:22:20
+ORD-1026,PROCEED,0,All constraints satisfied,M1,2026-05-17T02:56:32,2026-05-17T07:26:32
+ORD-1027,PROCEED,0,All constraints satisfied,M1,2026-06-08T11:11:32,2026-06-08T16:11:32
+ORD-1028,PROCEED,0,All constraints satisfied,M3,2026-10-12T09:43:56,2026-10-12T14:28:56
+ORD-1029,PROCEED,0,All constraints satisfied,M1,2027-03-04T23:57:44,2027-03-05T11:27:44
+ORD-1030,DELAY,7,Material shortages: aluminum,,,
+ORD-1031,PROCEED,0,All constraints satisfied,M1,2026-06-23T02:31:20,2026-06-23T10:01:20
+ORD-1032,PROCEED,0,All constraints satisfied,M1,2026-08-13T02:37:56,2026-08-13T08:37:56
+ORD-1033,PROCEED,0,All constraints satisfied,M1,2026-06-01T14:56:32,2026-06-01T21:56:32
+ORD-1034,PROCEED,0,All constraints satisfied,M1,2026-08-02T06:46:56,2026-08-02T16:16:56
+ORD-1035,PROCEED,0,All constraints satisfied,M1,2026-08-24T15:53:32,2026-08-24T22:53:32
+ORD-1036,DELAY,8,Insufficient time to meet deadline (slack: -8.1 days),,,
+ORD-1037,PROCEED,0,All constraints satisfied,M1,2026-09-17T21:28:20,2026-09-18T09:28:20
+ORD-1038,PROCEED,0,All constraints satisfied,M1,2027-03-06T06:57:44,2027-03-06T11:57:44
+ORD-1039,PROCEED,0,All constraints satisfied,M3,2026-09-02T09:58:20,2026-09-02T15:08:32
+ORD-1040,PROCEED,0,All constraints satisfied,M1,2026-08-25T10:08:32,2026-08-25T17:38:32
+ORD-1041,PROCEED,0,All constraints satisfied,M1,2026-04-01T10:25:56,2026-04-01T19:55:56
+ORD-1042,PROCEED,0,All constraints satisfied,M3,2026-04-30T17:51:08,2026-05-01T01:06:08
+ORD-1043,PROCEED,0,All constraints satisfied,M1,2026-04-10T19:36:08,2026-04-11T07:06:08
+ORD-1044,PROCEED,0,All constraints satisfied,M1,2026-12-18T11:38:32,2026-12-18T21:08:32
+ORD-1045,PROCEED,0,All constraints satisfied,M1,2026-08-07T10:02:32,2026-08-07T14:32:32
+ORD-1046,PROCEED,0,All constraints satisfied,M1,2026-12-31T13:43:20,2026-12-31T23:13:20
+ORD-1047,PROCEED,0,All constraints satisfied,M1,2026-10-01T03:08:32,2026-10-01T13:08:32
+ORD-1048,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-1049,DELAY,7,Material shortages: aluminum,,,
+ORD-1050,PROCEED,0,All constraints satisfied,M1,2027-01-27T07:13:20,2027-01-27T19:13:20
+ORD-1051,PROCEED,0,All constraints satisfied,M3,2026-10-07T00:08:32,2026-10-07T07:48:44
+ORD-1052,PROCEED,0,All constraints satisfied,M3,2026-06-11T09:11:32,2026-06-11T12:41:32
+ORD-1053,PROCEED,0,All constraints satisfied,M1,2026-04-05T22:51:08,2026-04-06T06:21:08
+ORD-1054,PROCEED,0,All constraints satisfied,M1,2026-09-06T16:08:32,2026-09-07T04:08:32
+ORD-1055,PROCEED,0,All constraints satisfied,M1,2026-04-30T03:40:56,2026-04-30T10:10:56
+ORD-1056,PROCEED,0,All constraints satisfied,M1,2026-08-19T04:08:32,2026-08-19T17:38:32
+ORD-1057,PROCEED,0,All constraints satisfied,M1,2026-06-24T17:46:20,2026-06-25T02:46:20
+ORD-1058,PROCEED,0,All constraints satisfied,M1,2027-03-20T04:52:56,2027-03-20T16:22:56
+ORD-1059,DELAY,8,Insufficient time to meet deadline (slack: -4.1 days),,,
+ORD-1060,PROCEED,0,All constraints satisfied,M3,2026-08-13T12:07:56,2026-08-13T15:37:56
+ORD-1061,PROCEED,0,All constraints satisfied,M3,2026-09-18T09:28:20,2026-09-18T14:13:20
+ORD-1062,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-1063,PROCEED,0,All constraints satisfied,M1,2026-12-21T12:18:08,2026-12-21T18:48:08
+ORD-1064,PROCEED,0,All constraints satisfied,M1,2026-12-22T12:07:56,2026-12-22T18:07:56
+ORD-1065,DELAY,8,Insufficient time to meet deadline (slack: -29.5 days),,,
+ORD-1066,PROCEED,0,All constraints satisfied,M1,2026-08-16T13:08:32,2026-08-16T18:08:32
+ORD-1067,PROCEED,0,All constraints satisfied,M3,2026-04-11T07:06:08,2026-04-11T16:25:56
+ORD-1068,PROCEED,0,All constraints satisfied,M1,2027-01-20T19:33:08,2027-01-21T02:03:08
+ORD-1069,PROCEED,0,All constraints satisfied,M3,2026-09-12T18:23:32,2026-09-13T03:43:20
+ORD-1070,PROCEED,0,All constraints satisfied,M1,2026-08-13T15:37:56,2026-08-14T01:07:56
+ORD-1071,PROCEED,0,All constraints satisfied,M1,2027-01-12T21:03:08,2027-01-13T03:33:08
+ORD-1072,PROCEED,0,All constraints satisfied,M1,2027-01-08T03:18:08,2027-01-08T09:18:08
+ORD-1073,PROCEED,0,All constraints satisfied,M1,2027-02-27T05:22:56,2027-02-27T13:22:56
+ORD-1074,PROCEED,0,All constraints satisfied,M3,2027-03-05T11:27:44,2027-03-05T17:27:44
+ORD-1075,DELAY,7,Material shortages: aluminum,,,
+ORD-1076,DELAY,7,Material shortages: aluminum,,,
+ORD-1077,PROCEED,0,All constraints satisfied,M1,2026-04-28T21:51:08,2026-04-29T04:21:08
+ORD-1078,PROCEED,0,All constraints satisfied,M1,2026-09-16T02:48:08,2026-09-16T09:18:08
+ORD-1079,PROCEED,0,All constraints satisfied,M3,2026-04-25T15:30:44,2026-04-25T23:10:56
+ORD-1080,PROCEED,0,All constraints satisfied,M3,2026-07-18T22:37:20,2026-07-19T05:52:20
+ORD-1081,PROCEED,0,All constraints satisfied,M3,2026-11-10T13:04:20,2026-11-10T16:34:20
+ORD-1082,DELAY,8,Insufficient time to meet deadline (slack: -24.33 days),,,
+ORD-1083,PROCEED,0,All constraints satisfied,M1,2026-09-07T04:08:32,2026-09-07T09:08:32
+ORD-1084,PROCEED,0,All constraints satisfied,M1,2027-01-09T17:37:56,2027-01-10T02:37:56
+ORD-1085,PROCEED,0,All constraints satisfied,M3,2026-10-10T11:13:56,2026-10-10T14:43:56
+ORD-1086,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-1087,PROCEED,0,All constraints satisfied,M3,2026-11-19T09:13:20,2026-11-19T12:43:20
+ORD-1088,PROCEED,0,All constraints satisfied,M1,2027-01-06T12:43:20,2027-01-07T02:13:20
+ORD-1089,DELAY,8,Insufficient time to meet deadline (slack: -15.62 days),,,
+ORD-1090,PROCEED,0,All constraints satisfied,M1,2027-03-05T17:27:44,2027-03-06T06:57:44
+ORD-1091,PROCEED,0,All constraints satisfied,M3,2026-07-19T14:52:20,2026-07-20T00:12:08
+ORD-1092,PROCEED,0,All constraints satisfied,M1,2027-02-24T18:52:56,2027-02-25T00:52:56
+ORD-1093,PROCEED,0,All constraints satisfied,M3,2027-01-02T11:58:20,2027-01-02T16:43:20
+ORD-1094,PROCEED,0,All constraints satisfied,M1,2026-08-25T17:38:32,2026-08-26T03:38:32
+ORD-1095,PROCEED,0,All constraints satisfied,M1,2026-05-24T10:06:44,2026-05-24T16:36:44
+ORD-1096,PROCEED,0,All constraints satisfied,M1,2026-05-21T06:36:44,2026-05-21T15:36:44
+ORD-1097,PROCEED,0,All constraints satisfied,M1,2026-11-06T04:34:20,2026-11-06T18:04:20
+ORD-1098,PROCEED,0,All constraints satisfied,M1,2027-02-12T00:58:20,2027-02-12T05:28:20
+ORD-1099,DELAY,8,Insufficient time to meet deadline (slack: -6.5 days),,,
+ORD-1100,PROCEED,0,All constraints satisfied,M1,2026-05-26T14:01:56,2026-05-26T23:01:56
+ORD-1101,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-1102,PROCEED,0,All constraints satisfied,M1,2026-12-13T16:38:32,2026-12-14T09:08:32
+ORD-1103,PROCEED,0,All constraints satisfied,M1,2027-03-15T18:52:56,2027-03-16T04:22:56
+ORD-1104,PROCEED,0,All constraints satisfied,M1,2026-12-23T15:12:44,2026-12-23T22:42:44
+ORD-1105,PROCEED,0,All constraints satisfied,M1,2026-09-14T02:43:20,2026-09-14T07:43:20
+ORD-1106,PROCEED,0,All constraints satisfied,M1,2026-10-17T19:43:56,2026-10-18T00:43:56
+ORD-1107,PROCEED,0,All constraints satisfied,M3,2026-08-30T20:43:20,2026-08-31T01:28:20
+ORD-1108,DELAY,7,Material shortages: aluminum,,,
+ORD-1109,PROCEED,0,All constraints satisfied,M1,2026-05-04T02:31:20,2026-05-04T12:01:20
+ORD-1110,PROCEED,0,All constraints satisfied,M1,2026-10-01T13:08:32,2026-10-01T19:38:32
+ORD-1111,DELAY,7,Material shortages: aluminum,,,
+ORD-1112,PROCEED,0,All constraints satisfied,M1,2026-03-20T09:15:44,2026-03-20T13:45:44
+ORD-1113,DELAY,7,Material shortages: aluminum,,,
+ORD-1114,PROCEED,0,All constraints satisfied,M1,2026-04-16T04:15:44,2026-04-16T10:15:44
+ORD-1115,PROCEED,0,All constraints satisfied,M3,2026-11-15T18:58:56,2026-11-16T04:18:44
+ORD-1116,PROCEED,0,All constraints satisfied,M1,2027-02-17T23:33:08,2027-02-18T03:33:08
+ORD-1117,PROCEED,0,All constraints satisfied,M3,2027-02-23T23:03:08,2027-02-24T02:33:08
+ORD-1118,PROCEED,0,All constraints satisfied,M1,2026-05-14T02:06:08,2026-05-14T13:36:08
+ORD-1119,PROCEED,0,All constraints satisfied,M1,2026-08-31T01:28:20,2026-08-31T07:58:20
+ORD-1120,PROCEED,0,All constraints satisfied,M1,2027-02-25T00:52:56,2027-02-25T10:52:56
+ORD-1121,PROCEED,0,All constraints satisfied,M1,2026-11-13T06:09:08,2026-11-13T13:39:08
+ORD-1122,PROCEED,0,All constraints satisfied,M1,2026-06-19T03:31:20,2026-06-19T20:01:20
+ORD-1123,DELAY,8,Insufficient time to meet deadline (slack: -21.16 days),,,
+ORD-1124,PROCEED,0,All constraints satisfied,M1,2026-03-23T11:51:08,2026-03-23T17:51:08
+ORD-1125,PROCEED,0,All constraints satisfied,M1,2026-10-03T02:48:44,2026-10-03T09:18:44
+ORD-1126,PROCEED,0,All constraints satisfied,M1,2026-12-02T02:18:44,2026-12-02T13:48:44
+ORD-1127,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-1128,PROCEED,0,All constraints satisfied,M3,2026-08-04T23:07:20,2026-08-05T06:22:20
+ORD-1129,PROCEED,0,All constraints satisfied,M3,2026-08-24T22:53:32,2026-08-25T06:08:32
+ORD-1130,PROCEED,0,All constraints satisfied,M3,2026-11-04T07:54:08,2026-11-04T11:24:08
+ORD-1131,PROCEED,0,All constraints satisfied,M3,2026-11-26T16:08:32,2026-11-26T22:08:32
+ORD-1132,PROCEED,0,All constraints satisfied,M1,2026-09-02T15:08:32,2026-09-03T00:08:32
+ORD-1133,PROCEED,0,All constraints satisfied,M1,2026-05-29T02:06:44,2026-05-29T07:06:44
+ORD-1134,PROCEED,0,All constraints satisfied,M1,2026-05-29T22:11:32,2026-05-30T03:11:32
+ORD-1135,PROCEED,0,All constraints satisfied,M1,2026-06-19T20:01:20,2026-06-20T05:01:20
+ORD-1136,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-1137,DELAY,8,Insufficient time to meet deadline (slack: -19.42 days),,,
+ORD-1138,PROCEED,0,All constraints satisfied,M3,2026-07-29T12:31:56,2026-07-29T16:01:56
+ORD-1139,PROCEED,0,All constraints satisfied,M1,2026-08-10T12:37:56,2026-08-11T00:07:56
+ORD-1140,PROCEED,0,All constraints satisfied,M1,2026-06-15T23:41:32,2026-06-16T11:11:32
+ORD-1141,PROCEED,0,All constraints satisfied,M3,2026-05-07T14:01:20,2026-05-07T20:01:20
+ORD-1142,PROCEED,0,All constraints satisfied,M1,2026-07-20T00:12:08,2026-07-20T08:12:08
+ORD-1143,PROCEED,0,All constraints satisfied,M3,2026-08-17T22:23:32,2026-08-18T05:38:32
+ORD-1144,PROCEED,0,All constraints satisfied,M1,2026-11-26T22:08:32,2026-11-27T10:08:32
+ORD-1145,PROCEED,0,All constraints satisfied,M1,2026-07-23T05:46:56,2026-07-23T15:16:56
+ORD-1146,PROCEED,0,All constraints satisfied,M1,2026-08-31T07:58:20,2026-08-31T12:28:20
+ORD-1147,PROCEED,0,All constraints satisfied,M1,2026-05-08T07:01:20,2026-05-08T14:01:20
+ORD-1148,PROCEED,3,All constraints satisfied,M3,2026-03-09T09:41:32,2026-03-09T17:21:44
+ORD-1149,PROCEED,0,All constraints satisfied,M1,2027-03-06T23:27:44,2027-03-07T11:27:44
+ORD-1150,PROCEED,0,All constraints satisfied,M3,2026-11-02T17:49:20,2026-11-02T20:54:08
+ORD-1151,PROCEED,0,All constraints satisfied,M3,2026-12-04T17:33:44,2026-12-05T01:13:56
+ORD-1152,DELAY,7,Material shortages: aluminum,,,
+ORD-1153,PROCEED,0,All constraints satisfied,M3,2026-05-18T16:06:44,2026-05-18T22:06:44
+ORD-1154,PROCEED,0,All constraints satisfied,M1,2026-11-28T14:18:44,2026-11-28T21:18:44
+ORD-1155,PROCEED,0,All constraints satisfied,M3,2026-10-26T18:39:08,2026-10-26T23:24:08
+ORD-1156,PROCEED,0,All constraints satisfied,M1,2027-01-15T02:52:56,2027-01-15T09:52:56
+ORD-1157,PROCEED,0,All constraints satisfied,M3,2027-02-27T13:22:56,2027-02-27T16:27:44
+ORD-1158,PROCEED,0,All constraints satisfied,M3,2026-11-13T13:39:08,2026-11-13T22:58:56
+ORD-1159,PROCEED,0,All constraints satisfied,M3,2027-02-21T18:13:20,2027-02-21T22:58:20
+ORD-1160,PROCEED,0,All constraints satisfied,M3,2026-12-04T05:03:44,2026-12-04T11:03:44
+ORD-1161,PROCEED,0,All constraints satisfied,M1,2027-02-12T05:28:20,2027-02-12T21:58:20
+ORD-1162,PROCEED,0,All constraints satisfied,M3,2026-03-20T13:45:44,2026-03-20T19:45:44
+ORD-1163,PROCEED,0,All constraints satisfied,M1,2026-09-20T07:43:20,2026-09-20T15:13:20
+ORD-1164,PROCEED,0,All constraints satisfied,M1,2026-05-02T21:46:20,2026-05-03T09:46:20
+ORD-1165,PROCEED,0,All constraints satisfied,M1,2026-09-28T17:23:32,2026-09-29T02:53:32
+ORD-1166,PROCEED,0,All constraints satisfied,M1,2026-06-14T01:11:32,2026-06-14T07:41:32
+ORD-1167,PROCEED,0,All constraints satisfied,M1,2026-05-17T07:26:32,2026-05-17T13:56:32
+ORD-1168,PROCEED,0,All constraints satisfied,M3,2026-06-06T07:16:20,2026-06-06T12:01:20
+ORD-1169,PROCEED,0,All constraints satisfied,M3,2026-08-12T03:37:56,2026-08-12T09:37:56
+ORD-1170,PROCEED,3,All constraints satisfied,M1,2026-03-09T17:21:44,2026-03-10T04:51:44
+ORD-1171,PROCEED,0,All constraints satisfied,M1,2026-10-05T00:23:32,2026-10-05T04:53:32
+ORD-1172,PROCEED,0,All constraints satisfied,M1,2027-03-25T11:07:56,2027-03-25T20:37:56
+ORD-1173,PROCEED,0,All constraints satisfied,M1,2026-07-13T15:57:08,2026-07-13T19:57:08
+ORD-1174,PROCEED,0,All constraints satisfied,M1,2026-10-29T12:54:08,2026-10-29T17:24:08
+ORD-1175,PROCEED,0,All constraints satisfied,M1,2026-07-13T19:57:08,2026-07-14T07:57:08
+ORD-1176,PROCEED,0,All constraints satisfied,M1,2027-03-16T04:22:56,2027-03-16T09:22:56
+ORD-1177,PROCEED,0,All constraints satisfied,M3,2026-04-15T09:30:44,2026-04-15T16:45:44
+ORD-1178,PROCEED,0,All constraints satisfied,M3,2026-03-29T23:10:56,2026-03-30T04:21:08
+ORD-1179,DELAY,7,Material shortages: aluminum,,,
+ORD-1180,PROCEED,6,All constraints satisfied,M1,2026-03-07T00:01:20,2026-03-07T09:31:20
+ORD-1181,PROCEED,0,All constraints satisfied,M1,2027-01-22T16:18:08,2027-01-23T08:48:08
+ORD-1182,PROCEED,3,All constraints satisfied,M1,2026-03-10T19:36:44,2026-03-11T07:36:44
+ORD-1183,PROCEED,0,All constraints satisfied,M1,2026-12-16T20:08:32,2026-12-17T02:38:32
+ORD-1184,PROCEED,0,All constraints satisfied,M1,2027-03-13T19:22:56,2027-03-14T08:52:56
+ORD-1185,PROCEED,0,All constraints satisfied,M3,2027-02-05T09:58:20,2027-02-05T13:28:20
+ORD-1186,PROCEED,0,All constraints satisfied,M1,2026-12-14T09:08:32,2026-12-14T21:08:32
+ORD-1187,PROCEED,0,All constraints satisfied,M1,2027-03-24T02:07:56,2027-03-24T08:37:56
+ORD-1188,PROCEED,0,All constraints satisfied,M1,2026-11-20T18:28:20,2026-11-21T06:28:20
+ORD-1189,DELAY,8,Insufficient time to meet deadline (slack: -16.42 days),,,
+ORD-1190,PROCEED,0,All constraints satisfied,M1,2026-08-11T08:07:56,2026-08-11T14:07:56
+ORD-1191,PROCEED,0,All constraints satisfied,M1,2026-08-07T14:32:32,2026-08-07T23:32:32
+ORD-1192,PROCEED,0,All constraints satisfied,M1,2026-08-16T18:08:32,2026-08-16T22:08:32
+ORD-1193,PROCEED,0,All constraints satisfied,M1,2026-09-11T19:23:32,2026-09-12T01:53:32
+ORD-1194,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-1195,DELAY,7,Material shortages: aluminum,,,
+ORD-1196,PROCEED,0,All constraints satisfied,M3,2026-08-14T17:48:08,2026-08-14T22:58:20
+ORD-1197,PROCEED,0,All constraints satisfied,M1,2027-01-27T19:13:20,2027-01-28T04:43:20
+ORD-1198,PROCEED,0,All constraints satisfied,M3,2026-05-03T09:46:20,2026-05-03T13:16:20
+ORD-1199,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-1200,PROCEED,0,All constraints satisfied,M1,2026-03-19T03:45:44,2026-03-19T08:15:44
+ORD-1201,DELAY,7,Material shortages: aluminum,,,
+ORD-1202,PROCEED,0,All constraints satisfied,M1,2026-08-16T22:08:32,2026-08-17T04:38:32
+ORD-1203,PROCEED,0,All constraints satisfied,M3,2027-01-25T21:08:32,2027-01-26T03:08:32
+ORD-1204,PROCEED,0,All constraints satisfied,M1,2026-11-07T15:04:20,2026-11-07T19:04:20
+ORD-1205,PROCEED,0,All constraints satisfied,M3,2026-05-03T13:16:20,2026-05-03T19:16:20
+ORD-1206,PROCEED,0,All constraints satisfied,M3,2026-09-14T07:43:20,2026-09-14T13:43:20
+ORD-1207,DELAY,7,"Material shortages: plastic, copper",,,
+ORD-1208,PROCEED,0,All constraints satisfied,M1,2026-05-21T15:36:44,2026-05-22T08:06:44
