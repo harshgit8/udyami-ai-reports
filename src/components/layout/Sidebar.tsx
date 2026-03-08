@@ -125,6 +125,8 @@ export function Sidebar({ activeTab, onTabChange, badgeCounts = {} }: SidebarPro
     { id: "more", label: moreLabel, icon: activeModule ? activeModule.icon : Menu },
   ];
 
+  const totalModuleBadges = (badgeCounts.quality ?? 0) + (badgeCounts.production ?? 0) + (badgeCounts.rnd ?? 0);
+
   if (isMobile) {
     return (
       <>
