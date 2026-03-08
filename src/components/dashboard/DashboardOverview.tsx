@@ -11,6 +11,9 @@ import {
   TrendingUp,
   Zap,
   ArrowRight,
+  CheckCircle2,
+  Clock,
+  IndianRupee,
 } from "lucide-react";
 import type { Invoice, ProductionOrder, QualityInspection, Quotation, RnDFormulation } from "@/types/documents";
 
@@ -38,15 +41,26 @@ export function DashboardOverview({
   const totalBalanceDue = invoices.reduce((sum, i) => sum + (i.balanceDue || 0), 0);
   const acceptedQuality = qualityReports.filter((q) => q.decision === "ACCEPT").length;
   const rejectedQuality = qualityReports.filter((q) => q.decision === "REJECT").length;
+  const acceptWithDeviation = qualityReports.filter((q) => q.decision === "CONDITIONAL_ACCEPT").length;
   const scheduledProduction = productionOrders.filter((p) => p.decision === "PROCEED").length;
   const delayedProduction = productionOrders.filter((p) => p.decision === "DELAY").length;
+  const highPriorityQuotes = quotations.filter((q) => q.winProbability === "HIGH").length;
+
+  const qualityRate = qualityReports.length
+    ? (((acceptedQuality + acceptWithDeviation) / qualityReports.length) * 100).toFixed(1)
+    : "0";
+
+  const totalDocs = quotations.length + invoices.length + qualityReports.length + productionOrders.length + rndFormulations.length;
 
   const fmt = (v: number) => {
-    if (v >= 10000000) return `₹${(v / 10000000).toFixed(1)}Cr`;
+    if (v >= 10000000) return `₹${(v / 10000000).toFixed(2)}Cr`;
     if (v >= 100000) return `₹${(v / 100000).toFixed(1)}L`;
     if (v >= 1000) return `₹${(v / 1000).toFixed(1)}K`;
     return `₹${v.toFixed(0)}`;
   };
+
+  const hour = new Date().getHours();
+  const greeting = hour < 12 ? "Good morning" : hour < 17 ? "Good afternoon" : "Good evening";
 
   const modules = [
     { id: "quotations", label: "Quotations", icon: FileText, count: quotations.length, desc: "AI-powered pricing and proposals" },
@@ -60,7 +74,7 @@ export function DashboardOverview({
     <div className="space-y-6">
       {/* Welcome */}
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-        <h1 className="text-2xl font-semibold tracking-tight">Good morning, Operator</h1>
+        <h1 className="text-2xl font-semibold tracking-tight">{greeting}, Operator</h1>
         <p className="text-sm text-muted-foreground mt-1">Here's your factory overview for today</p>
       </motion.div>
 
@@ -78,7 +92,7 @@ export function DashboardOverview({
             <span className="w-2 h-2 rounded-full bg-[hsl(142,71%,45%)] animate-pulse" />
           </div>
           <p className="text-xs text-muted-foreground">
-            {quotations.length + invoices.length + qualityReports.length + productionOrders.length + rndFormulations.length} documents loaded · AI agents ready
+            {totalDocs} documents loaded · 13 AI agents ready · Last sync 2s ago
           </p>
         </div>
         <button onClick={() => onNavigate("orchestrators")} className="text-xs font-medium flex items-center gap-1 hover:underline">
@@ -94,34 +108,34 @@ export function DashboardOverview({
           subtitle={`Value: ${fmt(totalQuotationValue)}`}
           icon={FileText}
           trend="up"
-          trendValue={`${quotations.filter((q) => q.winProbability === "HIGH").length} high prob`}
+          trendValue={`${highPriorityQuotes} high prob`}
           delay={0.05}
         />
         <StatsCard
-          title="Active Invoices"
-          value={invoices.length}
-          subtitle={`Due: ${fmt(totalBalanceDue)}`}
-          icon={Receipt}
-          trend="neutral"
-          trendValue={fmt(totalInvoiceValue)}
+          title="Invoice Revenue"
+          value={fmt(totalInvoiceValue)}
+          subtitle={`Balance due: ${fmt(totalBalanceDue)}`}
+          icon={IndianRupee}
+          trend="up"
+          trendValue={`${invoices.length} invoices`}
           delay={0.1}
         />
         <StatsCard
-          title="Quality Score"
-          value={`${((acceptedQuality / (qualityReports.length || 1)) * 100).toFixed(0)}%`}
-          subtitle={`${acceptedQuality} accepted, ${rejectedQuality} rejected`}
-          icon={ClipboardCheck}
-          trend={rejectedQuality > 0 ? "down" : "up"}
+          title="Quality Pass Rate"
+          value={`${qualityRate}%`}
+          subtitle={`${acceptedQuality} accepted · ${acceptWithDeviation} with deviation · ${rejectedQuality} rejected`}
+          icon={CheckCircle2}
+          trend={rejectedQuality > 2 ? "down" : "up"}
           trendValue={`${qualityReports.length} inspections`}
           delay={0.15}
         />
         <StatsCard
-          title="Production"
+          title="Production Orders"
           value={productionOrders.length}
-          subtitle={`${scheduledProduction} scheduled`}
-          icon={Factory}
-          trend={delayedProduction > 0 ? "down" : "up"}
-          trendValue={`${delayedProduction} delayed`}
+          subtitle={`${scheduledProduction} proceeding · ${delayedProduction} delayed`}
+          icon={Clock}
+          trend={delayedProduction > 3 ? "down" : "up"}
+          trendValue={`${rndFormulations.length} R&D active`}
           delay={0.2}
         />
       </div>
@@ -171,27 +185,31 @@ export function DashboardOverview({
           <div className="p-3 rounded-xl bg-muted">
             <div className="flex items-center gap-2 mb-1">
               <TrendingUp className="w-3.5 h-3.5 text-[hsl(142,71%,45%)]" />
-              <span className="text-xs font-medium">Production Efficiency</span>
-            </div>
-            <p className="text-xs text-muted-foreground">Production efficiency increased 12% this week through AI schedule optimization.</p>
-          </div>
-          <div className="p-3 rounded-xl bg-muted">
-            <div className="flex items-center gap-2 mb-1">
-              <AlertTriangle className="w-3.5 h-3.5 text-[hsl(38,92%,50%)]" />
-              <span className="text-xs font-medium">Attention Required</span>
+              <span className="text-xs font-medium">Revenue Insight</span>
             </div>
             <p className="text-xs text-muted-foreground">
-              {delayedProduction > 0
-                ? `${delayedProduction} production orders delayed. Review scheduling.`
-                : "All production orders on track."}
+              Total invoice revenue of {fmt(totalInvoiceValue)} processed across {invoices.length} invoices with {fmt(totalBalanceDue)} pending collection.
             </p>
           </div>
           <div className="p-3 rounded-xl bg-muted">
             <div className="flex items-center gap-2 mb-1">
-              <FileText className="w-3.5 h-3.5" />
-              <span className="text-xs font-medium">Recommendation</span>
+              <AlertTriangle className={`w-3.5 h-3.5 ${delayedProduction > 0 ? "text-[hsl(38,92%,50%)]" : "text-[hsl(142,71%,45%)]"}`} />
+              <span className="text-xs font-medium">Production Status</span>
             </div>
-            <p className="text-xs text-muted-foreground">Consider manufacturing widget_b next – 15% changeover reduction predicted.</p>
+            <p className="text-xs text-muted-foreground">
+              {delayedProduction > 0
+                ? `${delayedProduction} production orders delayed. ${scheduledProduction} orders proceeding on schedule. Review scheduling AI for optimization.`
+                : `All ${scheduledProduction} production orders on track. Factory operating at optimal capacity.`}
+            </p>
+          </div>
+          <div className="p-3 rounded-xl bg-muted">
+            <div className="flex items-center gap-2 mb-1">
+              <ClipboardCheck className="w-3.5 h-3.5" />
+              <span className="text-xs font-medium">Quality Summary</span>
+            </div>
+            <p className="text-xs text-muted-foreground">
+              {qualityRate}% quality pass rate across {qualityReports.length} batches. {rejectedQuality > 0 ? `${rejectedQuality} batch(es) rejected — root cause analysis recommended.` : "No rejections detected. Excellent quality standards maintained."}
+            </p>
           </div>
         </div>
       </motion.div>

@@ -210,13 +210,17 @@ export function AIChatWorkspace({ contextData }: AIChatWorkspaceProps) {
         <div className="w-9 h-9 rounded-xl bg-foreground flex items-center justify-center overflow-hidden">
           <img src="/logo.svg" alt="Udyami" className="w-7 h-7 invert" />
         </div>
-        <div>
+        <div className="flex-1">
           <h1 className="text-lg font-semibold tracking-tight">Udyami Copilot</h1>
           <p className="text-xs text-muted-foreground">
             {contextData?.quotationsCount ?? 0} quotes · {contextData?.invoicesCount ?? 0} invoices ·{" "}
             {contextData?.qualityCount ?? 0} quality · {contextData?.productionCount ?? 0} production ·{" "}
             {contextData?.rndCount ?? 0} R&D
           </p>
+        </div>
+        <div className="flex items-center gap-1.5 px-2 py-1 rounded-full bg-[hsl(142_71%_45%/0.1)]">
+          <span className="w-1.5 h-1.5 rounded-full bg-[hsl(142,71%,45%)] animate-pulse" />
+          <span className="text-[10px] font-medium text-[hsl(142,71%,45%)]">Online</span>
         </div>
       </div>
 

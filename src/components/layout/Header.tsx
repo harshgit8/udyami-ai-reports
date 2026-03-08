@@ -14,8 +14,8 @@ export function Header({ title = "UDYAMI AI" }: HeaderProps) {
     >
       <div className="flex items-center justify-between px-6 py-3">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-foreground text-background flex items-center justify-center font-bold text-sm">
-            U
+          <div className="w-8 h-8 rounded-lg bg-foreground flex items-center justify-center overflow-hidden">
+            <img src="/logo.svg" alt="Udyami AI" className="w-6 h-6 invert" />
           </div>
           <div className="flex flex-col">
             <h1 className="text-sm font-bold tracking-tight">{title}</h1>
