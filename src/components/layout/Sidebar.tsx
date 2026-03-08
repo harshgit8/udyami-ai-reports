@@ -123,7 +123,8 @@ export function Sidebar({ activeTab, onTabChange }: SidebarProps) {
           <div className="flex items-center justify-around px-1 py-1.5">
             {bottomNavItems.map((item) => {
               const Icon = item.icon;
-              const isActive = item.id === "more" ? mobileOpen : activeTab === item.id;
+              const isModuleActive = moduleItems.some((m) => m.id === activeTab);
+              const isActive = item.id === "more" ? (mobileOpen || isModuleActive) : activeTab === item.id;
               return (
                 <button
                   key={item.id}
