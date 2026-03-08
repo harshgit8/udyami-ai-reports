@@ -107,15 +107,48 @@ export function Sidebar({ activeTab, onTabChange }: SidebarProps) {
   };
 
   // Mobile: hamburger + slide-out drawer
+  const bottomNavItems = [
+    { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
+    { id: "chat", label: "Copilot", icon: MessageSquare },
+    { id: "orchestrators", label: "AI Agents", icon: Cpu },
+    { id: "analytics", label: "Analytics", icon: BarChart3 },
+    { id: "more", label: "More", icon: Menu },
+  ];
+
   if (isMobile) {
     return (
       <>
-        <button
-          onClick={() => setMobileOpen(true)}
-          className="fixed bottom-4 left-4 z-50 p-3 rounded-full bg-foreground text-background shadow-lg"
-        >
-          <Menu className="w-5 h-5" />
-        </button>
+        {/* Bottom Navigation Bar */}
+        <nav className="fixed bottom-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-xl border-t border-border safe-area-bottom">
+          <div className="flex items-center justify-around px-1 py-1.5">
+            {bottomNavItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = item.id === "more" ? mobileOpen : activeTab === item.id;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => {
+                    if (item.id === "more") {
+                      setMobileOpen(!mobileOpen);
+                    } else {
+                      handleTabChange(item.id);
+                    }
+                  }}
+                  className={`flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-xl transition-all min-w-[56px] ${
+                    isActive
+                      ? "text-foreground bg-accent"
+                      : "text-muted-foreground"
+                  }`}
+                >
+                  <Icon className="w-5 h-5" />
+                  <span className="text-[10px] font-medium leading-tight">{item.label}</span>
+                </button>
+              );
+            })}
+          </div>
+        </nav>
+
+        {/* "More" drawer for module items */}
         <AnimatePresence>
           {mobileOpen && (
             <>
@@ -123,29 +156,41 @@ export function Sidebar({ activeTab, onTabChange }: SidebarProps) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="fixed inset-0 z-50 bg-black/50"
+                className="fixed inset-0 z-40 bg-black/40"
                 onClick={() => setMobileOpen(false)}
               />
-              <motion.aside
-                initial={{ x: -280 }}
-                animate={{ x: 0 }}
-                exit={{ x: -280 }}
-                transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                className="fixed left-0 top-0 z-50 w-[260px] h-full bg-sidebar border-r border-border flex flex-col"
+              <motion.div
+                initial={{ y: "100%" }}
+                animate={{ y: 0 }}
+                exit={{ y: "100%" }}
+                transition={{ type: "spring", damping: 28, stiffness: 320 }}
+                className="fixed bottom-[60px] left-0 right-0 z-40 bg-card rounded-t-2xl border-t border-border shadow-lg max-h-[50vh] overflow-y-auto"
               >
-                <div className="flex items-center justify-between px-4 py-3 border-b border-border">
-                  <div className="flex items-center gap-2">
-                    <div className="w-7 h-7 rounded-lg bg-foreground flex items-center justify-center">
-                      <img src="/logo.svg" alt="Udyami AI" className="w-5 h-5 invert" />
-                    </div>
-                    <span className="text-sm font-bold">UDYAMI AI</span>
+                <div className="mx-auto mt-2 h-1 w-10 rounded-full bg-muted" />
+                <div className="p-4">
+                  <p className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground mb-3">Modules</p>
+                  <div className="grid grid-cols-3 gap-2">
+                    {moduleItems.map((item) => {
+                      const Icon = item.icon;
+                      const isActive = activeTab === item.id;
+                      return (
+                        <button
+                          key={item.id}
+                          onClick={() => { handleTabChange(item.id); setMobileOpen(false); }}
+                          className={`flex flex-col items-center gap-1.5 p-3 rounded-xl transition-all ${
+                            isActive
+                              ? "bg-foreground text-background"
+                              : "bg-muted/50 text-foreground hover:bg-accent"
+                          }`}
+                        >
+                          <Icon className="w-5 h-5" />
+                          <span className="text-[11px] font-medium">{item.label}</span>
+                        </button>
+                      );
+                    })}
                   </div>
-                  <button onClick={() => setMobileOpen(false)} className="p-1.5 rounded-lg hover:bg-muted">
-                    <X className="w-4 h-4" />
-                  </button>
                 </div>
-                <SidebarContent activeTab={activeTab} onTabChange={handleTabChange} collapsed={false} showLabels={true} />
-              </motion.aside>
+              </motion.div>
             </>
           )}
         </AnimatePresence>
