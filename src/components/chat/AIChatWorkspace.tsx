@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { Paperclip, Send, Loader2, Sparkles, Zap } from "lucide-react";
+import { Paperclip, Send, Loader2 } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -39,14 +39,14 @@ interface AIChatWorkspaceProps {
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/ai-chat`;
 
 const quickPrompts = [
-  { label: "Generate Quotation", prompt: "Generate a quotation for 500 units of widget_a", icon: "📄" },
-  { label: "Create Invoice", prompt: "Create an invoice for the last quotation", icon: "🧾" },
-  { label: "Quality Report", prompt: "Generate quality inspection report for the latest batch", icon: "🔍" },
-  { label: "Production Plan", prompt: "Optimize production schedule for this week", icon: "🏭" },
-  { label: "R&D Formulation", prompt: "Suggest R&D formulation for flame retardant compound", icon: "🧪" },
-  { label: "Simulate Shortage", prompt: "Simulate raw material shortage impact on production", icon: "⚠️" },
-  { label: "Analyze Defects", prompt: "Analyze defect trends across all batches", icon: "📊" },
-  { label: "Recommend Product", prompt: "Recommend next product to manufacture based on demand", icon: "💡" },
+  { label: "Generate Quotation", prompt: "Generate a quotation for 500 units of widget_a for Techno Manufacturing with 50% advance payment terms", icon: "📄" },
+  { label: "Create Invoice", prompt: "Create a GST-compliant invoice for the last quotation with CGST and SGST breakdown", icon: "🧾" },
+  { label: "Quality Report", prompt: "Generate quality inspection report for BATCH-050 with defect analysis and recommendations", icon: "🔍" },
+  { label: "Production Plan", prompt: "Optimize production schedule for this week across all 5 machines with priority allocation", icon: "🏭" },
+  { label: "R&D Formulation", prompt: "Suggest R&D formulation for flame retardant ABS compound meeting UL94 V-0 rating", icon: "🧪" },
+  { label: "Simulate Shortage", prompt: "Simulate raw material shortage of ABS resin for 2 weeks and show production impact", icon: "⚠️" },
+  { label: "Analyze Defects", prompt: "Analyze defect trends across all batches this month and identify root causes", icon: "📊" },
+  { label: "Recommend Product", prompt: "Recommend the next product to manufacture based on current demand and machine setup", icon: "💡" },
 ];
 
 export function AIChatWorkspace({ contextData }: AIChatWorkspaceProps) {
@@ -101,12 +101,8 @@ export function AIChatWorkspace({ contextData }: AIChatWorkspaceProps) {
         }),
       });
 
-      if (resp.status === 429) {
-        throw new Error("Rate limit exceeded. Please try again in a moment.");
-      }
-      if (resp.status === 402) {
-        throw new Error("Usage limit reached. Please add credits to continue.");
-      }
+      if (resp.status === 429) throw new Error("Rate limit exceeded. Please try again in a moment.");
+      if (resp.status === 402) throw new Error("Usage limit reached. Please add credits to continue.");
       if (!resp.ok) {
         const error = await resp.json().catch(() => ({ error: "Failed to get response" }));
         throw new Error(error.error || "Failed to get response");
@@ -211,8 +207,8 @@ export function AIChatWorkspace({ contextData }: AIChatWorkspaceProps) {
 
       {/* Header */}
       <div className="flex items-center gap-3 mb-4">
-        <div className="p-2 rounded-xl bg-foreground text-background">
-          <Sparkles className="w-5 h-5" />
+        <div className="w-9 h-9 rounded-xl bg-foreground flex items-center justify-center overflow-hidden">
+          <img src="/logo.svg" alt="Udyami" className="w-7 h-7 invert" />
         </div>
         <div>
           <h1 className="text-lg font-semibold tracking-tight">Udyami Copilot</h1>
@@ -225,31 +221,31 @@ export function AIChatWorkspace({ contextData }: AIChatWorkspaceProps) {
       </div>
 
       {/* Chat area */}
-      <ScrollArea className="flex-1 rounded-xl border border-border bg-card/50" ref={scrollRef}>
+      <ScrollArea className="flex-1 rounded-2xl border border-border bg-card/50" ref={scrollRef}>
         <div className="p-6 space-y-4">
           {showWelcome && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="flex flex-col items-center justify-center py-12 text-center"
+              className="flex flex-col items-center justify-center py-16 text-center"
             >
-              <div className="p-4 rounded-2xl bg-foreground text-background mb-4">
-                <Sparkles className="w-8 h-8" />
+              <div className="w-16 h-16 rounded-2xl bg-foreground flex items-center justify-center mb-5 shadow-lg">
+                <img src="/logo.svg" alt="Udyami" className="w-12 h-12 invert" />
               </div>
-              <h2 className="text-xl font-semibold mb-2">Welcome to Udyami Copilot</h2>
-              <p className="text-sm text-muted-foreground max-w-md mb-8">
-                Your AI assistant for manufacturing operations. Ask me anything about production, quotations, quality, or R&D.
+              <h2 className="text-xl font-semibold mb-1.5">How can I help you today?</h2>
+              <p className="text-sm text-muted-foreground max-w-md mb-10">
+                I can generate documents, analyze data, simulate scenarios, and help you manage your factory operations.
               </p>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-2xl w-full">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 max-w-2xl w-full">
                 {quickPrompts.map((qp) => (
                   <button
                     key={qp.label}
                     onClick={() => handleSend(qp.prompt)}
-                    className="glass-card-hover p-3 text-left"
+                    className="p-3.5 text-left rounded-xl border border-border bg-background hover:bg-muted/50 hover:border-foreground/20 transition-all duration-200 group"
                   >
-                    <span className="text-lg mb-1 block">{qp.icon}</span>
-                    <span className="text-xs font-medium">{qp.label}</span>
+                    <span className="text-base mb-1.5 block">{qp.icon}</span>
+                    <span className="text-xs font-medium group-hover:text-foreground transition-colors">{qp.label}</span>
                   </button>
                 ))}
               </div>
@@ -265,9 +261,13 @@ export function AIChatWorkspace({ contextData }: AIChatWorkspaceProps) {
             />
           ))}
           {isLoading && (
-            <div className="flex items-center gap-2 text-xs text-muted-foreground">
-              <Loader2 className="w-3 h-3 animate-spin" />
-              Thinking…
+            <div className="flex items-center gap-2.5 text-xs text-muted-foreground py-2">
+              <div className="flex gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-foreground/40 animate-bounce" style={{ animationDelay: "0ms" }} />
+                <span className="w-1.5 h-1.5 rounded-full bg-foreground/40 animate-bounce" style={{ animationDelay: "150ms" }} />
+                <span className="w-1.5 h-1.5 rounded-full bg-foreground/40 animate-bounce" style={{ animationDelay: "300ms" }} />
+              </div>
+              Udyami is thinking…
             </div>
           )}
         </div>
@@ -298,7 +298,7 @@ export function AIChatWorkspace({ contextData }: AIChatWorkspaceProps) {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           disabled={isLoading}
-          placeholder="Ask Udyami Copilot anything…"
+          placeholder="Ask anything about your factory…"
           className="min-h-[44px] max-h-[120px] resize-none rounded-xl"
           rows={1}
           onKeyDown={(e) => {
