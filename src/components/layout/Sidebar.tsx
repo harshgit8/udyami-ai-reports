@@ -42,9 +42,9 @@ export function Sidebar({ activeTab, onTabChange }: SidebarProps) {
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0, width: collapsed ? 64 : 240 }}
       transition={{ duration: 0.2 }}
-      className="border-r border-border bg-sidebar min-h-screen sticky top-12 flex flex-col"
+      className="border-r border-border bg-sidebar h-[calc(100vh-49px)] sticky top-[49px] flex flex-col overflow-hidden"
     >
-      <div className="flex-1 py-4 px-2 space-y-6">
+      <div className="flex-1 py-4 px-2 space-y-6 overflow-hidden">
         {/* Main */}
         <div>
           {!collapsed && (

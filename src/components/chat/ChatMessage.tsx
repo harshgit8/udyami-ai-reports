@@ -18,11 +18,11 @@ export function ChatMessage({ role, content, onDownload }: ChatMessageProps) {
       animate={{ opacity: 1, y: 0 }}
       className={`flex gap-3 ${isUser ? "flex-row-reverse" : ""}`}
     >
-      <div className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center ${isUser ? "bg-foreground" : "bg-muted"}`}>
+      <div className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden ${isUser ? "bg-foreground" : "bg-foreground"}`}>
         {isUser ? (
           <span className="text-xs font-bold text-background">You</span>
         ) : (
-          <img src="/logo.svg" alt="U" className={`w-5 h-5 ${isUser ? "" : ""}`} style={{ filter: "none" }} />
+          <img src="/logo.svg" alt="Udyami" className="w-5 h-5 invert" />
         )}
       </div>
       <div className={`flex-1 max-w-[85%] ${isUser ? "flex flex-col items-end" : ""}`}>
