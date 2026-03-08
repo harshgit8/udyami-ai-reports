@@ -17,9 +17,16 @@ import {
 import { useState } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
+export interface BadgeCounts {
+  quality?: number;
+  production?: number;
+  rnd?: number;
+}
+
 interface SidebarProps {
   activeTab: string;
   onTabChange: (tab: string) => void;
+  badgeCounts?: BadgeCounts;
 }
 
 const mainItems = [
@@ -96,7 +103,7 @@ function SidebarContent({ activeTab, onTabChange, collapsed, showLabels }: { act
   );
 }
 
-export function Sidebar({ activeTab, onTabChange }: SidebarProps) {
+export function Sidebar({ activeTab, onTabChange, badgeCounts = {} }: SidebarProps) {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const isMobile = useIsMobile();
@@ -117,6 +124,8 @@ export function Sidebar({ activeTab, onTabChange }: SidebarProps) {
     { id: "analytics", label: "Analytics", icon: BarChart3 },
     { id: "more", label: moreLabel, icon: activeModule ? activeModule.icon : Menu },
   ];
+
+  const totalModuleBadges = (badgeCounts.quality ?? 0) + (badgeCounts.production ?? 0) + (badgeCounts.rnd ?? 0);
 
   if (isMobile) {
     return (
@@ -144,7 +153,14 @@ export function Sidebar({ activeTab, onTabChange }: SidebarProps) {
                       : "text-muted-foreground"
                   }`}
                 >
-                  <Icon className="w-5 h-5" />
+                  <div className="relative">
+                    <Icon className="w-5 h-5" />
+                    {item.id === "more" && totalModuleBadges > 0 && !isActive && (
+                      <span className="absolute -top-1 -right-1.5 min-w-[16px] h-4 flex items-center justify-center rounded-full bg-destructive text-destructive-foreground text-[9px] font-bold px-1">
+                        {totalModuleBadges}
+                      </span>
+                    )}
+                  </div>
                   <span className="text-[10px] font-medium leading-tight">{item.label}</span>
                 </button>
               );
@@ -187,7 +203,14 @@ export function Sidebar({ activeTab, onTabChange }: SidebarProps) {
                               : "bg-muted/50 text-foreground hover:bg-accent"
                           }`}
                         >
-                          <Icon className="w-5 h-5" />
+                          <div className="relative">
+                            <Icon className="w-5 h-5" />
+                            {(badgeCounts[item.id as keyof BadgeCounts] ?? 0) > 0 && (
+                              <span className="absolute -top-1 -right-1.5 min-w-[16px] h-4 flex items-center justify-center rounded-full bg-destructive text-destructive-foreground text-[9px] font-bold px-1">
+                                {badgeCounts[item.id as keyof BadgeCounts]}
+                              </span>
+                            )}
+                          </div>
                           <span className="text-[11px] font-medium">{item.label}</span>
                         </button>
                       );
