@@ -151,7 +151,14 @@ export function Sidebar({ activeTab, onTabChange, badgeCounts = {} }: SidebarPro
                       : "text-muted-foreground"
                   }`}
                 >
-                  <Icon className="w-5 h-5" />
+                  <div className="relative">
+                    <Icon className="w-5 h-5" />
+                    {item.id === "more" && totalModuleBadges > 0 && !isActive && (
+                      <span className="absolute -top-1 -right-1.5 min-w-[16px] h-4 flex items-center justify-center rounded-full bg-destructive text-destructive-foreground text-[9px] font-bold px-1">
+                        {totalModuleBadges}
+                      </span>
+                    )}
+                  </div>
                   <span className="text-[10px] font-medium leading-tight">{item.label}</span>
                 </button>
               );
