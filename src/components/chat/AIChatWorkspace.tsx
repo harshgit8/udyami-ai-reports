@@ -49,8 +49,18 @@ const quickPrompts = [
   { label: "Recommend Product", prompt: "Recommend the next product to manufacture based on current demand and machine setup", icon: "💡" },
 ];
 
+const SESSION_KEY = "udyami-chat-messages";
+
+function loadSessionMessages(): Message[] {
+  try {
+    const stored = sessionStorage.getItem(SESSION_KEY);
+    if (stored) return JSON.parse(stored);
+  } catch { /* ignore */ }
+  return [];
+}
+
 export function AIChatWorkspace({ contextData }: AIChatWorkspaceProps) {
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState<Message[]>(loadSessionMessages);
   const [isLoading, setIsLoading] = useState(false);
   const [downloadContent, setDownloadContent] = useState<string | null>(null);
   const [input, setInput] = useState("");
@@ -59,6 +69,11 @@ export function AIChatWorkspace({ contextData }: AIChatWorkspaceProps) {
   const pdfRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
   const queryClient = useQueryClient();
+
+  // Persist messages to sessionStorage
+  useEffect(() => {
+    sessionStorage.setItem(SESSION_KEY, JSON.stringify(messages));
+  }, [messages]);
 
   useEffect(() => {
     if (scrollRef.current) {
