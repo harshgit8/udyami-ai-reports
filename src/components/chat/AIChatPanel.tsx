@@ -243,8 +243,8 @@ export function AIChatPanel({ contextData }: AIChatPanelProps) {
           className="p-12 bg-white text-black min-h-[297mm]"
         >
           {downloadContent && (
-            <div className="prose prose-sm max-w-none prose-headings:font-bold prose-h1:text-2xl prose-h2:text-xl prose-p:mb-4 prose-li:mb-2">
-              <ReactMarkdown>{downloadContent}</ReactMarkdown>
+            <div className="prose prose-sm max-w-none prose-headings:font-bold prose-h1:text-2xl prose-h2:text-xl prose-p:mb-4 prose-li:mb-2 prose-table:border-collapse prose-th:border prose-th:border-gray-300 prose-th:px-3 prose-th:py-2 prose-th:bg-gray-50 prose-td:border prose-td:border-gray-300 prose-td:px-3 prose-td:py-2">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{downloadContent}</ReactMarkdown>
             </div>
           )}
         </div>
