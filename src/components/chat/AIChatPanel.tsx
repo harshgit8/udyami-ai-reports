@@ -28,22 +28,35 @@ interface AIChatPanelProps {
 }
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/ai-chat`;
+const PANEL_SESSION_KEY = "udyami-panel-chat-messages";
 
-export function AIChatPanel({ contextData }: AIChatPanelProps) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([
+function loadPanelMessages(): Message[] {
+  try {
+    const stored = sessionStorage.getItem(PANEL_SESSION_KEY);
+    if (stored) return JSON.parse(stored);
+  } catch { /* ignore */ }
+  return [
     {
       role: "assistant",
       content: "Hello! I'm your Udyami AI Assistant. I can help you with:\n\n- **Quotations**: Generate professional quotes with cost breakdowns\n- **Invoices**: Manage billing and payment tracking\n- **Quality Reports**: Analyze inspection results and compliance\n- **Production**: Schedule orders and assess risks\n- **R&D**: Formulation analysis and compliance checks\n\nHow can I assist you today?",
     },
-  ]);
+  ];
+}
+
+export function AIChatPanel({ contextData }: AIChatPanelProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [messages, setMessages] = useState<Message[]>(loadPanelMessages);
   const [isLoading, setIsLoading] = useState(false);
   const [downloadContent, setDownloadContent] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const pdfRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
   const queryClient = useQueryClient();
+
+  useEffect(() => {
+    sessionStorage.setItem(PANEL_SESSION_KEY, JSON.stringify(messages));
+  }, [messages]);
 
   useEffect(() => {
     if (scrollRef.current) {
