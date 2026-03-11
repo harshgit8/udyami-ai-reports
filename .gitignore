@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Secrets and credentials
+creds.json
+*.db
+*.sql
+*.py
