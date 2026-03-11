@@ -31,7 +31,7 @@ interface SidebarProps {
 
 const mainItems = [
   { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { id: "chat", label: "Udyami Copilot", icon: MessageSquare },
+  { id: "chat", label: "Udyami", icon: MessageSquare },
   { id: "orchestrators", label: "AI Orchestrators", icon: Cpu },
   { id: "analytics", label: "Analytics", icon: BarChart3 },
 ];
