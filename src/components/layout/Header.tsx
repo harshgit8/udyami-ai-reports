@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Bell, Search, Settings } from "lucide-react";
+import { Bell, Search, Settings, RefreshCw } from "lucide-react";
 import { NotificationsPanel } from "./NotificationsPanel";
 import { SettingsPanel } from "./SettingsPanel";
+import { Button } from "@/components/ui/button";
 
 interface HeaderProps {
   title?: string;
+  onSync?: () => void;
+  syncing?: boolean;
 }
 
-export function Header({ title = "UDYAMI AI" }: HeaderProps) {
+export function Header({ title = "UDYAMI AI", onSync, syncing }: HeaderProps) {
   const [notifOpen, setNotifOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
 
@@ -44,6 +47,18 @@ export function Header({ title = "UDYAMI AI" }: HeaderProps) {
         </div>
 
         <div className="flex items-center gap-1.5 sm:gap-3">
+          {onSync && (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={onSync}
+              disabled={syncing}
+              className="h-8 px-2.5 text-xs text-muted-foreground hover:text-foreground rounded-lg gap-1.5"
+            >
+              <RefreshCw className={`w-3.5 h-3.5 ${syncing ? "animate-spin" : ""}`} />
+              <span className="hidden sm:inline">{syncing ? "Syncing…" : "Sync"}</span>
+            </Button>
+          )}
           <button
             onClick={() => { setNotifOpen(!notifOpen); setSettingsOpen(false); }}
             className={`relative p-1.5 sm:p-2 rounded-lg transition-colors ${notifOpen ? "bg-muted" : "hover:bg-muted"}`}

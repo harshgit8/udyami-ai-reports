@@ -8,3 +8,6 @@ verify_jwt = false
 
 [functions.save-document]
 verify_jwt = false
+
+[functions.sync-sheets]
+verify_jwt = false
