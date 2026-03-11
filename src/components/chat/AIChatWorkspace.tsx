@@ -304,7 +304,7 @@ export function AIChatWorkspace({ contextData }: AIChatWorkspaceProps) {
           <img src="/logo.svg" alt="Udyami" className="w-7 h-7 invert" />
         </div>
         <div className="flex-1">
-          <h1 className="text-lg font-semibold tracking-tight">Udyami Copilot</h1>
+          <h1 className="text-lg font-semibold tracking-tight">Udyami</h1>
           <p className="text-xs text-muted-foreground">
             {contextData?.quotationsCount ?? 0} quotes · {contextData?.invoicesCount ?? 0} invoices ·{" "}
             {contextData?.qualityCount ?? 0} quality · {contextData?.productionCount ?? 0} production ·{" "}
