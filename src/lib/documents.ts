@@ -29,12 +29,115 @@ export type SaveDocumentInput = {
 
 export async function fetchDocuments(limit = 10000): Promise<DocumentRow[]> {
   try {
-    const { data, error } = await (supabase as any)
-      .from("documents")
-      .select("id,type,external_id,customer,status,total,data,markdown,created_at,updated_at")
-      .order("created_at", { ascending: false })
-      .limit(limit);
-    if (!error && data && data.length > 0) return data as unknown as DocumentRow[];
+    const [qRes, iRes, qcRes, pRes, rRes] = await Promise.all([
+      supabase.from("quotationresult").select("*").limit(limit),
+      supabase.from("invoiceresult").select("*").limit(limit),
+      supabase.from("qualityresult").select("*").limit(limit),
+      supabase.from("productionresult").select("*").limit(limit),
+      supabase.from("rndresult").select("*").limit(limit),
+    ]);
+
+    const docs: DocumentRow[] = [];
+
+    if (qRes.data) {
+      for (const r of qRes.data) {
+        docs.push({
+          id: String(r.id || crypto.randomUUID()),
+          type: "quotation",
+          external_id: r.quote_id || null,
+          customer: r.customer || null,
+          status: null,
+          total: Number(r.grand_total) || null,
+          data: r as Json,
+          created_at: r.created_at,
+        });
+      }
+    }
+
+    if (iRes.data) {
+      for (const r of iRes.data) {
+        docs.push({
+          id: String(r.id || crypto.randomUUID()),
+          type: "invoice",
+          external_id: r.invoice_number || null,
+          customer: r.customer_name || null,
+          status: null,
+          total: Number(r.grand_total) || null,
+          data: r as Json,
+          created_at: r.created_at,
+        });
+      }
+    }
+
+    if (qcRes.data) {
+      for (const r of qcRes.data) {
+        docs.push({
+          id: String(r.id || crypto.randomUUID()),
+          type: "quality",
+          external_id: r.inspection_id || r.batch_id || null,
+          customer: null,
+          status: r.decision || null,
+          total: null,
+          data: r as Json,
+          created_at: r.created_at,
+        });
+      }
+    }
+
+    if (pRes.data) {
+      for (const r of pRes.data) {
+        docs.push({
+          id: String(r.id || crypto.randomUUID()),
+          type: "production",
+          external_id: r.order_id || null,
+          customer: null,
+          status: r.decision || null,
+          total: null,
+          data: r as Json,
+          created_at: r.created_at,
+        });
+      }
+    }
+
+    if (rRes.data) {
+      for (const r of rRes.data) {
+        docs.push({
+          id: String(r.id || crypto.randomUUID()),
+          type: "rnd",
+          external_id: r.formulation_id || r.request_id || null,
+          customer: null,
+          status: r.recommendation || null,
+          total: Number(r.cost_kg) || null,
+          data: r as Json,
+          created_at: r.created_at,
+        });
+      }
+    }
+
+    // Attempt to load unified documents just in case there are manual user saves from chat
+    try {
+      const { data: unified } = await supabase
+        .from("documents")
+        .select("id,type,external_id,customer,status,total,data,markdown,created_at,updated_at")
+        .order("created_at", { ascending: false })
+        .limit(limit);
+      if (unified) {
+        for (const doc of unified) {
+          // Add manually saved documents that don't have numerical IDs (meaning they aren't synced from the specific tables)
+          if (doc.id.includes('-')) {
+             docs.push(doc as unknown as DocumentRow);
+          }
+        }
+      }
+    } catch { /* ignore */ }
+
+    docs.sort((a, b) => {
+      const tA = a.created_at ? new Date(a.created_at).getTime() : 0;
+      const tB = b.created_at ? new Date(b.created_at).getTime() : 0;
+      return tB - tA;
+    });
+
+    if (docs.length > 0) return docs.slice(0, limit);
   } catch { /* fall through */ }
 
   // CSV fallback
