@@ -84,6 +84,7 @@ const Index = () => {
     const r: Array<WithId<RnDFormulation>> = [];
 
     for (const doc of documents) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const payload = { id: doc.id, ...(doc.data as object) } as any;
       if (doc.type === "quotation") q.push(payload);
       if (doc.type === "invoice") i.push(payload);
@@ -92,8 +93,11 @@ const Index = () => {
       if (doc.type === "rnd") r.push(payload);
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const qualityIssues = qc.filter((item: any) => item.decision === "REJECT" || item.decision === "CONDITIONAL_ACCEPT" || item.Decision === "REJECTED" || item.Decision === "CONDITIONAL ACCEPT").length;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const productionDelays = p.filter((item: any) => item.decision === "DELAY" || item.Decision === "DELAY").length;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const rndPending = r.filter((item: any) => {
       const rec = (item.recommendation ?? item.Recommendation ?? "") as string;
       return rec.includes("CAUTION") || rec.includes("LABORATORY TESTING");
