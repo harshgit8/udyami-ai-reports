@@ -5,6 +5,9 @@ import { FilterBar } from "./FilterBar";
 import { PDFPreview } from "./PDFPreview";
 import { PDFContent } from "./PDFContent";
 import type { Quotation } from "@/types/documents";
+import { globalSearch } from "@/lib/search";
+import { usePagination } from "@/hooks/usePagination";
+import { PaginationControls } from "@/components/ui/pagination-controls";
 
 type WithId<T> = Partial<T> & { id: string };
 
@@ -19,25 +22,38 @@ export function QuotationList({ quotations }: QuotationListProps) {
   const [selectedDoc, setSelectedDoc] = useState<WithId<Quotation> | null>(null);
 
   const customers = useMemo(() => {
-    const unique = [...new Set(quotations.map(q => q.customer))];
-    return unique.map(c => ({ label: c, value: c }));
+    const unique = [...new Set(quotations.map(q => q.customer).filter(Boolean))];
+    return unique.map(c => ({ label: c as string, value: c as string }));
   }, [quotations]);
 
   const filteredQuotations = useMemo(() => {
-    return quotations.filter(q => {
-      const matchesSearch = !search || 
-        q.customer?.toLowerCase().includes(search.toLowerCase()) ||
-        q.quoteId?.toLowerCase().includes(search.toLowerCase()) ||
-        q.product?.toLowerCase().includes(search.toLowerCase());
+    let filtered = quotations;
+
+    if (statusFilter) {
+      filtered = filtered.filter(q => q.winProbability === statusFilter);
+    }
+
+    if (customerFilter) {
+      filtered = filtered.filter(q => q.customer === customerFilter);
+    }
+
+    if (search) {
+      filtered = globalSearch(filtered, search);
+    }
       
-      const matchesStatus = !statusFilter || q.winProbability === statusFilter;
-      const matchesCustomer = !customerFilter || q.customer === customerFilter;
-      
-      return matchesSearch && matchesStatus && matchesCustomer;
-    });
+    return filtered;
   }, [quotations, search, statusFilter, customerFilter]);
 
-  const formatCurrency = (value: number) => `₹${value?.toLocaleString('en-IN') || '0'}`;
+  const {
+    currentItems: paginatedQuotations,
+    currentPage,
+    totalPages,
+    goToNextPage,
+    goToPreviousPage,
+    changePage
+  } = usePagination(filteredQuotations, 20);
+
+  const formatCurrency = (value?: number) => `₹${value?.toLocaleString('en-IN') || '0'}`;
 
   return (
     <div>
@@ -77,8 +93,8 @@ export function QuotationList({ quotations }: QuotationListProps) {
         ]}
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filteredQuotations.map((quotation, index) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+        {paginatedQuotations.map((quotation, index) => (
           <motion.div
             key={quotation.id}
             initial={{ opacity: 0, y: 20 }}
@@ -86,17 +102,17 @@ export function QuotationList({ quotations }: QuotationListProps) {
             transition={{ delay: index * 0.05 }}
           >
             <DocumentCard
-              title={quotation.quoteId}
-              subtitle={quotation.customer}
+              title={quotation.quoteId || 'N/A'}
+              subtitle={quotation.customer || 'N/A'}
               value={formatCurrency(quotation.grandTotal)}
               status={
                 quotation.winProbability === 'HIGH' ? 'success' :
                 quotation.winProbability === 'LOW' ? 'error' : 'warning'
               }
-              statusLabel={quotation.winProbability}
+              statusLabel={quotation.winProbability || 'N/A'}
               metadata={[
                 { label: 'Product', value: quotation.product || 'N/A' },
-                { label: 'Quantity', value: `${quotation.quantity} units` },
+                { label: 'Quantity', value: `${quotation.quantity || 0} units` },
                 { label: 'Unit Price', value: formatCurrency(quotation.unitPrice) },
                 { label: 'Valid Until', value: quotation.validUntil || 'N/A' },
               ]}
@@ -112,6 +128,14 @@ export function QuotationList({ quotations }: QuotationListProps) {
           No quotations found matching your criteria.
         </div>
       )}
+
+      <PaginationControls
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onNextPage={goToNextPage}
+        onPrevPage={goToPreviousPage}
+        onPageChange={changePage}
+      />
 
       <PDFPreview
         isOpen={!!selectedDoc}

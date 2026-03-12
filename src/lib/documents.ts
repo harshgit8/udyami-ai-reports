@@ -39,8 +39,18 @@ export async function fetchDocuments(limit = 10000): Promise<DocumentRow[]> {
 
     const docs: DocumentRow[] = [];
 
+    const shuffle = (array: any[]) => {
+      let currentIndex = array.length, randomIndex;
+      while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+      }
+      return array;
+    };
+
     if (qRes.data) {
-      for (const r of qRes.data) {
+      for (const r of shuffle(qRes.data)) {
         docs.push({
           id: String(r.id || crypto.randomUUID()),
           type: "quotation",
@@ -48,14 +58,21 @@ export async function fetchDocuments(limit = 10000): Promise<DocumentRow[]> {
           customer: r.customer || null,
           status: null,
           total: Number(r.grand_total) || null,
-          data: r as Json,
+          data: {
+            ...r,
+            quoteId: r.quote_id,
+            grandTotal: r.grand_total,
+            unitPrice: r.unit_price,
+            validUntil: r.valid_until,
+            winProbability: r.win_probability || (r.profit_margin > 20 ? 'HIGH' : 'MEDIUM')
+          } as Json,
           created_at: r.created_at,
         });
       }
     }
 
     if (iRes.data) {
-      for (const r of iRes.data) {
+      for (const r of shuffle(iRes.data)) {
         docs.push({
           id: String(r.id || crypto.randomUUID()),
           type: "invoice",
@@ -63,14 +80,23 @@ export async function fetchDocuments(limit = 10000): Promise<DocumentRow[]> {
           customer: r.customer_name || null,
           status: null,
           total: Number(r.grand_total) || null,
-          data: r as Json,
+          data: {
+            ...r,
+            invoiceNumber: r.invoice_number,
+            customer: r.customer_name,
+            grandTotal: r.grand_total,
+            balanceDue: r.balance_due,
+            invoiceDate: r.invoice_date,
+            dueDate: r.due_date,
+            paymentRisk: r.payment_risk || (r.balance_due > 0 ? 'MEDIUM' : 'LOW')
+          } as Json,
           created_at: r.created_at,
         });
       }
     }
 
     if (qcRes.data) {
-      for (const r of qcRes.data) {
+      for (const r of shuffle(qcRes.data)) {
         docs.push({
           id: String(r.id || crypto.randomUUID()),
           type: "quality",
@@ -78,14 +104,21 @@ export async function fetchDocuments(limit = 10000): Promise<DocumentRow[]> {
           customer: null,
           status: r.decision || null,
           total: null,
-          data: r as Json,
+          data: {
+            ...r,
+            inspectionId: r.inspection_id,
+            batchId: r.batch_id,
+            productType: r.product_type,
+            defectRate: r.defect_rate,
+            severityLevel: r.severity_level,
+          } as Json,
           created_at: r.created_at,
         });
       }
     }
 
     if (pRes.data) {
-      for (const r of pRes.data) {
+      for (const r of shuffle(pRes.data)) {
         docs.push({
           id: String(r.id || crypto.randomUUID()),
           type: "production",
@@ -93,14 +126,20 @@ export async function fetchDocuments(limit = 10000): Promise<DocumentRow[]> {
           customer: null,
           status: r.decision || null,
           total: null,
-          data: r as Json,
+          data: {
+            ...r,
+            orderId: r.order_id,
+            riskScore: r.risk_score,
+            startTime: r.start_time,
+            endTime: r.end_time,
+          } as Json,
           created_at: r.created_at,
         });
       }
     }
 
     if (rRes.data) {
-      for (const r of rRes.data) {
+      for (const r of shuffle(rRes.data)) {
         docs.push({
           id: String(r.id || crypto.randomUUID()),
           type: "rnd",
@@ -108,7 +147,13 @@ export async function fetchDocuments(limit = 10000): Promise<DocumentRow[]> {
           customer: null,
           status: r.recommendation || null,
           total: Number(r.cost_kg) || null,
-          data: r as Json,
+          data: {
+            ...r,
+            formulationId: r.formulation_id,
+            totalCost: r.cost_kg,
+            ul94Rating: r.ul94_rating,
+            productionReadiness: r.recommendation,
+          } as Json,
           created_at: r.created_at,
         });
       }

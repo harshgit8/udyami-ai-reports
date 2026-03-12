@@ -5,6 +5,9 @@ import { FilterBar } from "./FilterBar";
 import { PDFPreview } from "./PDFPreview";
 import { PDFContent } from "./PDFContent";
 import type { Invoice } from "@/types/documents";
+import { globalSearch } from "@/lib/search";
+import { usePagination } from "@/hooks/usePagination";
+import { PaginationControls } from "@/components/ui/pagination-controls";
 
 type WithId<T> = Partial<T> & { id: string };
 
@@ -19,24 +22,38 @@ export function InvoiceList({ invoices }: InvoiceListProps) {
   const [selectedDoc, setSelectedDoc] = useState<WithId<Invoice> | null>(null);
 
   const customers = useMemo(() => {
-    const unique = [...new Set(invoices.map(i => i.customer))];
-    return unique.map(c => ({ label: c, value: c }));
+    const unique = [...new Set(invoices.map(i => i.customer).filter(Boolean))];
+    return unique.map(c => ({ label: c as string, value: c as string }));
   }, [invoices]);
 
   const filteredInvoices = useMemo(() => {
-    return invoices.filter(i => {
-      const matchesSearch = !search || 
-        i.customer?.toLowerCase().includes(search.toLowerCase()) ||
-        i.invoiceNumber?.toLowerCase().includes(search.toLowerCase());
+    let filtered = invoices;
+
+    if (riskFilter) {
+      filtered = filtered.filter(i => i.paymentRisk === riskFilter);
+    }
+
+    if (customerFilter) {
+      filtered = filtered.filter(i => i.customer === customerFilter);
+    }
+
+    if (search) {
+      filtered = globalSearch(filtered, search);
+    }
       
-      const matchesRisk = !riskFilter || i.paymentRisk === riskFilter;
-      const matchesCustomer = !customerFilter || i.customer === customerFilter;
-      
-      return matchesSearch && matchesRisk && matchesCustomer;
-    });
+    return filtered;
   }, [invoices, search, riskFilter, customerFilter]);
 
-  const formatCurrency = (value: number) => `₹${value?.toLocaleString('en-IN') || '0'}`;
+  const {
+    currentItems: paginatedInvoices,
+    currentPage,
+    totalPages,
+    goToNextPage,
+    goToPreviousPage,
+    changePage
+  } = usePagination(filteredInvoices, 20);
+
+  const formatCurrency = (value?: number) => `₹${value?.toLocaleString('en-IN') || '0'}`;
 
   return (
     <div>
@@ -76,8 +93,8 @@ export function InvoiceList({ invoices }: InvoiceListProps) {
         ]}
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filteredInvoices.map((invoice, index) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+        {paginatedInvoices.map((invoice, index) => (
           <motion.div
             key={invoice.id}
             initial={{ opacity: 0, y: 20 }}
@@ -85,14 +102,14 @@ export function InvoiceList({ invoices }: InvoiceListProps) {
             transition={{ delay: index * 0.05 }}
           >
             <DocumentCard
-              title={invoice.invoiceNumber}
-              subtitle={invoice.customer}
+              title={invoice.invoiceNumber || 'N/A'}
+              subtitle={invoice.customer || 'N/A'}
               value={formatCurrency(invoice.grandTotal)}
               status={
                 invoice.paymentRisk === 'LOW' ? 'success' :
                 invoice.paymentRisk === 'HIGH' ? 'error' : 'warning'
               }
-              statusLabel={`${invoice.paymentRisk} RISK`}
+              statusLabel={invoice.paymentRisk ? `${invoice.paymentRisk} RISK` : 'N/A'}
               metadata={[
                 { label: 'Date', value: invoice.invoiceDate || 'N/A' },
                 { label: 'Due', value: invoice.dueDate || 'N/A' },
@@ -111,6 +128,14 @@ export function InvoiceList({ invoices }: InvoiceListProps) {
           No invoices found matching your criteria.
         </div>
       )}
+
+      <PaginationControls
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onNextPage={goToNextPage}
+        onPrevPage={goToPreviousPage}
+        onPageChange={changePage}
+      />
 
       <PDFPreview
         isOpen={!!selectedDoc}

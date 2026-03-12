@@ -5,6 +5,9 @@ import { FilterBar } from "./FilterBar";
 import { PDFPreview } from "./PDFPreview";
 import { PDFContent } from "./PDFContent";
 import type { QualityInspection } from "@/types/documents";
+import { globalSearch } from "@/lib/search";
+import { usePagination } from "@/hooks/usePagination";
+import { PaginationControls } from "@/components/ui/pagination-controls";
 
 type WithId<T> = Partial<T> & { id: string };
 
@@ -19,23 +22,36 @@ export function QualityList({ reports }: QualityListProps) {
   const [selectedDoc, setSelectedDoc] = useState<WithId<QualityInspection> | null>(null);
 
   const products = useMemo(() => {
-    const unique = [...new Set(reports.map(r => r.productType))];
-    return unique.map(p => ({ label: p, value: p }));
+    const unique = [...new Set(reports.map(r => r.productType).filter(Boolean))];
+    return unique.map(p => ({ label: p as string, value: p as string }));
   }, [reports]);
 
   const filteredReports = useMemo(() => {
-    return reports.filter(r => {
-      const matchesSearch = !search || 
-        r.inspectionId?.toLowerCase().includes(search.toLowerCase()) ||
-        r.batchId?.toLowerCase().includes(search.toLowerCase()) ||
-        r.productType?.toLowerCase().includes(search.toLowerCase());
+    let filtered = reports;
+
+    if (decisionFilter) {
+      filtered = filtered.filter(r => r.decision === decisionFilter);
+    }
+
+    if (productFilter) {
+      filtered = filtered.filter(r => r.productType === productFilter);
+    }
+
+    if (search) {
+      filtered = globalSearch(filtered, search);
+    }
       
-      const matchesDecision = !decisionFilter || r.decision === decisionFilter;
-      const matchesProduct = !productFilter || r.productType === productFilter;
-      
-      return matchesSearch && matchesDecision && matchesProduct;
-    });
+    return filtered;
   }, [reports, search, decisionFilter, productFilter]);
+
+  const {
+    currentItems: paginatedReports,
+    currentPage,
+    totalPages,
+    goToNextPage,
+    goToPreviousPage,
+    changePage
+  } = usePagination(filteredReports, 20);
 
   return (
     <div>
@@ -75,8 +91,8 @@ export function QualityList({ reports }: QualityListProps) {
         ]}
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filteredReports.map((report, index) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+        {paginatedReports.map((report, index) => (
           <motion.div
             key={report.id}
             initial={{ opacity: 0, y: 20 }}
@@ -84,19 +100,19 @@ export function QualityList({ reports }: QualityListProps) {
             transition={{ delay: index * 0.05 }}
           >
             <DocumentCard
-              title={report.inspectionId}
-              subtitle={`Batch: ${report.batchId}`}
-              value={`${report.defectRate}% defects`}
+              title={report.inspectionId || 'N/A'}
+              subtitle={`Batch: ${report.batchId || 'N/A'}`}
+              value={`${report.defectRate || 0}% defects`}
               status={
                 report.decision === 'ACCEPT' ? 'success' :
                 report.decision === 'REJECT' ? 'error' : 'warning'
               }
-              statusLabel={report.decision?.replace('_', ' ')}
+              statusLabel={report.decision?.replace('_', ' ') || 'N/A'}
               metadata={[
                 { label: 'Product', value: report.productType || 'N/A' },
-                { label: 'Quantity', value: `${report.quantity}` },
+                { label: 'Quantity', value: `${report.quantity || 0}` },
                 { label: 'Severity', value: report.severityLevel || 'N/A' },
-                { label: 'Defect Rate', value: `${report.defectRate}%` },
+                { label: 'Defect Rate', value: `${report.defectRate || 0}%` },
               ]}
               onView={() => setSelectedDoc(report)}
               onDownload={() => setSelectedDoc(report)}
@@ -110,6 +126,14 @@ export function QualityList({ reports }: QualityListProps) {
           No quality reports found matching your criteria.
         </div>
       )}
+
+      <PaginationControls
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onNextPage={goToNextPage}
+        onPrevPage={goToPreviousPage}
+        onPageChange={changePage}
+      />
 
       <PDFPreview
         isOpen={!!selectedDoc}
