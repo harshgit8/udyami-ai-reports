@@ -4,9 +4,12 @@ import { DocumentCard } from "./DocumentCard";
 import { FilterBar } from "./FilterBar";
 import { PDFPreview } from "./PDFPreview";
 import { PDFContent } from "./PDFContent";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { ProductionOrder } from "@/types/documents";
 
 type WithId<T> = Partial<T> & { id: string };
+const PAGE_SIZE = 20;
 
 interface ProductionListProps {
   orders: Array<WithId<ProductionOrder>>;
@@ -17,6 +20,7 @@ export function ProductionList({ orders }: ProductionListProps) {
   const [decisionFilter, setDecisionFilter] = useState("");
   const [machineFilter, setMachineFilter] = useState("");
   const [selectedDoc, setSelectedDoc] = useState<WithId<ProductionOrder> | null>(null);
+  const [page, setPage] = useState(1);
 
   const machines = useMemo(() => {
     const unique = [...new Set(orders.map(o => o.machine).filter(Boolean))];
@@ -24,72 +28,42 @@ export function ProductionList({ orders }: ProductionListProps) {
   }, [orders]);
 
   const filteredOrders = useMemo(() => {
+    setPage(1);
     return orders.filter(o => {
       const matchesSearch = !search || 
         o.orderId?.toLowerCase().includes(search.toLowerCase()) ||
         o.machine?.toLowerCase().includes(search.toLowerCase());
-      
       const matchesDecision = !decisionFilter || o.decision === decisionFilter;
       const matchesMachine = !machineFilter || o.machine === machineFilter;
-      
       return matchesSearch && matchesDecision && matchesMachine;
     });
   }, [orders, search, decisionFilter, machineFilter]);
 
+  const totalPages = Math.max(1, Math.ceil(filteredOrders.length / PAGE_SIZE));
+  const paged = filteredOrders.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+
   return (
     <div>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="mb-8"
-      >
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
         <h1 className="text-3xl font-semibold tracking-tight">Production Schedule</h1>
-        <p className="text-muted-foreground mt-2">
-          View production orders and scheduling decisions
-        </p>
+        <p className="text-muted-foreground mt-2">View production orders and scheduling decisions</p>
       </motion.div>
 
       <FilterBar
-        search={search}
-        onSearchChange={setSearch}
-        totalCount={orders.length}
-        filteredCount={filteredOrders.length}
+        search={search} onSearchChange={setSearch}
+        totalCount={orders.length} filteredCount={filteredOrders.length}
         filters={[
-          {
-            label: 'Decision',
-            value: decisionFilter,
-            options: [
-              { label: 'Proceed', value: 'PROCEED' },
-              { label: 'Delay', value: 'DELAY' },
-              { label: 'Reject', value: 'REJECT' },
-            ],
-            onChange: setDecisionFilter,
-          },
-          {
-            label: 'Machine',
-            value: machineFilter,
-            options: machines,
-            onChange: setMachineFilter,
-          },
+          { label: 'Decision', value: decisionFilter, options: [{ label: 'Proceed', value: 'PROCEED' }, { label: 'Delay', value: 'DELAY' }, { label: 'Reject', value: 'REJECT' }], onChange: setDecisionFilter },
+          { label: 'Machine', value: machineFilter, options: machines, onChange: setMachineFilter },
         ]}
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filteredOrders.map((order, index) => (
-          <motion.div
-            key={order.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.05 }}
-          >
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        {paged.map((order, index) => (
+          <motion.div key={order.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.03 }}>
             <DocumentCard
-              title={order.orderId}
-              subtitle={`Machine: ${order.machine || 'N/A'}`}
-              value={`Risk: ${order.riskScore}/10`}
-              status={
-                order.decision === 'PROCEED' ? 'success' :
-                order.decision === 'REJECT' ? 'error' : 'warning'
-              }
+              title={order.orderId} subtitle={`Machine: ${order.machine || 'N/A'}`} value={`Risk: ${order.riskScore}/10`}
+              status={order.decision === 'PROCEED' ? 'success' : order.decision === 'REJECT' ? 'error' : 'warning'}
               statusLabel={order.decision}
               metadata={[
                 { label: 'Start', value: order.startTime?.split('T')[0] || 'N/A' },
@@ -97,25 +71,29 @@ export function ProductionList({ orders }: ProductionListProps) {
                 { label: 'Risk', value: `${order.riskScore}/10` },
                 { label: 'Reason', value: order.reason?.slice(0, 20) || 'N/A' },
               ]}
-              onView={() => setSelectedDoc(order)}
-              onDownload={() => setSelectedDoc(order)}
+              onView={() => setSelectedDoc(order)} onDownload={() => setSelectedDoc(order)}
             />
           </motion.div>
         ))}
       </div>
 
       {filteredOrders.length === 0 && (
-        <div className="text-center py-12 text-muted-foreground">
-          No production orders found matching your criteria.
+        <div className="text-center py-12 text-muted-foreground">No production orders found matching your criteria.</div>
+      )}
+
+      {totalPages > 1 && (
+        <div className="flex items-center justify-center gap-2 mt-6">
+          <Button variant="outline" size="sm" onClick={() => setPage(p => Math.max(1, p - 1))} disabled={page === 1}>
+            <ChevronLeft className="h-4 w-4" /> Prev
+          </Button>
+          <span className="text-sm text-muted-foreground px-3">Page {page} of {totalPages}</span>
+          <Button variant="outline" size="sm" onClick={() => setPage(p => Math.min(totalPages, p + 1))} disabled={page === totalPages}>
+            Next <ChevronRight className="h-4 w-4" />
+          </Button>
         </div>
       )}
 
-      <PDFPreview
-        isOpen={!!selectedDoc}
-        onClose={() => setSelectedDoc(null)}
-        title={`Production Order - ${selectedDoc?.orderId || ''}`}
-        filename={`production-${selectedDoc?.orderId || 'document'}`}
-      >
+      <PDFPreview isOpen={!!selectedDoc} onClose={() => setSelectedDoc(null)} title={`Production Order - ${selectedDoc?.orderId || ''}`} filename={`production-${selectedDoc?.orderId || 'document'}`}>
         {selectedDoc && <PDFContent type="production" data={selectedDoc} />}
       </PDFPreview>
     </div>
