@@ -1,109 +1,324 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Play, Clock, CheckCircle2, AlertTriangle } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Play,
+  Settings,
+  Users,
+  Package,
+  CheckCircle2,
+  Edit2,
+  Save,
+  Send,
+  Loader2,
+  ArrowRight,
+  Clock,
+  Briefcase,
+  Mail
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
-const machines = [
-  { id: "M1", name: "Injection Molder A", capacity: 92, currentJob: "Widget A – Batch 047", eta: "2h 15m", status: "running" },
-  { id: "M2", name: "Extrusion Line B", capacity: 87, currentJob: "Widget C – Batch 023", eta: "4h 30m", status: "running" },
-  { id: "M3", name: "CNC Router C", capacity: 95, currentJob: "Widget B – Batch 031", eta: "1h 45m", status: "running" },
-  { id: "M4", name: "Assembly Unit D", capacity: 78, currentJob: "Maintenance", eta: "—", status: "maintenance" },
-  { id: "M5", name: "Packaging Line E", capacity: 88, currentJob: "Widget A – Batch 046", eta: "3h 10m", status: "running" },
+// Mock Data
+const MOCK_MACHINES = [
+  { id: "M1", name: "Injection Molder A", capacity: "95%", setup: "15m", status: "Available" },
+  { id: "M2", name: "Extrusion Line B", capacity: "88%", setup: "20m", status: "Available" },
+  { id: "M3", name: "CNC Router C", capacity: "92%", setup: "10m", status: "Available" },
+  { id: "M4", name: "Assembly Unit D", capacity: "85%", setup: "5m", status: "Maintenance" },
 ];
 
-const schedule = [
-  { time: "06:00", m1: "Widget A", m2: "Widget C", m3: "Widget B", m4: "—", m5: "Widget A" },
-  { time: "10:00", m1: "Widget B", m2: "Widget A", m3: "Widget C", m4: "Maint.", m5: "Widget B" },
-  { time: "14:00", m1: "Widget C", m2: "Widget B", m3: "Widget A", m4: "Widget D", m5: "Widget C" },
-  { time: "18:00", m1: "Widget A", m2: "Widget D", m3: "Widget B", m4: "Widget A", m5: "Widget D" },
-  { time: "22:00", m1: "—", m2: "Widget C", m3: "—", m4: "Widget B", m5: "—" },
+const MOCK_WORKERS = [
+  { id: "W1", name: "Alice Smith", expertise: "Injection", shift: "06:00 - 14:00" },
+  { id: "W2", name: "Bob Jones", expertise: "Extrusion", shift: "06:00 - 14:00" },
+  { id: "W3", name: "Charlie Brown", expertise: "CNC", shift: "08:00 - 16:00" },
+  { id: "W4", name: "Diana Prince", expertise: "Assembly", shift: "08:00 - 16:00" },
+];
+
+const MOCK_ORDERS = [
+  { id: "ORD-001", product: "Widget A (x5000)", deadline: "14:00 Today", material: "Ready" },
+  { id: "ORD-002", product: "Widget B (x2000)", deadline: "16:00 Today", material: "Ready" },
+  { id: "ORD-003", product: "Widget C (x8000)", deadline: "18:00 Today", material: "Delayed" },
+];
+
+const INITIAL_SCHEDULE = [
+  { id: 1, time: "08:00 - 10:00", machine: "M1 - Injection Molder A", task: "Widget A (Batch 1)", worker: "Alice Smith" },
+  { id: 2, time: "10:15 - 12:15", machine: "M1 - Injection Molder A", task: "Widget A (Batch 2)", worker: "Alice Smith" },
+  { id: 3, time: "08:00 - 12:00", machine: "M2 - Extrusion Line B", task: "Widget C (Pre-process)", worker: "Bob Jones" },
+  { id: 4, time: "08:00 - 11:00", machine: "M3 - CNC Router C", task: "Widget B (Milling)", worker: "Charlie Brown" },
+  { id: 5, time: "11:00 - 15:00", machine: "M4 - Assembly Unit D", task: "Widget B (Assembly)", worker: "Diana Prince" },
 ];
 
 export function ProductionSchedulingDetail() {
-  const [optimizing, setOptimizing] = useState(false);
-  const [optimized, setOptimized] = useState(false);
+  const [step, setStep] = useState<'setup' | 'processing' | 'review' | 'mail'>('setup');
 
-  const handleOptimize = () => {
-    setOptimizing(true);
-    setTimeout(() => { setOptimizing(false); setOptimized(true); }, 2000);
+  // Processing state
+  const [progress, setProgress] = useState(0);
+  const [loadingText, setLoadingText] = useState('');
+
+  // Review state
+  const [schedule, setSchedule] = useState(INITIAL_SCHEDULE);
+  const [editMode, setEditMode] = useState(false);
+
+  // Mail state
+  const [mailTo, setMailTo] = useState('manager@factory.com');
+  const [mailSubject, setMailSubject] = useState('Production Schedule for Today');
+  const [mailBody, setMailBody] = useState('');
+
+  // Simulate processing
+  useEffect(() => {
+    if (step === 'processing') {
+      let currentProgress = 0;
+      const interval = setInterval(() => {
+        currentProgress += 1.5;
+        setProgress(Math.min(currentProgress, 100));
+
+        if (currentProgress < 25) setLoadingText('Ingesting machines and workforce capacity...');
+        else if (currentProgress < 50) setLoadingText('Analyzing expertise & material availability...');
+        else if (currentProgress < 75) setLoadingText('Running simulation & optimizing shift schedule...');
+        else if (currentProgress < 100) setLoadingText('Mapping workers to tasks and finalizing to-do lists...');
+        else {
+          clearInterval(interval);
+          setTimeout(() => {
+            setStep('review');
+            const body = `Here is the optimized production schedule for today:\n\n` +
+              schedule.map(s => `• [${s.time}] ${s.machine} | Task: ${s.task} | Assigned: ${s.worker}`).join('\n') +
+              `\n\nPlease ensure all materials are prepared for the respective shifts.\n\nBest regards,\nProduction AI Orchestrator`;
+            setMailBody(body);
+          }, 600);
+        }
+      }, 100);
+      return () => clearInterval(interval);
+    }
+  }, [step, schedule]);
+
+  const handleUpdateSchedule = (id: number, field: string, value: string) => {
+    setSchedule(prev => prev.map(s => s.id === id ? { ...s, [field]: value } : s));
+  };
+
+  const handleSendMail = () => {
+    const mailtoLink = `mailto:${mailTo}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
+    window.location.href = mailtoLink;
   };
 
   return (
-    <div className="space-y-6">
-      {/* Machine Status */}
-      <div>
-        <h4 className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-3">Live Machine Status</h4>
-        <div className="space-y-3">
-          {machines.map((m, i) => (
-            <motion.div key={m.id} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.05 }} className="flex items-center gap-4 p-3 rounded-xl bg-muted/50">
-              <div className="flex items-center gap-2 w-40">
-                <span className={`w-2 h-2 rounded-full ${m.status === "running" ? "bg-[hsl(142,71%,45%)] animate-pulse" : "bg-[hsl(38,92%,50%)]"}`} />
-                <span className="text-sm font-medium">{m.id}</span>
-                <span className="text-xs text-muted-foreground hidden md:inline">{m.name}</span>
-              </div>
-              <div className="flex-1">
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-xs text-muted-foreground">{m.currentJob}</span>
-                  <span className="text-xs font-medium">{m.capacity}%</span>
-                </div>
-                <Progress value={m.capacity} className="h-1.5" />
-              </div>
-              <div className="flex items-center gap-1 text-xs text-muted-foreground w-20 justify-end">
-                <Clock className="w-3 h-3" />
-                {m.eta}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
+    <div className="space-y-6 w-full max-w-5xl mx-auto">
+      <AnimatePresence mode="wait">
 
-      {/* Schedule Grid */}
-      <div>
-        <div className="flex items-center justify-between mb-3">
-          <h4 className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Today's Schedule</h4>
-          <Button size="sm" onClick={handleOptimize} disabled={optimizing || optimized} className="h-8 text-xs rounded-lg">
-            {optimizing ? <><Clock className="w-3 h-3 mr-1 animate-spin" /> Optimizing…</> : optimized ? <><CheckCircle2 className="w-3 h-3 mr-1" /> Optimized</> : <><Play className="w-3 h-3 mr-1" /> Re-Optimize</>}
-          </Button>
-        </div>
-        <div className="rounded-xl border border-border overflow-hidden">
-          <table className="w-full text-xs">
-            <thead>
-              <tr className="bg-muted/50">
-                <th className="text-left p-2.5 font-medium text-muted-foreground">Time</th>
-                {["M1", "M2", "M3", "M4", "M5"].map(m => <th key={m} className="text-left p-2.5 font-medium text-muted-foreground">{m}</th>)}
-              </tr>
-            </thead>
-            <tbody>
-              {schedule.map((row, i) => (
-                <motion.tr key={row.time} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 + i * 0.05 }} className="border-t border-border">
-                  <td className="p-2.5 font-medium">{row.time}</td>
-                  <td className="p-2.5"><span className={`px-2 py-0.5 rounded-md text-[10px] font-medium ${row.m1 === "—" ? "bg-muted text-muted-foreground" : optimized ? "bg-[hsl(142,71%,45%/0.1)] text-[hsl(142,71%,45%)]" : "bg-foreground/5"}`}>{row.m1}</span></td>
-                  <td className="p-2.5"><span className={`px-2 py-0.5 rounded-md text-[10px] font-medium ${row.m2 === "—" ? "bg-muted text-muted-foreground" : "bg-foreground/5"}`}>{row.m2}</span></td>
-                  <td className="p-2.5"><span className={`px-2 py-0.5 rounded-md text-[10px] font-medium ${row.m3 === "—" ? "bg-muted text-muted-foreground" : "bg-foreground/5"}`}>{row.m3}</span></td>
-                  <td className="p-2.5"><span className={`px-2 py-0.5 rounded-md text-[10px] font-medium ${row.m4 === "Maint." ? "bg-[hsl(38,92%,50%/0.1)] text-[hsl(38,92%,50%)]" : row.m4 === "—" ? "bg-muted text-muted-foreground" : "bg-foreground/5"}`}>{row.m4}</span></td>
-                  <td className="p-2.5"><span className={`px-2 py-0.5 rounded-md text-[10px] font-medium ${row.m5 === "—" ? "bg-muted text-muted-foreground" : "bg-foreground/5"}`}>{row.m5}</span></td>
-                </motion.tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+        {/* SETUP STEP */}
+        {step === 'setup' && (
+          <motion.div
+            key="setup"
+            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}
+            className="space-y-6"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <div>
+                <h3 className="text-lg font-semibold flex items-center gap-2">
+                  <Settings className="w-5 h-5 text-primary" /> Production Environment
+                </h3>
+                <p className="text-sm text-muted-foreground">Input capabilities, workers, and orders to generate an optimal schedule.</p>
+              </div>
+              <Button onClick={() => setStep('processing')} className="gap-2">
+                <Play className="w-4 h-4" /> Generate Perfect Schedule
+              </Button>
+            </div>
 
-      {/* Summary */}
-      <div className="grid grid-cols-3 gap-3">
-        {[
-          { label: "Overall Utilization", value: "94%", sub: "+3% from last week" },
-          { label: "Orders Scheduled", value: "23", sub: "5 pending allocation" },
-          { label: "Changeover Time", value: "12min", sub: "Reduced by 18%" },
-        ].map((s, i) => (
-          <motion.div key={s.label} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 + i * 0.1 }} className="p-3 rounded-xl bg-muted/50 text-center">
-            <p className="text-lg font-semibold">{s.value}</p>
-            <p className="text-[10px] font-medium text-muted-foreground">{s.label}</p>
-            <p className="text-[10px] text-[hsl(142,71%,45%)] mt-0.5">{s.sub}</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Machines */}
+              <div className="bg-muted/30 border border-border rounded-xl p-4 space-y-3">
+                <h4 className="text-sm font-semibold flex items-center gap-2 border-b border-border pb-2">
+                  <Settings className="w-4 h-4" /> Machines & Capacities
+                </h4>
+                {MOCK_MACHINES.map(m => (
+                  <div key={m.id} className="text-xs space-y-1 bg-background p-2 rounded-lg border border-border/50">
+                    <div className="flex justify-between font-medium">
+                      <span>{m.id} - {m.name}</span>
+                      <span className={m.status === 'Available' ? 'text-green-500' : 'text-orange-500'}>{m.status}</span>
+                    </div>
+                    <div className="flex justify-between text-muted-foreground">
+                      <span>Capacity: {m.capacity}</span>
+                      <span>Setup: {m.setup}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Workers */}
+              <div className="bg-muted/30 border border-border rounded-xl p-4 space-y-3">
+                <h4 className="text-sm font-semibold flex items-center gap-2 border-b border-border pb-2">
+                  <Users className="w-4 h-4" /> Workforce & Shifts
+                </h4>
+                {MOCK_WORKERS.map(w => (
+                  <div key={w.id} className="text-xs space-y-1 bg-background p-2 rounded-lg border border-border/50">
+                    <div className="flex justify-between font-medium">
+                      <span>{w.name}</span>
+                      <span className="text-primary">{w.expertise}</span>
+                    </div>
+                    <div className="flex items-center gap-1 text-muted-foreground">
+                      <Clock className="w-3 h-3" /> Shift: {w.shift}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Orders */}
+              <div className="bg-muted/30 border border-border rounded-xl p-4 space-y-3">
+                <h4 className="text-sm font-semibold flex items-center gap-2 border-b border-border pb-2">
+                  <Package className="w-4 h-4" /> Pending Orders
+                </h4>
+                {MOCK_ORDERS.map(o => (
+                  <div key={o.id} className="text-xs space-y-1 bg-background p-2 rounded-lg border border-border/50">
+                    <div className="flex justify-between font-medium">
+                      <span>{o.product}</span>
+                      <span className={o.material === 'Ready' ? 'text-green-500' : 'text-red-500'}>{o.material}</span>
+                    </div>
+                    <div className="flex justify-between text-muted-foreground">
+                      <span>Deadline: {o.deadline}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </motion.div>
-        ))}
-      </div>
+        )}
+
+        {/* PROCESSING STEP */}
+        {step === 'processing' && (
+          <motion.div
+            key="processing"
+            initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 1.05 }}
+            className="flex flex-col items-center justify-center py-20 space-y-6"
+          >
+            <div className="relative">
+              <Loader2 className="w-16 h-16 text-primary animate-spin" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <Settings className="w-6 h-6 text-primary/50" />
+              </div>
+            </div>
+            <div className="text-center space-y-2 w-full max-w-md">
+              <h3 className="text-xl font-semibold">Generating Schedule...</h3>
+              <p className="text-sm text-muted-foreground min-h-[20px] transition-all">{loadingText}</p>
+              <Progress value={progress} className="h-2 w-full mt-4" />
+            </div>
+          </motion.div>
+        )}
+
+        {/* REVIEW STEP */}
+        {step === 'review' && (
+          <motion.div
+            key="review"
+            initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}
+            className="space-y-4"
+          >
+            <div className="flex items-center justify-between mb-2">
+              <div>
+                <h3 className="text-lg font-semibold flex items-center gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-green-500" /> Integrated Master Schedule
+                </h3>
+                <p className="text-sm text-muted-foreground">Review the mapped tasks and workforce. Edit if necessary.</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <Button variant={editMode ? "default" : "outline"} onClick={() => setEditMode(!editMode)} className="gap-2 h-9">
+                  {editMode ? <><Save className="w-4 h-4" /> Save Changes</> : <><Edit2 className="w-4 h-4" /> Edit Mode</>}
+                </Button>
+                {!editMode && (
+                  <Button onClick={() => {
+                    const body = `Here is the optimized production schedule for today:\n\n` +
+                      schedule.map(s => `• [${s.time}] ${s.machine} | Task: ${s.task} | Assigned: ${s.worker}`).join('\n') +
+                      `\n\nPlease ensure all materials are prepared for the respective shifts.\n\nBest regards,\nProduction AI Orchestrator`;
+                    setMailBody(body);
+                    setStep('mail');
+                  }} className="gap-2 h-9 bg-primary text-primary-foreground hover:bg-primary/90">
+                    Proceed to Mail <ArrowRight className="w-4 h-4" />
+                  </Button>
+                )}
+              </div>
+            </div>
+
+            <div className="border border-border rounded-xl overflow-hidden bg-background">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-muted/50 border-b border-border text-muted-foreground">
+                    <th className="p-3 text-left font-medium w-[15%]">Time Slot</th>
+                    <th className="p-3 text-left font-medium w-[30%]">Machine</th>
+                    <th className="p-3 text-left font-medium w-[30%]">Task</th>
+                    <th className="p-3 text-left font-medium w-[25%]">Assigned Worker</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {schedule.map((row) => (
+                    <tr key={row.id} className="border-b border-border/50 hover:bg-muted/20 transition-colors">
+                      <td className="p-3">
+                        {editMode ? <Input value={row.time} onChange={(e) => handleUpdateSchedule(row.id, 'time', e.target.value)} className="h-8 text-xs bg-background" /> : <span className="font-medium text-xs">{row.time}</span>}
+                      </td>
+                      <td className="p-3">
+                        {editMode ? <Input value={row.machine} onChange={(e) => handleUpdateSchedule(row.id, 'machine', e.target.value)} className="h-8 text-xs bg-background" /> : <span className="text-xs">{row.machine}</span>}
+                      </td>
+                      <td className="p-3">
+                        {editMode ? <Input value={row.task} onChange={(e) => handleUpdateSchedule(row.id, 'task', e.target.value)} className="h-8 text-xs bg-background" /> : <span className="text-xs font-medium text-primary/80">{row.task}</span>}
+                      </td>
+                      <td className="p-3">
+                        {editMode ? <Input value={row.worker} onChange={(e) => handleUpdateSchedule(row.id, 'worker', e.target.value)} className="h-8 text-xs bg-background" /> :
+                          <span className="flex items-center gap-1.5 text-xs">
+                            <Briefcase className="w-3 h-3 text-muted-foreground" /> {row.worker}
+                          </span>
+                        }
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </motion.div>
+        )}
+
+        {/* MAIL STEP */}
+        {step === 'mail' && (
+          <motion.div
+            key="mail"
+            initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}
+            className="space-y-6 max-w-2xl mx-auto"
+          >
+            <div className="text-center mb-6">
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                <Mail className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="text-xl font-semibold">Share Schedule</h3>
+              <p className="text-sm text-muted-foreground">Configure the email to send the integrated schedule to the factory manager or workforce.</p>
+            </div>
+
+            <div className="bg-muted/30 p-5 rounded-xl border border-border space-y-4">
+              <div className="space-y-1.5">
+                <label className="text-xs font-medium text-muted-foreground">To:</label>
+                <Input value={mailTo} onChange={(e) => setMailTo(e.target.value)} placeholder="manager@factory.com" />
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-medium text-muted-foreground">Subject:</label>
+                <Input value={mailSubject} onChange={(e) => setMailSubject(e.target.value)} />
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-medium text-muted-foreground">Message Body:</label>
+                <Textarea
+                  value={mailBody}
+                  onChange={(e) => setMailBody(e.target.value)}
+                  className="min-h-[250px] font-mono text-xs"
+                />
+              </div>
+            </div>
+
+            <div className="flex justify-between items-center pt-2">
+              <Button variant="ghost" onClick={() => setStep('review')} className="text-muted-foreground">
+                Back to Schedule
+              </Button>
+              <Button onClick={handleSendMail} className="gap-2 px-6">
+                <Send className="w-4 h-4" /> Open in Mail App
+              </Button>
+            </div>
+          </motion.div>
+        )}
+
+      </AnimatePresence>
     </div>
   );
 }
