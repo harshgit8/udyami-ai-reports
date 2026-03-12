@@ -223,26 +223,28 @@ export function InvoiceGenerationDetail() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="w-full h-[600px]"
+            className="w-full flex flex-col h-[70vh] min-h-[500px]"
           >
-            <AIChatWorkspace
-              contextData={{
-                quotationsCount: 0,
-                invoicesCount: invoices.length,
-                qualityCount: 0,
-                productionCount: 0,
-                rndCount: 0,
-                documents: invoices.map(i => ({
-                  id: i.id,
-                  type: "invoice",
-                  external_id: i.id,
-                  customer: i.customer,
-                  status: i.status,
-                  total: parseInt(i.amount.replace(/[^0-9.-]+/g,"")),
-                  created_at: i.date
-                }))
-              }}
-            />
+            <div className="flex-1 rounded-xl border border-border overflow-hidden bg-background">
+              <AIChatWorkspace
+                contextData={{
+                  quotationsCount: 0,
+                  invoicesCount: invoices.length,
+                  qualityCount: 0,
+                  productionCount: 0,
+                  rndCount: 0,
+                  documents: invoices.map(i => ({
+                    id: i.id,
+                    type: "invoice",
+                    external_id: i.id,
+                    customer: i.customer,
+                    status: i.status,
+                    total: parseInt(i.amount.replace(/[^0-9.-]+/g,"")),
+                    created_at: i.date
+                  }))
+                }}
+              />
+            </div>
           </motion.div>
         )}
 
