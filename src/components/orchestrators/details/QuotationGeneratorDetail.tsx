@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FileText, CheckCircle2, Loader2, Save, Download, History, Eye, Trash2, Send, AlertCircle } from "lucide-react";
+import { FileText, CheckCircle2, Loader2, Save, History, Eye, Trash2, Send, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { supabase } from "@/integrations/supabase/client";
+import { fetchGrounding, runGroundedAi } from "@/lib/orchestratorGrounding";
 
 interface QuoteRecord {
   id: string;
@@ -97,7 +98,7 @@ export function QuotationGeneratorDetail() {
     };
   };
 
-  const handleChatSubmit = () => {
+  const handleChatSubmit = async () => {
     if (!chatInput.trim()) return;
     const userMsg = chatInput.trim();
     setChatMessages(prev => [...prev, { role: "user", content: userMsg }]);
@@ -114,7 +115,6 @@ export function QuotationGeneratorDetail() {
       return;
     }
 
-    // Find matching data from DB
     const matchingInput = validation.customer
       ? quotationInputs.find(q => q.customer?.toLowerCase() === validation.customer?.toLowerCase())
       : quotationInputs[0];
@@ -123,68 +123,81 @@ export function QuotationGeneratorDetail() {
       ? quotes.find(q => q.customer.toLowerCase() === (validation.customer || "").toLowerCase())
       : quotes[0];
 
-    if (matchingInput || matchingResult) {
-      const qty = validation.qty || matchingInput?.quantity || 500;
-      const materialCostKg = matchingInput?.material_cost_kg || 120;
-      const weightPerUnit = matchingInput?.weight_per_unit_kg || 0.35;
-      const productionRate = matchingInput?.production_rate || 60;
-      const setupHours = matchingInput?.setup_time_hours || 1.5;
-
-      const materialCost = Math.round(qty * weightPerUnit * materialCostKg);
-      const productionHours = Math.ceil(qty / productionRate) + setupHours;
-      const productionCost = Math.round(productionHours * 1500);
-      const qualityCost = Math.round(qty * 5);
-      const riskPremium = matchingInput?.risk_level === "high" ? Math.round(materialCost * 0.05) : matchingInput?.risk_level === "medium" ? Math.round(materialCost * 0.02) : 0;
-      const subtotal = materialCost + productionCost + qualityCost + riskPremium;
-      const profitMargin = matchingInput?.priority === "critical" ? 28 : matchingInput?.priority === "high" ? 25 : 20;
-      const profitAmount = Math.round(subtotal * profitMargin / 100);
-      const totalBeforeTax = subtotal + profitAmount;
-      const gst = Math.round(totalBeforeTax * 0.18);
-      const grandTotal = totalBeforeTax + gst;
-
-      setGeneratedQuote({
-        id: `QT-2026-${String(Math.floor(100 + Math.random() * 900))}`,
-        customer: matchingInput?.customer || validation.customer || "—",
-        product: `${matchingInput?.product_type || "widget"} (${matchingInput?.material_formulation || "Standard"})`,
-        application: matchingInput?.application || "General",
-        qty,
-        materialCost,
-        productionCost,
-        qualityCost,
-        riskPremium,
-        subtotal,
-        profitMargin,
-        profitAmount,
-        totalBeforeTax,
-        gst,
-        grandTotal,
-        unitPrice: Math.round(grandTotal / qty * 100) / 100,
-        leadTime: matchingResult?.rawData?.lead_time_days || Math.ceil(productionHours / 8) + 3,
-        paymentTerms: matchingResult?.rawData?.payment_terms || matchingInput?.priority === "critical" ? "40% advance, 60% on delivery" : "Net 30",
-        validUntil: new Date(Date.now() + 30 * 86400000).toISOString().slice(0, 10),
-        compliance: matchingInput?.compliance || "RoHS",
-        ul94: matchingInput?.ul94_rating || "HB",
-        sourceRequest: matchingInput?.quote_request_id || "—",
-        machine: matchingInput?.machine || "—",
-      });
-
-      setChatMessages(prev => [...prev, {
-        role: "ai",
-        content: `✅ Found matching data for **${matchingInput?.customer || validation.customer}**.\n\n📋 Source: Request **${matchingInput?.quote_request_id || "—"}** | Product: **${matchingInput?.product_type || "widget"}** | Application: **${matchingInput?.application || "General"}**\n\nGenerating optimized quotation for **${qty} units**...`
-      }]);
-
-      setViewState("processing");
-      setAgentSteps([
-        { label: `Loading cost data for ${matchingInput?.material_formulation || "material"} @ ₹${materialCostKg}/kg`, agent: "CostAnalyzer", status: "pending" },
-        { label: `Calculating production on ${matchingInput?.machine || "machine"} @ ${productionRate} units/hr`, agent: "CapacityPlanner", status: "pending" },
-        { label: `Applying ${matchingInput?.compliance || "RoHS"} compliance & ${matchingInput?.risk_level || "low"} risk premium`, agent: "ComplianceEngine", status: "pending" },
-        { label: "Generating final quotation with GST", agent: "DocumentCrafter", status: "pending" },
-      ]);
-    } else {
+    if (!matchingInput && !matchingResult) {
       setChatMessages(prev => [...prev, {
         role: "ai",
         content: `I couldn't find matching data in the database. Here are the available options:\n\n**Customers:** ${[...new Set(quotationInputs.map(q => q.customer).filter(Boolean))].join(", ") || "No data yet"}\n\n**Products:** ${[...new Set(quotationInputs.map(q => q.product_type).filter(Boolean))].join(", ") || "No data yet"}\n\nTry: *"Generate quotation for Quantum Materials — 500 units widget_a"*`
       }]);
+      return;
+    }
+
+    const qty = validation.qty || matchingInput?.quantity || 500;
+    const materialCostKg = matchingInput?.material_cost_kg || 120;
+    const weightPerUnit = matchingInput?.weight_per_unit_kg || 0.35;
+    const productionRate = matchingInput?.production_rate || 60;
+    const setupHours = matchingInput?.setup_time_hours || 1.5;
+    const materialCost = Math.round(qty * weightPerUnit * materialCostKg);
+    const productionHours = Math.ceil(qty / productionRate) + setupHours;
+    const productionCost = Math.round(productionHours * 1500);
+    const qualityCost = Math.round(qty * 5);
+    const riskPremium = matchingInput?.risk_level === "high" ? Math.round(materialCost * 0.05) : matchingInput?.risk_level === "medium" ? Math.round(materialCost * 0.02) : 0;
+    const subtotal = materialCost + productionCost + qualityCost + riskPremium;
+    const profitMargin = matchingInput?.priority === "critical" ? 28 : matchingInput?.priority === "high" ? 25 : 20;
+    const profitAmount = Math.round(subtotal * profitMargin / 100);
+    const totalBeforeTax = subtotal + profitAmount;
+    const gst = Math.round(totalBeforeTax * 0.18);
+    const grandTotal = totalBeforeTax + gst;
+
+    setGeneratedQuote({
+      id: `QT-2026-${String(Math.floor(100 + Math.random() * 900))}`,
+      customer: matchingInput?.customer || validation.customer || "—",
+      product: `${matchingInput?.product_type || "widget"} (${matchingInput?.material_formulation || "Standard"})`,
+      application: matchingInput?.application || "General",
+      qty,
+      materialCost,
+      productionCost,
+      qualityCost,
+      riskPremium,
+      subtotal,
+      profitMargin,
+      profitAmount,
+      totalBeforeTax,
+      gst,
+      grandTotal,
+      unitPrice: Math.round(grandTotal / qty * 100) / 100,
+      leadTime: matchingResult?.rawData?.lead_time_days || Math.ceil(productionHours / 8) + 3,
+      paymentTerms: matchingResult?.rawData?.payment_terms || matchingInput?.priority === "critical" ? "40% advance, 60% on delivery" : "Net 30",
+      validUntil: new Date(Date.now() + 30 * 86400000).toISOString().slice(0, 10),
+      compliance: matchingInput?.compliance || "RoHS",
+      ul94: matchingInput?.ul94_rating || "HB",
+      sourceRequest: matchingInput?.quote_request_id || "—",
+      machine: matchingInput?.machine || "—",
+    });
+
+    setChatMessages(prev => [...prev, {
+      role: "ai",
+      content: `✅ Found matching data for **${matchingInput?.customer || validation.customer}**.\n\n📋 Source: Request **${matchingInput?.quote_request_id || "—"}** | Product: **${matchingInput?.product_type || "widget"}** | Application: **${matchingInput?.application || "General"}**\n\nGenerating optimized quotation for **${qty} units**...`
+    }]);
+
+    setViewState("processing");
+    setAgentSteps([
+      { label: `Loading cost data for ${matchingInput?.material_formulation || "material"} @ ₹${materialCostKg}/kg`, agent: "CostAnalyzer", status: "pending" },
+      { label: `Calculating production on ${matchingInput?.machine || "machine"} @ ${productionRate} units/hr`, agent: "CapacityPlanner", status: "pending" },
+      { label: `Applying ${matchingInput?.compliance || "RoHS"} compliance & ${matchingInput?.risk_level || "low"} risk premium`, agent: "ComplianceEngine", status: "pending" },
+      { label: "Generating final quotation with GST", agent: "DocumentCrafter", status: "pending" },
+    ]);
+
+    try {
+      const grounding = await fetchGrounding("quotation", userMsg);
+      const aiOutput = await runGroundedAi({
+        orchestrator: "Quotation Generator AI",
+        userQuery: userMsg,
+        instructions: "Generate the best possible quotation response grounded in quotation request/result data. Include commercial recommendation and a Sources / Reference IDs section.",
+        grounding,
+      });
+      setChatMessages(prev => [...prev, { role: "ai", content: aiOutput }]);
+    } catch (error) {
+      setChatMessages(prev => [...prev, { role: "ai", content: `⚠️ Grounded quotation insight could not be generated: ${error instanceof Error ? error.message : "Unknown error"}` }]);
     }
   };
 

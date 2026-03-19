@@ -11,9 +11,11 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { fetchGrounding, runGroundedAi } from "@/lib/orchestratorGrounding";
 
 // ── Agent definitions ──
 interface AgentDef {
@@ -423,58 +425,28 @@ function ChatLogPanel({ logs, onClear }: { logs: ChatLogEntry[]; onClear: () => 
 }
 
 // ── AI call helper ──
-async function callAgentAI(agent: AgentDef, upstreamOutput: string): Promise<string> {
-  const messages = [
-    {
-      role: "user" as const,
-      content: upstreamOutput
-        ? `${agent.prompt}\n\nHere is the upstream data from the previous agent in the pipeline:\n\n${upstreamOutput}\n\nProcess this data through your ${agent.shortTitle} agent and generate the appropriate output.`
-        : `${agent.prompt}\n\nUse real data from the database to generate a sample output for this ${agent.shortTitle} agent. Show a complete, professional result.`,
-    },
-  ];
+async function callAgentAI(agent: AgentDef, upstreamOutput: string, pipelineQuery: string): Promise<string> {
+  const groundingMap: Record<string, "quotation" | "invoice" | "production" | "quality" | "rnd"> = {
+    "quotation-generator": "quotation",
+    "invoice-generation": "invoice",
+    "production-scheduling": "production",
+    "quality-intelligence": "quality",
+    "rnd-formulation": "rnd",
+  };
 
-  const resp = await fetch(CHAT_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
-    },
-    body: JSON.stringify({ messages }),
-  });
-
-  if (!resp.ok) throw new Error(`Agent ${agent.shortTitle} failed: ${resp.status}`);
-  if (!resp.body) throw new Error("No response body");
-
-  const reader = resp.body.getReader();
-  const decoder = new TextDecoder();
-  let buffer = "";
-  let result = "";
-
-  while (true) {
-    const { done, value } = await reader.read();
-    if (done) break;
-    buffer += decoder.decode(value, { stream: true });
-
-    let idx: number;
-    while ((idx = buffer.indexOf("\n")) !== -1) {
-      let line = buffer.slice(0, idx);
-      buffer = buffer.slice(idx + 1);
-      if (line.endsWith("\r")) line = line.slice(0, -1);
-      if (!line.startsWith("data: ")) continue;
-      const json = line.slice(6).trim();
-      if (json === "[DONE]") break;
-      try {
-        const parsed = JSON.parse(json);
-        const content = parsed.choices?.[0]?.delta?.content;
-        if (content) result += content;
-      } catch {
-        buffer = line + "\n" + buffer;
-        break;
-      }
-    }
+  const groundingType = groundingMap[agent.id];
+  if (!groundingType) {
+    return upstreamOutput || `No grounded data flow is configured yet for ${agent.shortTitle}.`;
   }
 
-  return result || "No output generated.";
+  const grounding = await fetchGrounding(groundingType, pipelineQuery || upstreamOutput || agent.shortTitle);
+  return runGroundedAi({
+    orchestrator: agent.title,
+    userQuery: pipelineQuery || `Run ${agent.shortTitle} in the pipeline`,
+    instructions: `${agent.prompt} Ensure the output is shaped for downstream sub-agents and ends with Sources / Reference IDs.`,
+    grounding,
+    upstreamOutput,
+  });
 }
 
 // ── Main Playground ──
@@ -485,6 +457,7 @@ export function AgentCommunicationPlayground() {
   const [paletteOpen, setPaletteOpen] = useState(true);
   const [pipelineRunning, setPipelineRunning] = useState(false);
   const [dragging, setDragging] = useState<{ nodeId: string; offsetX: number; offsetY: number } | null>(null);
+  const [pipelineQuery, setPipelineQuery] = useState("Run the best grounded multi-agent manufacturing workflow");
   const canvasRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
@@ -600,7 +573,7 @@ export function AgentCommunicationPlayground() {
       const upstreamData = upstreamConns.map(c => nodeOutputs[c.fromNode]).filter(Boolean).join("\n\n---\n\n");
 
       try {
-        const output = await callAgentAI(agent, upstreamData);
+        const output = await callAgentAI(agent, upstreamData, pipelineQuery);
         nodeOutputs[nodeId] = output;
 
         setNodes(prev => prev.map(n => n.instanceId === nodeId ? { ...n, status: "awaiting-review" as const, output } : n));
@@ -617,7 +590,7 @@ export function AgentCommunicationPlayground() {
 
     addLog({ agentId: "", nodeInstanceId: "", role: "system", content: "✅ **Pipeline complete** — All agents processed", status: "complete" });
     setPipelineRunning(false);
-  }, [nodes, connections, addLog, updateLog, toast, pipelineRunning]);
+  }, [nodes, connections, addLog, updateLog, toast, pipelineRunning, pipelineQuery]);
 
   // Wait for user to approve/decline before pipeline continues
   const reviewResolvers = useRef<Record<string, () => void>>({});
@@ -716,8 +689,15 @@ export function AgentCommunicationPlayground() {
           onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp}
           style={{ backgroundImage: "radial-gradient(circle, hsl(var(--border)) 1px, transparent 1px)", backgroundSize: "24px 24px" }}
         >
+          <div className="absolute top-3 left-3 right-3 z-10 rounded-xl border border-border bg-background/95 p-3 backdrop-blur">
+            <label className="block text-[10px] font-medium uppercase tracking-wider text-muted-foreground mb-2">Pipeline query</label>
+            <div className="flex gap-2">
+              <Input value={pipelineQuery} onChange={e => setPipelineQuery(e.target.value)} placeholder="e.g. Turn quotation into production plan, then quality review, then invoice" className="h-9 text-xs bg-background" />
+            </div>
+          </div>
+
           {nodes.length === 0 && (
-            <div className="absolute inset-0 flex items-center justify-center">
+            <div className="absolute inset-0 flex items-center justify-center pt-16">
               <div className="text-center space-y-2">
                 <div className="w-14 h-14 mx-auto rounded-2xl bg-muted/50 flex items-center justify-center">
                   <Plus className="w-7 h-7 text-muted-foreground/40" />

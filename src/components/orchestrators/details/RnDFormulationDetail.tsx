@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FlaskConical, Dna, Play, Loader2, CheckCircle2, AlertTriangle, Database, ChevronDown, ChevronUp } from "lucide-react";
+import { FlaskConical, Dna, Loader2, CheckCircle2, Database, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
+import { Input } from "@/components/ui/input";
 import { supabase } from "@/integrations/supabase/client";
+import { fetchGrounding, runGroundedAi } from "@/lib/orchestratorGrounding";
 
 interface FormulationRecord {
   id: string;
@@ -45,6 +47,8 @@ export function RnDFormulationDetail() {
   const [agentSteps, setAgentSteps] = useState<AgentStep[]>([]);
   const [selectedFormulation, setSelectedFormulation] = useState<string | null>(null);
   const [expandedRequest, setExpandedRequest] = useState<string | null>(null);
+  const [labQuery, setLabQuery] = useState("Find the best formulation for the highest-fit request");
+  const [groundedRecommendation, setGroundedRecommendation] = useState("");
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
   useEffect(() => {
@@ -85,16 +89,30 @@ export function RnDFormulationDetail() {
     load();
   }, []);
 
-  const handleEvolve = () => {
+  const handleEvolve = async () => {
     setViewState("evolving");
     setGeneration(0);
+    setGroundedRecommendation("");
     setAgentSteps([
+      { label: `Interpreting formulation brief: ${labQuery}`, agent: "BriefInterpreter", status: "pending" },
       { label: `Loading ${formulations.length} formulations & ${requests.length} R&D requests`, agent: "CompoundLibrary", status: "pending" },
-      { label: "Running genetic algorithm across formulation space", agent: "GeneticOptimizer", status: "pending" },
       { label: "Evaluating compliance: RoHS, REACH, UL94 for each candidate", agent: "ComplianceChecker", status: "pending" },
       { label: "Cost-performance Pareto front analysis", agent: "ParetoAnalyzer", status: "pending" },
-      { label: "Cross-referencing with original R&D requirements", agent: "RequirementsValidator", status: "pending" },
+      { label: "Generating grounded formulation recommendation with references", agent: "RequirementsValidator", status: "pending" },
     ]);
+
+    try {
+      const grounding = await fetchGrounding("rnd", labQuery);
+      const output = await runGroundedAi({
+        orchestrator: "R&D Formulation AI",
+        userQuery: labQuery,
+        instructions: "Recommend the best formulation for the user query using only R&D requests and formulation results. Compare fit to requirements and include a Sources / Reference IDs section.",
+        grounding,
+      });
+      setGroundedRecommendation(output);
+    } catch (error) {
+      setGroundedRecommendation(`Unable to generate grounded formulation insight: ${error instanceof Error ? error.message : "Unknown error"}`);
+    }
   };
 
   useEffect(() => {
@@ -143,6 +161,11 @@ export function RnDFormulationDetail() {
                 </div>
               </div>
               <Button onClick={handleEvolve} className="gap-2 rounded-xl"><Dna className="w-4 h-4" /> Run Genetic Evolution</Button>
+            </div>
+
+            <div className="rounded-xl border border-border p-4 mb-6 space-y-2">
+              <label className="text-xs font-medium text-muted-foreground">Formulation query</label>
+              <Input value={labQuery} onChange={e => setLabQuery(e.target.value)} placeholder="e.g. Recommend the best low-cost flame-retardant formulation for UL94 demand" className="text-xs" />
             </div>
 
             <div className="grid grid-cols-5 gap-3 mb-6">

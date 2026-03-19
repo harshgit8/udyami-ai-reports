@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Receipt, FileText, CheckCircle2, Loader2, Save, Mail, Trash2, History, Eye, Send, AlertCircle, Search } from "lucide-react";
+import { Receipt, FileText, CheckCircle2, Loader2, Save, Mail, Trash2, History, Eye, Send, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { supabase } from "@/integrations/supabase/client";
+import { fetchGrounding, runGroundedAi } from "@/lib/orchestratorGrounding";
 
 interface InvoiceRecord {
   id: string;

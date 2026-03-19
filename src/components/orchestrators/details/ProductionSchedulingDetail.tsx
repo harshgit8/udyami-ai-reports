@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { supabase } from "@/integrations/supabase/client";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from "recharts";
+import { fetchGrounding, runGroundedAi } from "@/lib/orchestratorGrounding";
 
 interface ProductionOrder {
   id: string;
@@ -68,6 +69,8 @@ export function ProductionSchedulingDetail() {
   const [machineUtil, setMachineUtil] = useState<MachineUtilization[]>([]);
   const [lastRefresh, setLastRefresh] = useState<Date>(new Date());
   const [isRefreshing, setIsRefreshing] = useState(false);
+  const [scheduleQuery, setScheduleQuery] = useState("Build the best production schedule for the most critical orders");
+  const [groundedPlan, setGroundedPlan] = useState("");
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
   const loadData = useCallback(async () => {
@@ -139,16 +142,30 @@ export function ProductionSchedulingDetail() {
     return () => { supabase.removeChannel(channel); };
   }, [loadData]);
 
-  const handleGenerate = () => {
+  const handleGenerate = async () => {
     setStep("processing");
     setProgress(0);
+    setGroundedPlan("");
     setAgentSteps([
+      { label: `Interpreting planner query: ${scheduleQuery}`, agent: "PlannerInterpreter", status: "pending" },
       { label: "Fetching real-time machine capacity & maintenance logs", agent: "MachineMonitor", status: "pending" },
       { label: "Analyzing workforce shifts, skills & availability", agent: "WorkforceAnalyzer", status: "pending" },
       { label: "Running constraint-based scheduling optimization", agent: "ScheduleOptimizer", status: "pending" },
-      { label: "Risk scoring & conflict detection across timelines", agent: "RiskAssessor", status: "pending" },
-      { label: "Mapping optimal worker-to-task assignments", agent: "TaskMapper", status: "pending" },
+      { label: "Generating grounded production narrative with references", agent: "DispatchPlanner", status: "pending" },
     ]);
+
+    try {
+      const grounding = await fetchGrounding("production", scheduleQuery);
+      const output = await runGroundedAi({
+        orchestrator: "Production Scheduling AI",
+        userQuery: scheduleQuery,
+        instructions: "Create the best production schedule response for the user query using production orders and production results only. Include machine assignments, risk notes, sequence rationale, and a Sources / Reference IDs section.",
+        grounding,
+      });
+      setGroundedPlan(output);
+    } catch (error) {
+      setGroundedPlan(`Unable to generate grounded schedule insight: ${error instanceof Error ? error.message : "Unknown error"}`);
+    }
   };
 
   useEffect(() => {
@@ -253,6 +270,11 @@ export function ProductionSchedulingDetail() {
                   <Play className="w-4 h-4" /> Generate Schedule
                 </Button>
               </div>
+            </div>
+
+            <div className="rounded-xl border border-border p-4 mb-4 space-y-2">
+              <label className="text-xs font-medium text-muted-foreground">Scheduling query</label>
+              <Input value={scheduleQuery} onChange={e => setScheduleQuery(e.target.value)} placeholder="e.g. Prioritize overdue high-volume orders with lowest delivery risk" className="text-xs" />
             </div>
 
             {/* Machine Utilization Chart */}

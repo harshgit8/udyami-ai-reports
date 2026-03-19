@@ -2,9 +2,10 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Shield, Loader2, CheckCircle2, AlertTriangle, XCircle, Activity, RefreshCw, FileText, TrendingUp, TrendingDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
+import { Input } from "@/components/ui/input";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend } from "recharts";
 import { supabase } from "@/integrations/supabase/client";
+import { fetchGrounding, runGroundedAi } from "@/lib/orchestratorGrounding";
 
 interface BatchRecord {
   id: string;
@@ -50,6 +51,8 @@ export function QualityIntelligenceDetail() {
   const [defectDistribution, setDefectDistribution] = useState<{ name: string; value: number; color: string }[]>([]);
   const [productBreakdown, setProductBreakdown] = useState<any[]>([]);
   const [isRefreshing, setIsRefreshing] = useState(false);
+  const [analysisQuery, setAnalysisQuery] = useState("");
+  const [groundedReport, setGroundedReport] = useState("");
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
   const loadData = useCallback(async () => {
@@ -143,8 +146,10 @@ export function QualityIntelligenceDetail() {
     return () => { supabase.removeChannel(channel); };
   }, [loadData]);
 
-  const handleInspect = (batchId: string) => {
+  const handleInspect = async (batchId: string) => {
     setSelectedBatch(batchId);
+    setAnalysisQuery(`Analyze batch ${batchId} and formulate the best quality report based on inspection evidence`);
+    setGroundedReport("");
     setViewState("inspecting");
     const batch = batches.find(b => b.id === batchId);
     const input = qualityInputs.find(q => q.batchId === batchId);
@@ -152,8 +157,21 @@ export function QualityIntelligenceDetail() {
       { label: `Loading inspection data for ${batchId} — ${batch?.product || "product"}`, agent: "SensorCollector", status: "pending" },
       { label: `Analyzing ${batch?.defects || 0} defects: ${batch?.critical || 0} critical, ${batch?.major || 0} major, ${batch?.minor || 0} minor`, agent: "DefectDetector", status: "pending" },
       { label: `Standard: ${input?.inspectionStandard || "ISO 9001"} · Visual: ${input?.visualInspection?.substring(0, 30) || "N/A"}...`, agent: "StandardsChecker", status: "pending" },
-      { label: "Generating quality certificate & recommendations", agent: "CertificateEngine", status: "pending" },
+      { label: "Generating grounded quality recommendation with references", agent: "CertificateEngine", status: "pending" },
     ]);
+
+    try {
+      const grounding = await fetchGrounding("quality", batchId);
+      const output = await runGroundedAi({
+        orchestrator: "Quality Intelligence AI",
+        userQuery: `Analyze batch ${batchId}`,
+        instructions: "Generate the strongest possible quality report grounded only in quality inspection input/result data. Include decision rationale, corrective actions, and a Sources / Reference IDs section.",
+        grounding,
+      });
+      setGroundedReport(output);
+    } catch (error) {
+      setGroundedReport(`Unable to generate grounded quality insight: ${error instanceof Error ? error.message : "Unknown error"}`);
+    }
   };
 
   useEffect(() => {
