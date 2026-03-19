@@ -425,6 +425,8 @@ function ChatLogPanel({ logs, onClear }: { logs: ChatLogEntry[]; onClear: () => 
 }
 
 // ── AI call helper ──
+const CHAT_FN_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/ai-chat`;
+
 async function callAgentAI(agent: AgentDef, upstreamOutput: string, pipelineQuery: string): Promise<string> {
   const groundingMap: Record<string, "quotation" | "invoice" | "production" | "quality" | "rnd"> = {
     "quotation-generator": "quotation",
@@ -435,18 +437,66 @@ async function callAgentAI(agent: AgentDef, upstreamOutput: string, pipelineQuer
   };
 
   const groundingType = groundingMap[agent.id];
-  if (!groundingType) {
-    return upstreamOutput || `No grounded data flow is configured yet for ${agent.shortTitle}.`;
+
+  // For grounded agents, use the grounding helper
+  if (groundingType) {
+    const grounding = await fetchGrounding(groundingType, pipelineQuery || upstreamOutput || agent.shortTitle);
+    return runGroundedAi({
+      orchestrator: agent.title,
+      userQuery: pipelineQuery || `Run ${agent.shortTitle} in the pipeline`,
+      instructions: `${agent.prompt} Ensure the output is shaped for downstream sub-agents and ends with Sources / Reference IDs.`,
+      grounding,
+      upstreamOutput,
+    });
   }
 
-  const grounding = await fetchGrounding(groundingType, pipelineQuery || upstreamOutput || agent.shortTitle);
-  return runGroundedAi({
-    orchestrator: agent.title,
-    userQuery: pipelineQuery || `Run ${agent.shortTitle} in the pipeline`,
-    instructions: `${agent.prompt} Ensure the output is shaped for downstream sub-agents and ends with Sources / Reference IDs.`,
-    grounding,
-    upstreamOutput,
+  // For non-grounded agents, call AI chat directly with the agent prompt + upstream context
+  const prompt = [
+    `Agent: ${agent.title}`,
+    `Task: ${pipelineQuery || `Run ${agent.shortTitle} analysis`}`,
+    `Instructions: ${agent.prompt}`,
+    upstreamOutput ? `Upstream agent output:\n${upstreamOutput}` : "",
+    "Requirements:",
+    "- Answer in English only.",
+    "- If no upstream data is available, use reasonable industry defaults for polymer manufacturing.",
+    "- Structure the output clearly with markdown.",
+  ].filter(Boolean).join("\n\n");
+
+  const response = await fetch(CHAT_FN_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+    },
+    body: JSON.stringify({ messages: [{ role: "user", content: prompt }] }),
   });
+
+  if (!response.ok) throw new Error(`AI request failed: ${response.status}`);
+  if (!response.body) throw new Error("No response body");
+
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "", output = "";
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, { stream: true });
+    let idx;
+    while ((idx = buffer.indexOf("\n")) !== -1) {
+      let line = buffer.slice(0, idx);
+      buffer = buffer.slice(idx + 1);
+      if (line.endsWith("\r")) line = line.slice(0, -1);
+      if (!line.startsWith("data: ")) continue;
+      const json = line.slice(6).trim();
+      if (json === "[DONE]") break;
+      try {
+        const parsed = JSON.parse(json);
+        const chunk = parsed.choices?.[0]?.delta?.content as string | undefined;
+        if (chunk) output += chunk;
+      } catch { buffer = `${line}\n${buffer}`; break; }
+    }
+  }
+  return output.trim();
 }
 
 // ── Main Playground ──

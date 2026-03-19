@@ -63,7 +63,7 @@ export function InvoiceGenerationDetail() {
 
   useEffect(() => { chatEndRef.current?.scrollIntoView({ behavior: "smooth" }); }, [chatMessages]);
 
-  const handleChatSubmit = () => {
+  const handleChatSubmit = async () => {
     if (!chatInput.trim()) return;
     const userMsg = chatInput.trim();
     setChatMessages(prev => [...prev, { role: "user", content: userMsg }]);
@@ -160,6 +160,20 @@ export function InvoiceGenerationDetail() {
       { label: `Quality gate: ${invoice.qualityDecision} — Batch ${invoice.batchId}`, agent: "QualityGate", status: "pending" },
       { label: "Generating invoice with line items & tax breakup", agent: "DocumentCrafter", status: "pending" },
     ]);
+
+    // Run grounded AI for invoice insights
+    try {
+      const grounding = await fetchGrounding("invoice", userMsg);
+      const aiOutput = await runGroundedAi({
+        orchestrator: "Invoice Generation AI",
+        userQuery: userMsg,
+        instructions: "Generate the best possible invoice analysis grounded in invoice request/result data. Include tax breakdown, payment status, and a Sources / Reference IDs section.",
+        grounding,
+      });
+      setChatMessages(prev => [...prev, { role: "ai", content: aiOutput }]);
+    } catch (error) {
+      setChatMessages(prev => [...prev, { role: "ai", content: `⚠️ Grounded invoice insight could not be generated: ${error instanceof Error ? error.message : "Unknown error"}` }]);
+    }
   };
 
   useEffect(() => {
