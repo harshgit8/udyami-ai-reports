@@ -14,6 +14,11 @@ import {
   Menu,
   X,
   Workflow,
+  Users,
+  Clock,
+  IndianRupee,
+  Building2,
+  Activity,
 } from "lucide-react";
 import { useState } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -46,61 +51,40 @@ const moduleItems = [
   { id: "rnd", label: "R&D", icon: FlaskConical },
 ];
 
+const enterpriseItems = [
+  { id: "employees", label: "Employees", icon: Users },
+  { id: "shifts", label: "Shifts", icon: Clock },
+  { id: "salary", label: "Payroll", icon: IndianRupee },
+  { id: "crm", label: "CRM", icon: Building2 },
+  { id: "erp", label: "ERP Ops", icon: Activity },
+];
+
 function SidebarContent({ activeTab, onTabChange, collapsed, showLabels }: { activeTab: string; onTabChange: (tab: string) => void; collapsed: boolean; showLabels: boolean }) {
+  const renderSection = (label: string, items: typeof mainItems) => (
+    <div>
+      {showLabels && <p className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground px-3 mb-2">{label}</p>}
+      <div className="space-y-0.5">
+        {items.map((item) => {
+          const Icon = item.icon;
+          const isActive = activeTab === item.id;
+          return (
+            <button key={item.id} onClick={() => onTabChange(item.id)}
+              className={`w-full flex items-center gap-3 rounded-lg transition-all duration-150 ${collapsed && !showLabels ? "justify-center px-2 py-2.5" : "px-3 py-2.5"} text-sm ${isActive ? "bg-foreground text-background font-medium" : "text-sidebar-foreground hover:bg-sidebar-accent"}`}
+              title={!showLabels ? item.label : undefined}>
+              <Icon className="w-4 h-4 flex-shrink-0" />
+              {showLabels && <span>{item.label}</span>}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+
   return (
-    <div className="flex-1 py-4 px-2 space-y-6 overflow-hidden">
-      <div>
-        {showLabels && (
-          <p className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground px-3 mb-2">Main</p>
-        )}
-        <div className="space-y-0.5">
-          {mainItems.map((item) => {
-            const Icon = item.icon;
-            const isActive = activeTab === item.id;
-            return (
-              <button
-                key={item.id}
-                onClick={() => onTabChange(item.id)}
-                className={`w-full flex items-center gap-3 rounded-lg transition-all duration-150 ${
-                  collapsed && !showLabels ? "justify-center px-2 py-2.5" : "px-3 py-2.5"
-                } text-sm ${
-                  isActive ? "bg-foreground text-background font-medium" : "text-sidebar-foreground hover:bg-sidebar-accent"
-                }`}
-                title={!showLabels ? item.label : undefined}
-              >
-                <Icon className="w-4 h-4 flex-shrink-0" />
-                {showLabels && <span>{item.label}</span>}
-              </button>
-            );
-          })}
-        </div>
-      </div>
-      <div>
-        {showLabels && (
-          <p className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground px-3 mb-2">Modules</p>
-        )}
-        <div className="space-y-0.5">
-          {moduleItems.map((item) => {
-            const Icon = item.icon;
-            const isActive = activeTab === item.id;
-            return (
-              <button
-                key={item.id}
-                onClick={() => onTabChange(item.id)}
-                className={`w-full flex items-center gap-3 rounded-lg transition-all duration-150 ${
-                  collapsed && !showLabels ? "justify-center px-2 py-2.5" : "px-3 py-2.5"
-                } text-sm ${
-                  isActive ? "bg-foreground text-background font-medium" : "text-sidebar-foreground hover:bg-sidebar-accent"
-                }`}
-                title={!showLabels ? item.label : undefined}
-              >
-                <Icon className="w-4 h-4 flex-shrink-0" />
-                {showLabels && <span>{item.label}</span>}
-              </button>
-            );
-          })}
-        </div>
-      </div>
+    <div className="flex-1 py-4 px-2 space-y-5 overflow-y-auto">
+      {renderSection("Main", mainItems)}
+      {renderSection("Modules", moduleItems)}
+      {renderSection("Enterprise", enterpriseItems)}
     </div>
   );
 }
@@ -116,7 +100,8 @@ export function Sidebar({ activeTab, onTabChange, badgeCounts = {} }: SidebarPro
   };
 
   // Mobile: hamburger + slide-out drawer
-  const activeModule = moduleItems.find((m) => m.id === activeTab);
+  const activeModule = [...moduleItems, ...enterpriseItems].find((m) => m.id === activeTab);
+  const isEnterpriseActive = enterpriseItems.some((m) => m.id === activeTab);
   const moreLabel = activeModule ? activeModule.label : "More";
 
   const bottomNavItems = [
@@ -137,7 +122,7 @@ export function Sidebar({ activeTab, onTabChange, badgeCounts = {} }: SidebarPro
           <div className="flex items-center justify-around px-1 py-1.5">
             {bottomNavItems.map((item) => {
               const Icon = item.icon;
-              const isModuleActive = moduleItems.some((m) => m.id === activeTab);
+              const isModuleActive = [...moduleItems, ...enterpriseItems].some((m) => m.id === activeTab);
               const isActive = item.id === "more" ? (mobileOpen || isModuleActive) : activeTab === item.id;
               return (
                 <motion.button
@@ -191,35 +176,25 @@ export function Sidebar({ activeTab, onTabChange, badgeCounts = {} }: SidebarPro
                 className="fixed bottom-[60px] left-0 right-0 z-40 bg-card rounded-t-2xl border-t border-border shadow-lg max-h-[50vh] overflow-y-auto"
               >
                 <div className="mx-auto mt-2 h-1 w-10 rounded-full bg-muted" />
-                <div className="p-4">
-                  <p className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground mb-3">Modules</p>
-                  <div className="grid grid-cols-3 gap-2">
-                    {moduleItems.map((item) => {
-                      const Icon = item.icon;
-                      const isActive = activeTab === item.id;
-                      return (
-                        <button
-                          key={item.id}
-                          onClick={() => { handleTabChange(item.id); setMobileOpen(false); }}
-                          className={`flex flex-col items-center gap-1.5 p-3 rounded-xl transition-all ${
-                            isActive
-                              ? "bg-foreground text-background"
-                              : "bg-muted/50 text-foreground hover:bg-accent"
-                          }`}
-                        >
-                          <div className="relative">
-                            <Icon className="w-5 h-5" />
-                            {(badgeCounts[item.id as keyof BadgeCounts] ?? 0) > 0 && (
-                              <span className="absolute -top-1 -right-1.5 min-w-[16px] h-4 flex items-center justify-center rounded-full bg-destructive text-destructive-foreground text-[9px] font-bold px-1">
-                                {badgeCounts[item.id as keyof BadgeCounts]}
-                              </span>
-                            )}
-                          </div>
-                          <span className="text-[11px] font-medium">{item.label}</span>
-                        </button>
-                      );
-                    })}
-                  </div>
+                <div className="p-4 space-y-4">
+                  {[{ label: "Modules", items: moduleItems }, { label: "Enterprise", items: enterpriseItems }].map(({ label, items }) => (
+                    <div key={label}>
+                      <p className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground mb-3">{label}</p>
+                      <div className="grid grid-cols-3 gap-2">
+                        {items.map((item) => {
+                          const Icon = item.icon;
+                          const isActive = activeTab === item.id;
+                          return (
+                            <button key={item.id} onClick={() => { handleTabChange(item.id); setMobileOpen(false); }}
+                              className={`flex flex-col items-center gap-1.5 p-3 rounded-xl transition-all ${isActive ? "bg-foreground text-background" : "bg-muted/50 text-foreground hover:bg-accent"}`}>
+                              <Icon className="w-5 h-5" />
+                              <span className="text-[11px] font-medium">{item.label}</span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </motion.div>
             </>

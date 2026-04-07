@@ -14,6 +14,11 @@ import { QualityList } from "@/components/documents/QualityList";
 import { ProductionList } from "@/components/documents/ProductionList";
 import { RnDList } from "@/components/documents/RnDList";
 import { AIChatWorkspace } from "@/components/chat/AIChatWorkspace";
+import { EmployeeManagement } from "@/components/hr/EmployeeManagement";
+import { ShiftManagement } from "@/components/hr/ShiftManagement";
+import { SalaryManagement } from "@/components/hr/SalaryManagement";
+import { CustomerManagement } from "@/components/crm/CustomerManagement";
+import { ERPDashboard } from "@/components/erp/ERPDashboard";
 import { fetchDocuments, syncFromGoogleSheets } from "@/lib/documents";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -143,6 +148,11 @@ const Index = () => {
       case "quality": return <QualityList reports={qualityReports} />;
       case "production": return <ProductionList orders={productionOrders} />;
       case "rnd": return <RnDList formulations={rndFormulations} />;
+      case "employees": return <EmployeeManagement />;
+      case "shifts": return <ShiftManagement />;
+      case "salary": return <SalaryManagement />;
+      case "crm": return <CustomerManagement />;
+      case "erp": return <ERPDashboard />;
       default:
         return (
           <DashboardOverview

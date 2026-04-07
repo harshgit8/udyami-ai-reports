@@ -10,7 +10,7 @@ export type Database = {
   // Allows to automatically instantiate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
-    PostgrestVersion: "14.1"
+    PostgrestVersion: "14.4"
   }
   public: {
     Tables: {
@@ -38,6 +38,101 @@ export type Database = {
           entity_id?: string | null
           id?: string
           payload?: Json | null
+        }
+        Relationships: []
+      }
+      customer_followups: {
+        Row: {
+          completed_at: string | null
+          created_at: string
+          customer_id: string
+          due_date: string
+          id: string
+          notes: string | null
+          status: string
+          subject: string
+          type: string
+        }
+        Insert: {
+          completed_at?: string | null
+          created_at?: string
+          customer_id: string
+          due_date?: string
+          id?: string
+          notes?: string | null
+          status?: string
+          subject: string
+          type?: string
+        }
+        Update: {
+          completed_at?: string | null
+          created_at?: string
+          customer_id?: string
+          due_date?: string
+          id?: string
+          notes?: string | null
+          status?: string
+          subject?: string
+          type?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "customer_followups_customer_id_fkey"
+            columns: ["customer_id"]
+            isOneToOne: false
+            referencedRelation: "customers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      customers: {
+        Row: {
+          address: string | null
+          company_name: string
+          contact_person: string | null
+          created_at: string
+          email: string | null
+          id: string
+          last_contact_at: string | null
+          notes: string | null
+          phone: string | null
+          segment: string
+          status: string
+          total_orders: number
+          total_revenue: number
+          updated_at: string
+        }
+        Insert: {
+          address?: string | null
+          company_name: string
+          contact_person?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          last_contact_at?: string | null
+          notes?: string | null
+          phone?: string | null
+          segment?: string
+          status?: string
+          total_orders?: number
+          total_revenue?: number
+          updated_at?: string
+        }
+        Update: {
+          address?: string | null
+          company_name?: string
+          contact_person?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          last_contact_at?: string | null
+          notes?: string | null
+          phone?: string | null
+          segment?: string
+          status?: string
+          total_orders?: number
+          total_revenue?: number
+          updated_at?: string
         }
         Relationships: []
       }
@@ -77,6 +172,51 @@ export type Database = {
           total?: number | null
           type?: string
           updated_at?: string | null
+        }
+        Relationships: []
+      }
+      employees: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          department: string
+          email: string | null
+          id: string
+          join_date: string
+          name: string
+          phone: string | null
+          role: string
+          salary: number
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          department?: string
+          email?: string | null
+          id?: string
+          join_date?: string
+          name: string
+          phone?: string | null
+          role?: string
+          salary?: number
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          department?: string
+          email?: string | null
+          id?: string
+          join_date?: string
+          name?: string
+          phone?: string | null
+          role?: string
+          salary?: number
+          status?: string
+          updated_at?: string
         }
         Relationships: []
       }
@@ -895,6 +1035,97 @@ export type Database = {
           ul94_rating?: string | null
         }
         Relationships: []
+      }
+      salary_records: {
+        Row: {
+          base_salary: number
+          bonus: number
+          created_at: string
+          deductions: number
+          employee_id: string
+          id: string
+          month: string
+          net_pay: number
+          paid_at: string | null
+          status: string
+        }
+        Insert: {
+          base_salary?: number
+          bonus?: number
+          created_at?: string
+          deductions?: number
+          employee_id: string
+          id?: string
+          month: string
+          net_pay?: number
+          paid_at?: string | null
+          status?: string
+        }
+        Update: {
+          base_salary?: number
+          bonus?: number
+          created_at?: string
+          deductions?: number
+          employee_id?: string
+          id?: string
+          month?: string
+          net_pay?: number
+          paid_at?: string | null
+          status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "salary_records_employee_id_fkey"
+            columns: ["employee_id"]
+            isOneToOne: false
+            referencedRelation: "employees"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      shifts: {
+        Row: {
+          created_at: string
+          employee_id: string
+          end_time: string
+          id: string
+          notes: string | null
+          shift_date: string
+          shift_type: string
+          start_time: string
+          status: string
+        }
+        Insert: {
+          created_at?: string
+          employee_id: string
+          end_time?: string
+          id?: string
+          notes?: string | null
+          shift_date?: string
+          shift_type?: string
+          start_time?: string
+          status?: string
+        }
+        Update: {
+          created_at?: string
+          employee_id?: string
+          end_time?: string
+          id?: string
+          notes?: string | null
+          shift_date?: string
+          shift_type?: string
+          start_time?: string
+          status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "shifts_employee_id_fkey"
+            columns: ["employee_id"]
+            isOneToOne: false
+            referencedRelation: "employees"
+            referencedColumns: ["id"]
+          },
+        ]
       }
     }
     Views: {
