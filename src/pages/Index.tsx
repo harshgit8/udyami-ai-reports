@@ -19,6 +19,7 @@ import { ShiftManagement } from "@/components/hr/ShiftManagement";
 import { SalaryManagement } from "@/components/hr/SalaryManagement";
 import { CustomerManagement } from "@/components/crm/CustomerManagement";
 import { ERPDashboard } from "@/components/erp/ERPDashboard";
+import { AdminPanel } from "@/components/admin/AdminPanel";
 import { fetchDocuments, syncFromGoogleSheets } from "@/lib/documents";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -153,6 +154,7 @@ const Index = () => {
       case "salary": return <SalaryManagement />;
       case "crm": return <CustomerManagement />;
       case "erp": return <ERPDashboard />;
+      case "admin": return <AdminPanel />;
       default:
         return (
           <DashboardOverview

@@ -10,7 +10,7 @@ export type Database = {
   // Allows to automatically instantiate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
-    PostgrestVersion: "14.4"
+    PostgrestVersion: "14.1"
   }
   public: {
     Tables: {
@@ -57,7 +57,7 @@ export type Database = {
           completed_at?: string | null
           created_at?: string
           customer_id: string
-          due_date?: string
+          due_date: string
           id?: string
           notes?: string | null
           status?: string
@@ -93,14 +93,13 @@ export type Database = {
           created_at: string
           email: string | null
           id: string
-          last_contact_at: string | null
           notes: string | null
           phone: string | null
           segment: string
           status: string
-          total_orders: number
-          total_revenue: number
-          updated_at: string
+          total_orders: number | null
+          total_revenue: number | null
+          updated_at: string | null
         }
         Insert: {
           address?: string | null
@@ -109,14 +108,13 @@ export type Database = {
           created_at?: string
           email?: string | null
           id?: string
-          last_contact_at?: string | null
           notes?: string | null
           phone?: string | null
           segment?: string
           status?: string
-          total_orders?: number
-          total_revenue?: number
-          updated_at?: string
+          total_orders?: number | null
+          total_revenue?: number | null
+          updated_at?: string | null
         }
         Update: {
           address?: string | null
@@ -125,14 +123,13 @@ export type Database = {
           created_at?: string
           email?: string | null
           id?: string
-          last_contact_at?: string | null
           notes?: string | null
           phone?: string | null
           segment?: string
           status?: string
-          total_orders?: number
-          total_revenue?: number
-          updated_at?: string
+          total_orders?: number | null
+          total_revenue?: number | null
+          updated_at?: string | null
         }
         Relationships: []
       }
@@ -177,7 +174,6 @@ export type Database = {
       }
       employees: {
         Row: {
-          avatar_url: string | null
           created_at: string
           department: string
           email: string | null
@@ -188,10 +184,9 @@ export type Database = {
           role: string
           salary: number
           status: string
-          updated_at: string
+          updated_at: string | null
         }
         Insert: {
-          avatar_url?: string | null
           created_at?: string
           department?: string
           email?: string | null
@@ -202,10 +197,9 @@ export type Database = {
           role?: string
           salary?: number
           status?: string
-          updated_at?: string
+          updated_at?: string | null
         }
         Update: {
-          avatar_url?: string | null
           created_at?: string
           department?: string
           email?: string | null
@@ -216,7 +210,40 @@ export type Database = {
           role?: string
           salary?: number
           status?: string
-          updated_at?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      expenses: {
+        Row: {
+          amount: number
+          category: string
+          created_at: string
+          date: string
+          description: string | null
+          id: string
+          reference_id: string | null
+          reference_type: string | null
+        }
+        Insert: {
+          amount?: number
+          category: string
+          created_at?: string
+          date: string
+          description?: string | null
+          id?: string
+          reference_id?: string | null
+          reference_type?: string | null
+        }
+        Update: {
+          amount?: number
+          category?: string
+          created_at?: string
+          date?: string
+          description?: string | null
+          id?: string
+          reference_id?: string | null
+          reference_type?: string | null
         }
         Relationships: []
       }
@@ -1047,7 +1074,9 @@ export type Database = {
           month: string
           net_pay: number
           paid_at: string | null
+          payment_method: string | null
           status: string
+          updated_at: string | null
         }
         Insert: {
           base_salary?: number
@@ -1059,7 +1088,9 @@ export type Database = {
           month: string
           net_pay?: number
           paid_at?: string | null
+          payment_method?: string | null
           status?: string
+          updated_at?: string | null
         }
         Update: {
           base_salary?: number
@@ -1071,7 +1102,9 @@ export type Database = {
           month?: string
           net_pay?: number
           paid_at?: string | null
+          payment_method?: string | null
           status?: string
+          updated_at?: string | null
         }
         Relationships: [
           {
@@ -1089,33 +1122,33 @@ export type Database = {
           employee_id: string
           end_time: string
           id: string
-          notes: string | null
           shift_date: string
           shift_type: string
           start_time: string
           status: string
+          updated_at: string | null
         }
         Insert: {
           created_at?: string
           employee_id: string
-          end_time?: string
+          end_time: string
           id?: string
-          notes?: string | null
-          shift_date?: string
+          shift_date: string
           shift_type?: string
-          start_time?: string
+          start_time: string
           status?: string
+          updated_at?: string | null
         }
         Update: {
           created_at?: string
           employee_id?: string
           end_time?: string
           id?: string
-          notes?: string | null
           shift_date?: string
           shift_type?: string
           start_time?: string
           status?: string
+          updated_at?: string | null
         }
         Relationships: [
           {

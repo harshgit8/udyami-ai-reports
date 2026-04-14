@@ -19,6 +19,7 @@ import {
   IndianRupee,
   Building2,
   Activity,
+  Shield,
 } from "lucide-react";
 import { useState } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -57,6 +58,7 @@ const enterpriseItems = [
   { id: "salary", label: "Payroll", icon: IndianRupee },
   { id: "crm", label: "CRM", icon: Building2 },
   { id: "erp", label: "ERP Ops", icon: Activity },
+  { id: "admin", label: "Admin", icon: Shield },
 ];
 
 function SidebarContent({ activeTab, onTabChange, collapsed, showLabels }: { activeTab: string; onTabChange: (tab: string) => void; collapsed: boolean; showLabels: boolean }) {
