@@ -126,13 +126,13 @@ export function ShiftManagement() {
   return (
     <div className="w-full h-full flex flex-col bg-white">
       {/* Header Section */}
-      <div className="px-8 py-8 border-b border-slate-200 bg-gradient-to-br from-slate-50 to-slate-100/50">
-        <div className="flex items-start justify-between">
-          <div>
-            <h1 className="text-3xl font-bold text-slate-900 tracking-tight">Shift Management</h1>
-            <p className="text-sm text-slate-600 mt-2">Schedule and manage workforce shifts with real-time visibility</p>
+      <div className="px-4 py-5 sm:px-6 sm:py-6 md:px-8 md:py-8 border-b border-slate-200 bg-gradient-to-br from-slate-50 to-slate-100/50">
+        <div className="flex items-start justify-between flex-wrap gap-3">
+          <div className="min-w-0">
+            <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">Shift Management</h1>
+            <p className="text-sm text-slate-600 mt-1.5">Schedule and manage workforce shifts with real-time visibility</p>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 flex-wrap justify-end">
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -154,9 +154,9 @@ export function ShiftManagement() {
 
       {/* Main Content */}
       <ScrollArea className="flex-1">
-        <div className="px-8 py-8 space-y-8">
+        <div className="px-4 py-4 sm:px-6 sm:py-6 md:px-8 md:py-8 space-y-6 md:space-y-8">
           {/* Filters Row */}
-          <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center justify-between gap-3 flex-wrap">
             <div className="flex items-center gap-3">
               <span className="text-sm font-medium text-slate-700">Filter by date:</span>
               <Select value={dateFilter} onValueChange={setDateFilter}>
@@ -262,7 +262,7 @@ export function ShiftManagement() {
           </div>
 
           {/* KPI Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {[
               { label: "Total Shifts", value: total, unit: "shifts" },
               { label: "Active Now", value: active, unit: "shifts" },
@@ -270,10 +270,10 @@ export function ShiftManagement() {
               { label: "Coverage", value: `${coverage}%`, unit: "target" },
             ].map((stat) => (
               <Card key={stat.label} className="border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-200">
-                <CardContent className="p-6">
+                <CardContent className="p-4 sm:p-6">
                   <p className="text-xs font-semibold text-slate-600 uppercase tracking-wider">{stat.label}</p>
-                  <p className="text-3xl font-bold text-slate-900 mt-3">{stat.value}</p>
-                  <p className="text-xs text-slate-600 mt-2">{stat.unit}</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-slate-900 mt-2 sm:mt-3">{stat.value}</p>
+                  <p className="text-xs text-slate-600 mt-1 sm:mt-2">{stat.unit}</p>
                 </CardContent>
               </Card>
             ))}
@@ -328,8 +328,8 @@ export function ShiftManagement() {
                           key={shift.id} 
                           className="border-slate-200 shadow-sm hover:shadow-md transition-all duration-200"
                         >
-                          <CardContent className="p-5 flex items-center justify-between gap-5">
-                            <div className="flex items-center gap-4 flex-1 min-w-0">
+                          <CardContent className="p-3 sm:p-5 flex items-center justify-between gap-3 sm:gap-5">
+                            <div className="flex items-center gap-3 sm:gap-4 flex-1 min-w-0">
                               {/* Status Indicator */}
                               <div className="flex-shrink-0">
                                 <div className={`w-2.5 h-2.5 rounded-full ${isActive ? "bg-green-500 animate-pulse" : isCompleted ? "bg-slate-400" : "bg-blue-400"}`} />
@@ -342,15 +342,15 @@ export function ShiftManagement() {
                               </div>
 
                               {/* Time */}
-                              <div className="px-4 py-2 bg-slate-50 rounded-lg shrink-0">
-                                <p className="text-sm font-mono font-semibold text-slate-900">{shift.start_time}</p>
-                                <p className="text-xs text-slate-600 text-center">to</p>
-                                <p className="text-sm font-mono font-semibold text-slate-900">{shift.end_time}</p>
+                              <div className="px-2 sm:px-4 py-1.5 sm:py-2 bg-slate-50 rounded-lg shrink-0">
+                                <p className="text-xs sm:text-sm font-mono font-semibold text-slate-900">{shift.start_time}</p>
+                                <p className="text-[10px] sm:text-xs text-slate-600 text-center">to</p>
+                                <p className="text-xs sm:text-sm font-mono font-semibold text-slate-900">{shift.end_time}</p>
                               </div>
 
                               {/* Status Badge */}
                               <Badge 
-                                className={`text-xs font-semibold rounded-full px-3 py-1 shrink-0 ${
+                                className={`text-xs font-semibold rounded-full px-2 sm:px-3 py-1 shrink-0 hidden sm:inline-flex ${
                                   isActive ? "bg-green-100 text-green-700 border-green-300" : 
                                   isCompleted ? "bg-slate-100 text-slate-700 border-slate-300" : 
                                   "bg-blue-100 text-blue-700 border-blue-300"
@@ -365,21 +365,21 @@ export function ShiftManagement() {
                               {shift.status === "Scheduled" && (
                                 <Button 
                                   size="sm" 
-                                  className="h-8 px-3 text-xs rounded-lg bg-green-600 hover:bg-green-700 text-white font-medium transition-colors"
+                                  className="h-8 px-2 sm:px-3 text-xs rounded-lg bg-green-600 hover:bg-green-700 text-white font-medium transition-colors"
                                   onClick={() => updateStatus.mutate({ id: shift.id, status: "Active" })}
                                 >
-                                  <Play className="w-3 h-3 mr-1.5" />
-                                  Start
+                                  <Play className="w-3 h-3 sm:mr-1.5" />
+                                  <span className="hidden sm:inline">Start</span>
                                 </Button>
                               )}
                               {shift.status === "Active" && (
                                 <Button 
                                   size="sm" 
-                                  className="h-8 px-3 text-xs rounded-lg bg-slate-600 hover:bg-slate-700 text-white font-medium transition-colors"
+                                  className="h-8 px-2 sm:px-3 text-xs rounded-lg bg-slate-600 hover:bg-slate-700 text-white font-medium transition-colors"
                                   onClick={() => updateStatus.mutate({ id: shift.id, status: "Completed" })}
                                 >
-                                  <CheckCircle2 className="w-3 h-3 mr-1.5" />
-                                  Complete
+                                  <CheckCircle2 className="w-3 h-3 sm:mr-1.5" />
+                                  <span className="hidden sm:inline">Complete</span>
                                 </Button>
                               )}
                             </div>

@@ -95,13 +95,13 @@ export function SalaryManagement() {
   return (
     <div className="w-full h-full flex flex-col bg-white">
       {/* Header Section */}
-      <div className="px-8 py-8 border-b border-slate-200 bg-gradient-to-br from-slate-50 to-slate-100/50">
-        <div className="flex items-start justify-between gap-6">
-          <div>
-            <h1 className="text-3xl font-bold text-slate-900 tracking-tight">Payroll Management</h1>
-            <p className="text-sm text-slate-600 mt-2">Enterprise salary processing & disbursement system</p>
+      <div className="px-4 py-5 sm:px-6 sm:py-6 md:px-8 md:py-8 border-b border-slate-200 bg-gradient-to-br from-slate-50 to-slate-100/50">
+        <div className="flex items-start justify-between gap-3 flex-wrap">
+          <div className="min-w-0">
+            <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">Payroll Management</h1>
+            <p className="text-sm text-slate-600 mt-1.5">Enterprise salary processing &amp; disbursement system</p>
           </div>
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-2 sm:gap-3 flex-wrap justify-end">
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -137,7 +137,7 @@ export function SalaryManagement() {
 
       {/* Main Content */}
       <div className="flex-1 overflow-auto">
-        <div className="px-8 py-8 space-y-8">
+        <div className="px-4 py-4 sm:px-6 sm:py-6 md:px-8 md:py-8 space-y-6 md:space-y-8">
 
           {/* Error State */}
           {recordsError && (
@@ -148,7 +148,7 @@ export function SalaryManagement() {
           )}
 
           {/* KPI Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
             {[
               { label: "Total Payroll", value: showSalaries ? fmt(totalPayroll) : "••••••", sub: `${records.length} employees` },
               { label: "Disbursed", value: showSalaries ? fmt(totalPaid) : "••••••", sub: `${paidCount} processed` },
@@ -157,10 +157,10 @@ export function SalaryManagement() {
               { label: "Adjustments", value: showSalaries ? `+${fmt(totalBonus)}` : "••••", sub: `bonus / deductions` },
             ].map((kpi) => (
               <Card key={kpi.label} className="border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-200">
-                <CardContent className="p-6">
+                <CardContent className="p-4 sm:p-6">
                   <p className="text-xs font-semibold text-slate-600 uppercase tracking-wider">{kpi.label}</p>
-                  <p className="text-3xl font-bold text-slate-900 mt-3">{kpi.value}</p>
-                  <p className="text-xs text-slate-600 mt-2">{kpi.sub}</p>
+                  <p className="text-xl sm:text-3xl font-bold text-slate-900 mt-2 sm:mt-3">{kpi.value}</p>
+                  <p className="text-xs text-slate-600 mt-1 sm:mt-2">{kpi.sub}</p>
                 </CardContent>
               </Card>
             ))}
@@ -261,81 +261,82 @@ export function SalaryManagement() {
               const emp = rec.employees as any;
               return (
                 <Card key={rec.id} className="group hover:shadow-md transition-all duration-200">
-                  <CardContent className="p-4 flex items-center gap-4">
-                    {/* Avatar & Basic Info */}
-                    <div className="flex items-center gap-3 flex-1 min-w-0">
-                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/80 to-primary/60 flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">
-                        {emp?.name?.split(" ").map((n: string) => n[0]).join("").slice(0, 2) || "?"}
+                  <CardContent className="p-3 sm:p-4">
+                    <div className="flex items-center gap-3 sm:gap-4">
+                      {/* Avatar & Basic Info */}
+                      <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
+                        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-primary/80 to-primary/60 flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">
+                          {emp?.name?.split(" ").map((n: string) => n[0]).join("").slice(0, 2) || "?"}
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-sm font-semibold truncate">{emp?.name}</p>
+                          <p className="text-xs text-muted-foreground truncate">{emp?.role} • {emp?.department}</p>
+                        </div>
                       </div>
-                      <div className="min-w-0">
-                        <p className="text-sm font-semibold">{emp?.name}</p>
-                        <p className="text-xs text-muted-foreground">{emp?.role} • {emp?.department}</p>
-                      </div>
-                    </div>
 
-                    {/* Breakdown (hidden on mobile) */}
-                    <div className="hidden lg:grid grid-cols-3 gap-6 text-xs flex-shrink-0">
-                      <div className="text-center">
-                        <p className="text-muted-foreground font-medium">Base</p>
-                        <p className="font-semibold text-foreground">{showSalaries ? fmt(rec.base_salary) : "••••"}</p>
+                      {/* Breakdown (hidden on mobile) */}
+                      <div className="hidden lg:grid grid-cols-3 gap-6 text-xs flex-shrink-0">
+                        <div className="text-center">
+                          <p className="text-muted-foreground font-medium">Base</p>
+                          <p className="font-semibold text-foreground">{showSalaries ? fmt(rec.base_salary) : "••••"}</p>
+                        </div>
+                        <div className="text-center">
+                          <p className="text-muted-foreground font-medium">Bonus</p>
+                          <p className="font-semibold text-emerald-600">{showSalaries ? `+${fmt(rec.bonus)}` : "••••"}</p>
+                        </div>
+                        <div className="text-center">
+                          <p className="text-muted-foreground font-medium">Deductions</p>
+                          <p className="font-semibold text-destructive">{showSalaries ? `-${fmt(rec.deductions)}` : "••••"}</p>
+                        </div>
                       </div>
-                      <div className="text-center">
-                        <p className="text-muted-foreground font-medium">Bonus</p>
-                        <p className="font-semibold text-emerald-600">{showSalaries ? `+${fmt(rec.bonus)}` : "••••"}</p>
-                      </div>
-                      <div className="text-center">
-                        <p className="text-muted-foreground font-medium">Deductions</p>
-                        <p className="font-semibold text-destructive">{showSalaries ? `-${fmt(rec.deductions)}` : "••••"}</p>
-                      </div>
-                    </div>
 
-                    {/* Net Pay & Status */}
-                    <div className="flex items-center gap-4 flex-shrink-0">
-                      <div className="text-right">
-                        <p className="text-xs text-muted-foreground font-medium">Net Pay</p>
-                        <p className="text-base font-bold text-foreground">{showSalaries ? fmt(rec.net_pay) : "••••"}</p>
+                      {/* Net Pay & Status */}
+                      <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
+                        <div className="text-right">
+                          <p className="text-xs text-muted-foreground font-medium hidden sm:block">Net Pay</p>
+                          <p className="text-sm sm:text-base font-bold text-foreground">{showSalaries ? fmt(rec.net_pay) : "••••"}</p>
+                        </div>
+                        <Badge 
+                          variant={rec.status === "Paid" ? "default" : "secondary"}
+                          className={`text-xs whitespace-nowrap hidden sm:flex ${
+                            rec.status === "Paid" 
+                              ? "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200" 
+                              : "bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-200"
+                          }`}
+                        >
+                          {rec.status === "Paid" ? "✓ Paid" : "⏳ Pending"}
+                        </Badge>
                       </div>
-                      <Badge 
-                        variant={rec.status === "Paid" ? "default" : "secondary"}
-                        className={`text-xs whitespace-nowrap ${
-                          rec.status === "Paid" 
-                            ? "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200" 
-                            : "bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-200"
-                        }`}
-                      >
-                        {rec.status === "Paid" ? "✓ Paid" : "⏳ Pending"}
-                      </Badge>
-                    </div>
 
-                    {/* Actions */}
-                    <div className="flex gap-1 flex-shrink-0">
-                      {rec.status === "Pending" && (
-                        <Tooltip>
-                          <TooltipTrigger asChild>
+                      {/* Actions */}
+                      <div className="flex gap-1 flex-shrink-0">
+                        {rec.status === "Pending" && (
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <Button 
+                                size="sm" 
+                                variant="outline" 
+                                className="h-8 px-2 text-xs gap-1" 
+                                onClick={() => markPaid.mutate(rec.id)} 
+                                disabled={markPaid.isPending}
+                              >
+                                <CheckCircle2 className="w-3.5 h-3.5" /> 
+                                <span className="hidden sm:inline">Pay</span>
+                              </Button>
+                            </TooltipTrigger>
+                            <TooltipContent>Mark as paid</TooltipContent>
+                          </Tooltip>
+                        )}
+                        <DropdownMenu>
+                          <DropdownMenuTrigger asChild>
                             <Button 
                               size="sm" 
-                              variant="outline" 
-                              className="h-8 px-2 text-xs gap-1 opacity-70 group-hover:opacity-100 transition-opacity" 
-                              onClick={() => markPaid.mutate(rec.id)} 
-                              disabled={markPaid.isPending}
+                              variant="ghost" 
+                              className="h-8 w-8 p-0 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity"
                             >
-                              <CheckCircle2 className="w-3.5 h-3.5" /> 
-                              <span className="hidden sm:inline">Pay</span>
+                              <MoreVertical className="w-4 h-4" />
                             </Button>
-                          </TooltipTrigger>
-                          <TooltipContent>Mark as paid</TooltipContent>
-                        </Tooltip>
-                      )}
-                      <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button 
-                            size="sm" 
-                            variant="ghost" 
-                            className="h-8 w-8 p-0 opacity-0 group-hover:opacity-100 transition-opacity"
-                          >
-                            <MoreVertical className="w-4 h-4" />
-                          </Button>
-                        </DropdownMenuTrigger>
+                          </DropdownMenuTrigger>
                         <DropdownMenuContent align="end" className="w-48">
                           {rec.status !== "Paid" && (
                             <>
@@ -362,6 +363,7 @@ export function SalaryManagement() {
                         </DropdownMenuContent>
                       </DropdownMenu>
                     </div>
+                  </div>
                   </CardContent>
                 </Card>
               );

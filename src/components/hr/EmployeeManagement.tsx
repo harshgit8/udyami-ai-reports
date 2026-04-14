@@ -153,13 +153,13 @@ export function EmployeeManagement() {
   return (
     <div className="w-full h-full flex flex-col bg-white">
       {/* Header Section */}
-      <div className="px-8 py-8 border-b border-slate-200 bg-gradient-to-br from-slate-50 to-slate-100/50">
-        <div className="flex items-start justify-between gap-6">
-          <div>
-            <h1 className="text-3xl font-bold text-slate-900 tracking-tight">Employee Management</h1>
-            <p className="text-sm text-slate-600 mt-2">Manage workforce information, roles, and attendance</p>
+      <div className="px-4 py-5 sm:px-6 sm:py-6 md:px-8 md:py-8 border-b border-slate-200 bg-gradient-to-br from-slate-50 to-slate-100/50">
+        <div className="flex items-start justify-between gap-3 flex-wrap">
+          <div className="min-w-0">
+            <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">Employee Management</h1>
+            <p className="text-sm text-slate-600 mt-1.5">Manage workforce information, roles, and attendance</p>
           </div>
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-2 sm:gap-3 flex-wrap justify-end">
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -236,7 +236,7 @@ export function EmployeeManagement() {
 
       {/* Main Content */}
       <div className="flex-1 overflow-auto">
-        <div className="px-8 py-8 space-y-8">
+        <div className="px-4 py-4 sm:px-6 sm:py-6 md:px-8 md:py-8 space-y-6 md:space-y-8">
           {/* Error State */}
           {employeesError && (
             <Alert variant="destructive" className="rounded-lg border-red-200 bg-red-50">
@@ -246,7 +246,7 @@ export function EmployeeManagement() {
           )}
 
           {/* KPI Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
             {[
               { label: "Total Headcount", value: employees.length, sub: "workforce" },
               { label: "Active", value: activeCount, sub: `${employees.length > 0 ? (activeCount/employees.length*100).toFixed(0) : 0}%` },
@@ -255,10 +255,10 @@ export function EmployeeManagement() {
               { label: "Payroll", value: `₹${(totalPayroll / 100000).toFixed(1)}L`, sub: "monthly" },
             ].map((kpi) => (
               <Card key={kpi.label} className="border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-200">
-                <CardContent className="p-6">
+                <CardContent className="p-4 sm:p-6">
                   <p className="text-xs font-semibold text-slate-600 uppercase tracking-wider">{kpi.label}</p>
-                  <p className="text-3xl font-bold text-slate-900 mt-3">{kpi.value}</p>
-                  <p className="text-xs text-slate-600 mt-2">{kpi.sub}</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-slate-900 mt-2 sm:mt-3">{kpi.value}</p>
+                  <p className="text-xs text-slate-600 mt-1 sm:mt-2">{kpi.sub}</p>
                 </CardContent>
               </Card>
             ))}
@@ -266,7 +266,7 @@ export function EmployeeManagement() {
 
       {/* Filters & Controls */}
       <div className="border-b border-slate-200 bg-white/50">
-        <div className="px-8 py-6 space-y-6">
+        <div className="px-4 py-4 sm:px-6 sm:py-5 md:px-8 md:py-6 space-y-4 sm:space-y-6">
           <div className="flex items-center justify-between">
             <h2 className="text-sm font-semibold text-slate-900">Filters & Search</h2>
             <TooltipProvider>
@@ -344,7 +344,7 @@ export function EmployeeManagement() {
       </div>
 
       {/* Results Summary */}
-      <div className="px-8 py-4 border-b border-slate-200 bg-slate-50/50 flex items-center justify-between text-sm">
+      <div className="px-4 py-3 sm:px-6 md:px-8 md:py-4 border-b border-slate-200 bg-slate-50/50 flex items-center justify-between text-sm">
         <p className="text-slate-600">{filtered.length} of {employees.length} employee{filtered.length !== 1 ? "s" : ""}</p>
         {selectedEmployees.length > 0 && (
           <div className="flex items-center gap-3">
@@ -355,7 +355,7 @@ export function EmployeeManagement() {
       </div>
 
       {/* Employee List */}
-      <div className="px-8 py-6">
+      <div className="px-4 py-4 sm:px-6 sm:py-5 md:px-8 md:py-6">
         {isLoading ? (
           <div className="flex items-center justify-center py-16">
             <div className="text-center">
@@ -377,8 +377,8 @@ export function EmployeeManagement() {
               const isSelected = selectedEmployees.includes(emp.id);
               const statusColor = emp.status === "Active" ? "bg-green-500" : emp.status === "On Leave" ? "bg-blue-400" : "bg-slate-400";
               return (
-                <div key={emp.id} className={`group border rounded-lg p-4 transition-all hover:shadow-md hover:border-slate-300 ${isSelected ? "bg-slate-50 border-slate-300" : "bg-white border-slate-200"}`}>
-                  <div className="flex items-center gap-4">
+                <div key={emp.id} className={`group border rounded-lg p-3 sm:p-4 transition-all hover:shadow-md hover:border-slate-300 ${isSelected ? "bg-slate-50 border-slate-300" : "bg-white border-slate-200"}`}>
+                  <div className="flex items-center gap-3 sm:gap-4">
                     {/* Checkbox */}
                     <input
                       type="checkbox"
@@ -449,7 +449,7 @@ export function EmployeeManagement() {
                     {/* Actions */}
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
-                        <Button size="sm" variant="ghost" className="h-8 w-8 p-0 opacity-0 group-hover:opacity-100 transition-opacity text-slate-600 hover:text-slate-900 hover:bg-slate-100">
+                        <Button size="sm" variant="ghost" className="h-8 w-8 p-0 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity text-slate-600 hover:text-slate-900 hover:bg-slate-100">
                           <MoreVertical className="w-4 h-4" />
                         </Button>
                       </DropdownMenuTrigger>

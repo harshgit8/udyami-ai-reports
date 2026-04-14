@@ -63,16 +63,16 @@ export function ERPDashboard() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h2 className="text-2xl font-bold tracking-tight">ERP Operations Center</h2>
+        <h2 className="text-xl sm:text-2xl font-bold tracking-tight">ERP Operations Center</h2>
         <p className="text-sm text-muted-foreground mt-0.5">Real-time operational intelligence · {format(new Date(), "EEEE, MMM d, yyyy · h:mm a")}</p>
       </div>
 
       {/* Live status bar */}
       <Card className="border-emerald-500/20 bg-emerald-500/5">
-        <CardContent className="p-3 flex items-center gap-3">
-          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+        <CardContent className="p-3 flex items-center gap-3 flex-wrap">
+          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse flex-shrink-0" />
           <span className="text-sm font-medium">All Systems Operational</span>
-          <span className="text-xs text-muted-foreground ml-auto">{activeShifts} active shifts · {activeEmployees} employees on duty</span>
+          <span className="text-xs text-muted-foreground sm:ml-auto">{activeShifts} active shifts · {activeEmployees} employees on duty</span>
         </CardContent>
       </Card>
 
@@ -211,7 +211,7 @@ export function ERPDashboard() {
           <CardTitle className="text-sm flex items-center gap-2"><ShieldCheck className="w-4 h-4" /> Quality Intelligence — Latest Inspections</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2">
             {qualityResults.slice(0, 5).map((q: any) => (
               <div key={q.id} className={`p-3 rounded-xl border ${q.decision === "ACCEPTED" ? "border-emerald-500/20 bg-emerald-500/5" : q.decision === "REJECTED" ? "border-destructive/20 bg-destructive/5" : "border-amber-500/20 bg-amber-500/5"}`}>
                 <div className="flex items-center justify-between mb-1">

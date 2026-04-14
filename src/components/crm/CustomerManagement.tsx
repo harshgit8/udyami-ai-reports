@@ -169,12 +169,12 @@ export function CustomerManagement() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h2 className="text-2xl font-bold tracking-tight">Customer Relationship Management</h2>
+      <div className="flex items-start justify-between gap-3 flex-wrap">
+        <div className="min-w-0">
+          <h2 className="text-xl sm:text-2xl font-bold tracking-tight">Customer Relationship Management</h2>
           <p className="text-sm text-muted-foreground mt-0.5">{customers.length} customers · {activeCustomers} active · ₹{(totalRevenue / 100000).toFixed(1)}L lifetime revenue</p>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-wrap justify-end">
           <Tooltip>
             <TooltipTrigger asChild>
               <Button size="sm" variant="outline" className="hidden md:flex"><Download className="w-4 h-4 mr-1.5" /> Export</Button>
@@ -244,7 +244,7 @@ export function CustomerManagement() {
       </div>
 
       {/* KPIs - 5 metrics */}
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
         {[
           { label: "Total Customers", value: customers.length, icon: Users, color: "text-blue-600" },
           { label: "Active", value: activeCustomers, icon: CheckCircle2, color: "text-emerald-600", sub: `${prospectCount} prospects` },
@@ -253,14 +253,14 @@ export function CustomerManagement() {
           { label: "Avg Order Value", value: totalOrders > 0 ? `₹${((totalRevenue / totalOrders) / 1000).toFixed(0)}K` : "—", icon: Briefcase, color: "text-indigo-600" },
         ].map(kpi => (
           <Card key={kpi.label}>
-            <CardContent className="p-4">
+            <CardContent className="p-3 sm:p-4">
               <div className="flex items-start justify-between">
-                <div className="flex-1">
+                <div className="flex-1 min-w-0">
                   <p className="text-xs text-muted-foreground font-medium">{kpi.label}</p>
-                  <p className="text-2xl font-bold mt-1">{kpi.value}</p>
+                  <p className="text-xl sm:text-2xl font-bold mt-1">{kpi.value}</p>
                   {kpi.sub && <p className="text-[10px] text-muted-foreground mt-0.5">{kpi.sub}</p>}
                 </div>
-                <kpi.icon className={`w-5 h-5 ${kpi.color} opacity-70`} />
+                <kpi.icon className={`w-4 h-4 sm:w-5 sm:h-5 ${kpi.color} opacity-70 flex-shrink-0 ml-1`} />
               </div>
             </CardContent>
           </Card>
@@ -405,7 +405,7 @@ export function CustomerManagement() {
                           <Button 
                             size="sm" 
                             variant="ghost" 
-                            className="h-8 w-8 p-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                            className="h-8 w-8 p-0 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity"
                             onClick={(e) => e.stopPropagation()}
                           >
                             <MoreVertical className="w-4 h-4" />
@@ -550,7 +550,7 @@ export function CustomerManagement() {
                                 <Button 
                                   size="sm" 
                                   variant="ghost" 
-                                  className="h-6 text-[9px] opacity-70 group-hover:opacity-100 transition-opacity"
+                                  className="h-6 text-[9px]"
                                   onClick={() => completeFollowup.mutate(f.id)}
                                   disabled={completeFollowup.isPending}
                                 >

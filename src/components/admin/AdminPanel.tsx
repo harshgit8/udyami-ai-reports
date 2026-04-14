@@ -93,10 +93,10 @@ export function AdminPanel() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center gap-3">
-        <Shield className="w-6 h-6" />
-        <div>
-          <h2 className="text-2xl font-bold tracking-tight">Admin Control Panel</h2>
+      <div className="flex items-center gap-3 flex-wrap">
+        <Shield className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+        <div className="min-w-0">
+          <h2 className="text-xl sm:text-2xl font-bold tracking-tight">Admin Control Panel</h2>
           <p className="text-sm text-muted-foreground">Manage employees, wages, expenses, and operations</p>
         </div>
       </div>
@@ -152,7 +152,7 @@ export function AdminPanel() {
                       <p className="text-[10px] text-muted-foreground">/month</p>
                     </div>
                     <Badge variant={emp.status === "Active" ? "default" : "secondary"} className="text-[10px]">{emp.status}</Badge>
-                    <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="flex gap-1 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
                       <Button size="sm" variant="ghost" className="h-8 w-8 p-0" onClick={() => { setEditForm({ ...emp }); setEditOpen(true); }}>
                         <Edit2 className="w-3.5 h-3.5" />
                       </Button>
