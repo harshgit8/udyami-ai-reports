@@ -85,8 +85,8 @@ function SidebarContent({ activeTab, onTabChange, collapsed, showLabels }: { act
   return (
     <div className="flex-1 py-4 px-2 space-y-5 overflow-y-auto">
       {renderSection("Main", mainItems)}
-      {renderSection("Modules", moduleItems)}
       {renderSection("Enterprise", enterpriseItems)}
+      {renderSection("Modules", moduleItems)}
     </div>
   );
 }
@@ -179,7 +179,7 @@ export function Sidebar({ activeTab, onTabChange, badgeCounts = {} }: SidebarPro
               >
                 <div className="mx-auto mt-2 h-1 w-10 rounded-full bg-muted" />
                 <div className="p-4 space-y-4">
-                  {[{ label: "Modules", items: moduleItems }, { label: "Enterprise", items: enterpriseItems }].map(({ label, items }) => (
+                  {[{ label: "Enterprise", items: enterpriseItems }, { label: "Modules", items: moduleItems }].map(({ label, items }) => (
                     <div key={label}>
                       <p className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground mb-3">{label}</p>
                       <div className="grid grid-cols-3 gap-2">

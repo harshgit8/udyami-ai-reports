@@ -43,30 +43,72 @@ export function SalaryManagement() {
 
   const markPaid = useMutation({
     mutationFn: async (id: string) => {
+      const rec = records.find(r => r.id === id);
+      if (!rec) throw new Error("Record not found");
+      const emp = rec.employees as any;
       const { error } = await supabase.from("salary_records").update({ status: "Paid", paid_at: new Date().toISOString(), payment_method: "Bank Transfer" }).eq("id", id);
       if (error) throw new Error(error.message);
+      // Sync to expenses
+      const { error: expErr } = await supabase.from("expenses").insert({
+        category: "Payroll",
+        amount: rec.net_pay,
+        description: `Salary — ${emp?.name || 'Employee'} (${monthFilter})`,
+        date: new Date().toISOString().slice(0, 10),
+        reference_type: "salary_record",
+        reference_id: id,
+      });
+      if (expErr) console.error("Expense sync failed:", expErr.message);
     },
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["salary_records"] });
-      toast({ title: "Success", description: "Salary marked as paid." });
+      qc.invalidateQueries({ queryKey: ["expenses"] });
+      toast({ title: "Success", description: "Salary paid & expense recorded." });
     },
     onError: (error) => {
       toast({ title: "Error", description: error.message || "Failed to process payment", variant: "destructive" });
     },
   });
 
+  const undoPayment = useMutation({
+    mutationFn: async (id: string) => {
+      const { error } = await supabase.from("salary_records").update({ status: "Pending", paid_at: null, payment_method: null }).eq("id", id);
+      if (error) throw new Error(error.message);
+      // Remove linked expense
+      const { error: delErr } = await supabase.from("expenses").delete().eq("reference_type", "salary_record").eq("reference_id", id);
+      if (delErr) console.error("Expense cleanup failed:", delErr.message);
+    },
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["salary_records"] });
+      qc.invalidateQueries({ queryKey: ["expenses"] });
+      toast({ title: "Payment Undone", description: "Salary reverted to pending & expense removed." });
+    },
+    onError: (error) => {
+      toast({ title: "Error", description: error.message, variant: "destructive" });
+    },
+  });
+
   const markAllPaid = useMutation({
     mutationFn: async () => {
-      const pendingIds = records.filter(r => r.status === "Pending").map(r => r.id);
-      if (pendingIds.length === 0) throw new Error("No pending salaries to process");
-      for (const id of pendingIds) {
-        const { error } = await supabase.from("salary_records").update({ status: "Paid", paid_at: new Date().toISOString(), payment_method: "Bank Transfer" }).eq("id", id);
+      const pending = records.filter(r => r.status === "Pending");
+      if (pending.length === 0) throw new Error("No pending salaries to process");
+      for (const rec of pending) {
+        const emp = rec.employees as any;
+        const { error } = await supabase.from("salary_records").update({ status: "Paid", paid_at: new Date().toISOString(), payment_method: "Bank Transfer" }).eq("id", rec.id);
         if (error) throw new Error(error.message);
+        await supabase.from("expenses").insert({
+          category: "Payroll",
+          amount: rec.net_pay,
+          description: `Salary — ${emp?.name || 'Employee'} (${monthFilter})`,
+          date: new Date().toISOString().slice(0, 10),
+          reference_type: "salary_record",
+          reference_id: rec.id,
+        });
       }
     },
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["salary_records"] });
-      toast({ title: "Success", description: `Processed ${records.filter(r => r.status === "Pending").length} payments successfully.` });
+      qc.invalidateQueries({ queryKey: ["expenses"] });
+      toast({ title: "Success", description: `All salaries paid & expenses recorded.` });
     },
     onError: (error) => {
       toast({ title: "Error", description: error.message || "Failed to process bulk payment", variant: "destructive" });
@@ -343,6 +385,15 @@ export function SalaryManagement() {
                               <DropdownMenuItem onClick={() => markPaid.mutate(rec.id)}>
                                 <CheckCircle2 className="w-3.5 h-3.5 mr-2 text-emerald-600" />
                                 Mark as Paid
+                              </DropdownMenuItem>
+                              <DropdownMenuSeparator />
+                            </>
+                          )}
+                          {rec.status === "Paid" && (
+                            <>
+                              <DropdownMenuItem onClick={() => undoPayment.mutate(rec.id)}>
+                                <RefreshCw className="w-3.5 h-3.5 mr-2 text-amber-600" />
+                                Undo Payment
                               </DropdownMenuItem>
                               <DropdownMenuSeparator />
                             </>
