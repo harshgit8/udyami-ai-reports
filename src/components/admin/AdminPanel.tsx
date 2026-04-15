@@ -59,6 +59,7 @@ export function AdminPanel() {
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["employees"] });
       setEditOpen(false);
+      logAudit("EMPLOYEE_UPDATED", "employees", editForm?.id, { name: editForm?.name } as unknown as import("@/integrations/supabase/types").Json);
       toast({ title: "Employee Updated" });
     },
     onError: (e) => toast({ title: "Error", description: e.message, variant: "destructive" }),
@@ -71,6 +72,7 @@ export function AdminPanel() {
     },
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["employees"] });
+      logAudit("EMPLOYEE_REMOVED", "employees");
       toast({ title: "Employee Removed" });
     },
     onError: (e) => toast({ title: "Error", description: e.message, variant: "destructive" }),
