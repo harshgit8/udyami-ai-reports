@@ -112,7 +112,7 @@ export function OrchestratorDashboard() {
       {/* Core */}
       <div>
         <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3">Core Orchestrators</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3">
           {coreOrchestrators.map((o, i) => (
             <OrchestratorCard key={o.id} {...o} delay={i * 0.05} onClick={() => setSelectedOrchestrator(o.id)} />
           ))}
@@ -122,7 +122,7 @@ export function OrchestratorDashboard() {
       {/* Advanced */}
       <div>
         <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3">Advanced AI Features</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
           {advancedOrchestrators.map((o, i) => (
             <OrchestratorCard key={o.id} {...o} delay={i * 0.05} onClick={() => setSelectedOrchestrator(o.id)} />
           ))}
