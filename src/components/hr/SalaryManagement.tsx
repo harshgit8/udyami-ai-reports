@@ -13,6 +13,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, Dialog
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { IndianRupee, TrendingUp, CheckCircle2, Clock, Download, AlertCircle, Banknote, Eye, EyeOff, RefreshCw, FileText, Calculator, Filter, Trash2 } from "lucide-react";
+import { logAudit } from "@/lib/audit";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
 import { MoreVertical } from "lucide-react";
 
