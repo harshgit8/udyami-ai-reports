@@ -11,8 +11,64 @@ import { Label } from "@/components/ui/label";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
-import { Shield, Users, IndianRupee, TrendingDown, Edit2, Trash2, Search, PieChart, BarChart3, AlertCircle } from "lucide-react";
+import { Shield, Users, IndianRupee, TrendingDown, Edit2, Trash2, Search, PieChart, BarChart3, AlertCircle, ToggleLeft, ToggleRight, RotateCcw } from "lucide-react";
 import { logAudit } from "@/lib/audit";
+import { getFeatureFlags, setFeatureFlags, resetFeatureFlags, FLAG_LABELS } from "@/lib/featureFlags";
+import type { FeatureFlags } from "@/lib/featureFlags";
+import { Switch } from "@/components/ui/switch";
+
+function FeatureFlagsManager() {
+  const [flags, setFlags] = useState<FeatureFlags>(getFeatureFlags());
+  const { toast } = useToast();
+
+  const toggle = (key: keyof FeatureFlags) => {
+    const updated = setFeatureFlags({ [key]: !flags[key] });
+    setFlags(updated);
+    toast({ title: `${FLAG_LABELS[key].label} ${updated[key] ? "enabled" : "disabled"}`, description: "Reload the page to see changes in navigation." });
+  };
+
+  const handleReset = () => {
+    const defaults = resetFeatureFlags();
+    setFlags(defaults);
+    toast({ title: "Feature flags reset to defaults" });
+  };
+
+  const categories = [...new Set(Object.values(FLAG_LABELS).map(f => f.category))];
+
+  return (
+    <div className="space-y-4">
+      <div className="flex items-center justify-between">
+        <div>
+          <h3 className="text-sm font-semibold flex items-center gap-2"><ToggleLeft className="w-4 h-4" /> Feature Flags</h3>
+          <p className="text-xs text-muted-foreground mt-0.5">Toggle features on/off. Changes apply after page reload.</p>
+        </div>
+        <Button size="sm" variant="outline" onClick={handleReset} className="h-8 text-xs">
+          <RotateCcw className="w-3.5 h-3.5 mr-1.5" /> Reset
+        </Button>
+      </div>
+      {categories.map(cat => (
+        <Card key={cat}>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-xs uppercase tracking-wider text-muted-foreground">{cat}</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            {(Object.entries(FLAG_LABELS) as Array<[keyof FeatureFlags, typeof FLAG_LABELS[keyof FeatureFlags]]>)
+              .filter(([, meta]) => meta.category === cat)
+              .map(([key, meta]) => (
+                <div key={key} className="flex items-center justify-between p-2 rounded-lg hover:bg-muted/30 transition-colors">
+                  <div>
+                    <p className="text-sm font-medium">{meta.label}</p>
+                    <p className="text-[11px] text-muted-foreground">{meta.description}</p>
+                  </div>
+                  <Switch checked={flags[key]} onCheckedChange={() => toggle(key)} />
+                </div>
+              ))}
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  );
+}
 
 const DEPARTMENTS = ["Production", "Quality", "R&D", "Sales", "Admin", "Logistics"];
 
@@ -125,10 +181,11 @@ export function AdminPanel() {
       </div>
 
       <Tabs defaultValue="employees">
-        <TabsList>
+        <TabsList className="flex-wrap h-auto">
           <TabsTrigger value="employees">Employee Admin</TabsTrigger>
           <TabsTrigger value="expenses">Expense Tracker</TabsTrigger>
           <TabsTrigger value="salary">Salary Admin</TabsTrigger>
+          <TabsTrigger value="flags">Feature Flags</TabsTrigger>
         </TabsList>
 
         {/* EMPLOYEES TAB */}
@@ -265,6 +322,11 @@ export function AdminPanel() {
               </ScrollArea>
             </CardContent>
           </Card>
+        </TabsContent>
+
+        {/* FEATURE FLAGS TAB */}
+        <TabsContent value="flags" className="space-y-4">
+          <FeatureFlagsManager />
         </TabsContent>
       </Tabs>
 

@@ -21,12 +21,22 @@ import { CustomerManagement } from "@/components/crm/CustomerManagement";
 import { ERPDashboard } from "@/components/erp/ERPDashboard";
 import { AdminPanel } from "@/components/admin/AdminPanel";
 import { fetchDocuments, syncFromGoogleSheets } from "@/lib/documents";
+import { getFeatureFlags } from "@/lib/featureFlags";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useToast } from "@/hooks/use-toast";
 import type { Invoice, ProductionOrder, QualityInspection, Quotation, RnDFormulation } from "@/types/documents";
 
 type WithId<T> = Partial<T> & { id: string };
+
+function FeatureDisabled() {
+  return (
+    <div className="flex flex-col items-center justify-center py-20 text-center">
+      <p className="text-lg font-medium mb-1">Feature Disabled</p>
+      <p className="text-sm text-muted-foreground">This feature is currently turned off. Enable it from Admin → Feature Flags.</p>
+    </div>
+  );
+}
 
 const pageVariants = {
   initial: { opacity: 0, y: 12 },
@@ -116,6 +126,8 @@ const Index = () => {
     };
   }, [documents]);
 
+  const flags = getFeatureFlags();
+
   const renderContent = () => {
     if (isLoading && activeTab === "dashboard") return <LoadingSkeleton />;
 
@@ -128,7 +140,7 @@ const Index = () => {
           />
         );
       case "chat":
-        return (
+        return flags.aiChat ? (
           <AIChatWorkspace
             contextData={{
               quotationsCount: quotations.length, invoicesCount: invoices.length,
@@ -140,20 +152,20 @@ const Index = () => {
               })),
             }}
           />
-        );
-      case "orchestrators": return <OrchestratorDashboard />;
-      case "agent-comm": return <AgentCommunicationPlayground />;
-      case "analytics": return <AnalyticsDashboard />;
-      case "quotations": return <QuotationList quotations={quotations} />;
-      case "invoices": return <InvoiceList invoices={invoices} />;
-      case "quality": return <QualityList reports={qualityReports} />;
-      case "production": return <ProductionList orders={productionOrders} />;
-      case "rnd": return <RnDList formulations={rndFormulations} />;
-      case "employees": return <EmployeeManagement />;
-      case "shifts": return <ShiftManagement />;
-      case "salary": return <SalaryManagement />;
-      case "crm": return <CustomerManagement />;
-      case "erp": return <ERPDashboard />;
+        ) : <FeatureDisabled />;
+      case "orchestrators": return flags.aiOrchestrators ? <OrchestratorDashboard /> : <FeatureDisabled />;
+      case "agent-comm": return flags.agentComm ? <AgentCommunicationPlayground /> : <FeatureDisabled />;
+      case "analytics": return flags.analytics ? <AnalyticsDashboard /> : <FeatureDisabled />;
+      case "quotations": return flags.quotations ? <QuotationList quotations={quotations} /> : <FeatureDisabled />;
+      case "invoices": return flags.invoices ? <InvoiceList invoices={invoices} /> : <FeatureDisabled />;
+      case "quality": return flags.quality ? <QualityList reports={qualityReports} /> : <FeatureDisabled />;
+      case "production": return flags.production ? <ProductionList orders={productionOrders} /> : <FeatureDisabled />;
+      case "rnd": return flags.rnd ? <RnDList formulations={rndFormulations} /> : <FeatureDisabled />;
+      case "employees": return flags.employees ? <EmployeeManagement /> : <FeatureDisabled />;
+      case "shifts": return flags.shifts ? <ShiftManagement /> : <FeatureDisabled />;
+      case "salary": return flags.payroll ? <SalaryManagement /> : <FeatureDisabled />;
+      case "crm": return flags.crm ? <CustomerManagement /> : <FeatureDisabled />;
+      case "erp": return flags.erp ? <ERPDashboard /> : <FeatureDisabled />;
       case "admin": return <AdminPanel />;
       default:
         return (
