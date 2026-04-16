@@ -269,8 +269,6 @@ export function AdminPanel() {
               </ScrollArea>
             </CardContent>
           </Card>
-        </TabsContent>
-      </Tabs>
 
         {/* FEATURE FLAGS TAB */}
         <TabsContent value="flags" className="space-y-4">
@@ -278,7 +276,6 @@ export function AdminPanel() {
         </TabsContent>
       </Tabs>
 
-      {/* Edit Employee Dialog — reopened below outside Tabs */}
       {/* Edit Employee Dialog */}
       <Dialog open={editOpen} onOpenChange={setEditOpen}>
         <DialogContent className="max-w-md">
